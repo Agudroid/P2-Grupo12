@@ -14,6 +14,7 @@ public class PracticaMP2 {
     public static void main(String[] args) {
         Foro foro = new Foro();
         foro.Welcome();
+        System.out.println("ola");
         
     }
     
