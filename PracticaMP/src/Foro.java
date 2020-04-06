@@ -45,6 +45,7 @@ class Foro {
         System.out.println("Hola que tal");
         System.out.println("Fetch");
         System.out.println("Este comentario es si funciona todo bien");
+        System.out.println("comentario de Miriam");
     }
 
 
