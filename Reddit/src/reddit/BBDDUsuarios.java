@@ -27,6 +27,10 @@ public class BBDDUsuarios implements Serializable{
     public BBDDUsuarios(List<Usuarios> Usuarios) {
         this.ListaUsuarios=Usuarios;
     }
+    
+    public void añadirLista(Usuarios u){
+        ListaUsuarios.add(u);
+    }
    
     public void CargarBBDD(File f) throws IOException{
         
