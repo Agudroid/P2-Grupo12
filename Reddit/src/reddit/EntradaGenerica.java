@@ -16,7 +16,7 @@ public abstract class EntradaGenerica {
     private String titulo;
     private String texto;
     boolean verificada;
-    private ArrayList<String> ListaComentarios = new ArrayList<>();
+    private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     
     public abstract String getTitulo();
     public abstract String getTexto();
