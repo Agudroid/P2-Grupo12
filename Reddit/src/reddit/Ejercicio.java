@@ -5,6 +5,8 @@
  */
 package reddit;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alba Sevillano
@@ -16,6 +18,7 @@ public class Ejercicio extends EntradaGenerica {
     private String titulo;
     private String texto;
     boolean verificada;
+    private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     
     @Override
     public String getTitulo(){
@@ -54,6 +57,9 @@ public class Ejercicio extends EntradaGenerica {
     
     @Override
     public boolean comentar(String texto) {
+        Comentario comentario = new Comentario();
+        comentario.comentar(texto);
+        ListaComentarios.add(comentario);
         return true;
     }
     
