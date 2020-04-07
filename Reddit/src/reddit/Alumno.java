@@ -6,6 +6,7 @@
 package reddit;
 
 import java.sql.Date;
+import java.util.Calendar;
 
 
 
@@ -21,9 +22,11 @@ public class Alumno extends Usuarios{
         this.EstaPenalizado=estaPenalizado;
     }
     
-    public void penalizar(Date FechaIni, Date FechaFin){
-
+    public void penalizar(Calendar FechaFin){
+        Calendar fecha = Calendar.getInstance();
         
+        EstaPenalizado=fecha.compareTo(FechaFin)<0;
+  
         
     }
     
