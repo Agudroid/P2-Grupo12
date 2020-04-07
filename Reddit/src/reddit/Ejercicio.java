@@ -9,13 +9,13 @@ package reddit;
  *
  * @author Alba Sevillano
  */
-public abstract class Ejercicio extends EntradaGenerica {
+public class Ejercicio extends EntradaGenerica {
     
     private String solucion;
     private int puntuacion;
     private String titulo;
     private String texto;
-    private boolean verificada;
+    boolean verificada;
     
     @Override
     public String getTitulo(){
@@ -53,7 +53,9 @@ public abstract class Ejercicio extends EntradaGenerica {
     }
     
     @Override
-    public abstract boolean comentar (String texto);
+    public boolean comentar(String texto) {
+        return true;
+    }
     
     @Override
     public boolean votar (int valor){
