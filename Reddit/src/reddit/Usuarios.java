@@ -25,6 +25,26 @@ class Usuarios implements Serializable{
         this.Nick = Nick;
         this.Contraseña = Contraseña;
     }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getApellido() {
+        return Apellido;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public String getNick() {
+        return Nick;
+    }
+
+    public String getContraseña() {
+        return Contraseña;
+    }
     
 
     @Override
