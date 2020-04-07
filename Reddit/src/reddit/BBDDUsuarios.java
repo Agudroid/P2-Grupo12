@@ -31,7 +31,13 @@ public class BBDDUsuarios implements Serializable{
     public void CargarBBDD(File f) throws IOException{
         
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-      
+        Usuarios aux = (Usuarios) ois.readObject();
+        System.out.println(aux.getNombre);
+        System.out.println(aux.getApellido);
+        System.out.println(aux.getCorreo);
+        System.out.println(aux.getNick);
+        System.out.println(aux.getContraseña);
+        System.out.println("");
     }
     
     public void EscribirBBDD(File f)throws IOException{
@@ -42,7 +48,6 @@ public class BBDDUsuarios implements Serializable{
            while(it.hasNext()){
            Usuarios usuarioActual = it.next();
            oos.writeObject(usuarioActual);
-               System.out.println("Esto es una prueba");
            }
         }catch(IOException e){
             System.out.println(e.getMessage()); 
