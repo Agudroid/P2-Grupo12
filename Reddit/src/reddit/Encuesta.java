@@ -9,6 +9,7 @@ public class Encuesta extends EntradaGenerica{
     private String texto;
     boolean verificada;
     private ArrayList<String> respuestas = new ArrayList<>();
+    private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     
     public void setRespuesta(String respuesta){
         respuestas.add(respuesta);
@@ -30,12 +31,15 @@ public class Encuesta extends EntradaGenerica{
 
     @Override
     public boolean comentar(String texto) {
+        Comentario comment = new Comentario();
+        comment.comentar(texto);
+        ListaComentarios.add(comment);
         return true;
     }
 
     @Override
     public boolean votar(int valor) {
-        puntuacion = valor;
+        puntuacion += valor;
         return true;
     }
 
