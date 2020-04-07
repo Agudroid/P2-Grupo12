@@ -18,7 +18,10 @@ public abstract class EntradaGenerica {
     boolean verificada;
     private ArrayList<String> ListaComentarios = new ArrayList<>();
     
+    public abstract void getTitulo();
+    public abstract void getTexto();
     public abstract int getPuntuacion();
+    public abstract void getVerificada();
     public abstract void verificar(boolean resultado);
     public abstract boolean comentar (String texto);
     public abstract boolean votar (int valor);
