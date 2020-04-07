@@ -60,4 +60,12 @@ public abstract class Ejercicio extends EntradaGenerica {
         this.puntuacion= puntuacion+valor;
         return true;
     }
+    
+    public String getSolucion(){
+        return solucion;
+    }
+    
+    public void setSolucion(String solucion){
+        this.solucion= solucion;
+    }
 }
