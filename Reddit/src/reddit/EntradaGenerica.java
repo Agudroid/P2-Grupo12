@@ -19,5 +19,6 @@ public abstract class EntradaGenerica {
     public abstract void verificar(boolean resultado);
     public abstract boolean comentar (String texto);
     public abstract boolean votar (int valor);
+    sdfgb
     
 }
