@@ -50,7 +50,9 @@ class Usuarios implements Serializable{
     }
     
     public void recibirNotificacion(String notificacion){
-        System.out.println(notificacion);
+        
+        notificaciones.add(notificacion);
+        
     }
 
     @Override
