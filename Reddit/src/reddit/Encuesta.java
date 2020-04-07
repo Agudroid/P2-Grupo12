@@ -9,7 +9,15 @@ public class Encuesta extends EntradaGenerica{
     private String texto;
     boolean verificada;
     private ArrayList<String> respuestas = new ArrayList<>();
-
+    
+    public void setRespuesta(String respuesta){
+        respuestas.add(respuesta);
+    }
+    
+    public ArrayList<String> getRespuestas(){
+        return respuestas;
+    }
+    
     @Override
     public int getPuntuacion() {
         return puntuacion;
