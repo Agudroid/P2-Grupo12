@@ -42,6 +42,7 @@ public class BBDDUsuarios implements Serializable{
            while(it.hasNext()){
            Usuarios usuarioActual = it.next();
            oos.writeObject(usuarioActual);
+               System.out.println("Esto es una prueba");
            }
         }catch(IOException e){
             System.out.println(e.getMessage()); 
