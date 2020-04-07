@@ -15,16 +15,49 @@ public abstract class Ejercicio extends EntradaGenerica {
     private int puntuacion;
     private String titulo;
     private String texto;
-    boolean verificada;
+    private boolean verificada;
     
+    @Override
+    public String getTitulo(){
+        return titulo;
+    }
+    
+    @Override
+    public String getTexto(){
+        return texto;
+    }
+    
+    @Override
+    public void setTitulo(String titulo){
+        this.titulo= titulo;
+    }
+    
+    @Override
+    public void setTexto(String texto){
+        this.texto= texto;
+    }
+    
+    @Override
     public int getPuntuacion(){
         return puntuacion;
     }
     
+    @Override
+    public boolean getVerificada(){
+        return verificada;
+    }
+    
+    @Override
     public void verificar(boolean resultado){
         this.verificada= resultado;
     }
     
-    public boolean comentar (String texto);
-    public abstract boolean votar (int valor);
+    @Override
+    public abstract boolean comentar (String texto);
+    
+    @Override
+    public boolean votar (int valor){
+        this.puntuacion= puntuacion+valor;
+        return true;
+    }
 }
