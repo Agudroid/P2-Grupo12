@@ -21,7 +21,7 @@ public class Comentario {
     }
     
     public void votar(int punt){
-        puntuacion = punt;
+        puntuacion += punt;
     }
     
     public ArrayList<Comentario> getComentarios(){
