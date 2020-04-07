@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,7 +36,16 @@ public class BBDDUsuarios implements Serializable{
     
     public void EscribirBBDD(File f)throws IOException{
         
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+        try{
+           ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+           Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+           while(it.hasNext()){
+           Usuarios usuarioActual = it.next();
+           oos.writeObject(usuarioActual);
+           }
+        }catch(IOException e){
+            System.out.println(e.getMessage()); 
+        }
     }
     
     public boolean VerificarUsuario(String Correo,String Contrasena){
