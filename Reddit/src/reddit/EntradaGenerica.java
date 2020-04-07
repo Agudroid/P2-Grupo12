@@ -5,6 +5,8 @@
  */
 package reddit;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author miriamdefrancisco
@@ -14,11 +16,11 @@ public abstract class EntradaGenerica {
     private String titulo;
     private String texto;
     boolean verificada;
+    private ArrayList<String> ListaComentarios = new ArrayList<>();
     
     public abstract int getPuntuacion();
     public abstract void verificar(boolean resultado);
     public abstract boolean comentar (String texto);
     public abstract boolean votar (int valor);
-    public abstract void alba();
     
 }
