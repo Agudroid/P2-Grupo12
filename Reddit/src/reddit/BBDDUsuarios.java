@@ -33,18 +33,19 @@ public class BBDDUsuarios implements Serializable{
     }
    
     public void CargarBBDD(File f) throws IOException, ClassNotFoundException{
-        
+        try{
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         
-        
         Usuarios aux = (Usuarios) ois.readObject();
-        
         System.out.println(aux.getNombre());
         System.out.println(aux.getApellido());
         System.out.println(aux.getCorreo());
         System.out.println(aux.getNick());
         System.out.println(aux.getContraseña());
         System.out.println("");
+        }catch(IOException e){
+            System.out.println(e.getMessage()); 
+        }
     }
     
     public void EscribirBBDD(File f)throws IOException{
