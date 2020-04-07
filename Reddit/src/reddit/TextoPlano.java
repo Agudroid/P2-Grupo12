@@ -9,12 +9,12 @@ package reddit;
  *
  * @author Alba Sevillano
  */
-public abstract class TextoPlano extends EntradaGenerica{
+public class TextoPlano extends EntradaGenerica{
     
     private int puntuacion;
     private String titulo;
     private String texto;
-    private boolean verificada;
+    boolean verificada;
     
     @Override
     public String getTitulo(){
@@ -52,7 +52,9 @@ public abstract class TextoPlano extends EntradaGenerica{
     }
     
     @Override
-    public abstract boolean comentar (String texto);
+    public boolean comentar(String texto) {
+        return true;
+    }
     
     @Override
     public boolean votar (int valor){
