@@ -17,6 +17,7 @@ public class Reddit {
     public static void main(String[] args) {
         // TODO code application logic here
         Foro foro = new Foro();
+        
     }
     
     
