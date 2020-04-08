@@ -14,16 +14,16 @@ import java.util.ArrayList;
 public class SubForo {
    
     private String titulo;
-    private ArrayList<Usuario> ListaUsuario = new ArrayList<>();
+    private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
     
-    public void añadirSubscriptor (Usuario subscriptor){
+    public void añadirSubscriptor (Usuarios subscriptor){
         ListaUsuario.add(subscriptor);
     }
     
     public void notificar (){   
     }
     
-    public void eliminarSubscriptor (Usuario subscriptor){
+    public void eliminarSubscriptor (Usuarios subscriptor){
         ListaUsuario.remove(subscriptor);
     }
 }
