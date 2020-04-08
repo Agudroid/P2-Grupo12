@@ -22,7 +22,6 @@ public class Entrada extends EntradaGenerica {
     @Override
     public String getTitulo() {
         return titulo;
-        System.out.println("hOLAAAAAAAAAAAAAAA");
     }
 
     @Override
