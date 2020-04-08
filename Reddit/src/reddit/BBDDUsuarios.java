@@ -62,29 +62,20 @@ public class BBDDUsuarios implements Serializable{
         }
     }
     
-    public boolean VerificarUsuario(String Correo,String Contrasena){
-        
-        
-        return UsuarioEncontrado(Correo) && ContrasenaValida(Correo,Contrasena);
-    }
-    
-    private boolean UsuarioEncontrado(String Correo){
-        boolean encontrado=false;
-        for (int i = 0; i < ListaUsuarios.size(); i++) {
-            String correoA=ListaUsuarios.get(i).getCorreo();
-            if(correoA.equalsIgnoreCase(Correo)){
-                encontrado=true;
-            }
-        }
-        return encontrado;
-    }
-    
-    private boolean BuscarUsuario(String Correo,String Contrasena){
-        return false;
-        
-    }
+    public boolean Verificar (String contraseña, String correo){
+        boolean verificado = false;
+        Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+           while(it.hasNext() && verificado==false){
+           Usuarios usuarioActual = it.next();
+               if (usuarioActual.getCorreo().equals(correo) && usuarioActual.getContraseña().equals(contraseña) ) {
+                 verificado = true;
+                   System.out.println("Es correcto.");
+               }
+               if (verificado==false) {
+                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
 
-    private boolean ContrasenaValida(String Correo, String Contrasena) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               }
+           }
+        return verificado;
     }
 }
