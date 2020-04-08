@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Alba Sevillano
  */
-public class SubForo {
+public class SubForo implements Subject{
    
     private String titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
