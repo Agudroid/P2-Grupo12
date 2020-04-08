@@ -20,6 +20,7 @@ public class Alumno extends Usuarios{
     public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña ,boolean estaPenalizado) {
         super(Nombre, Apellido, Correo, Nick, Contraseña);
         this.EstaPenalizado=estaPenalizado;
+        System.out.println("ALUMNO");
     }
     
     public void penalizar(Calendar FechaFin){
