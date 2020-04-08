@@ -25,7 +25,7 @@ public class Alumno extends Usuarios{
     public void penalizar(Calendar FechaFin){
         Calendar fecha = Calendar.getInstance();
         
-        EstaPenalizado=fecha.compareTo(FechaFin)<0 || fecha.compareTo(FechaFin)==0 ;
+        EstaPenalizado=fecha.compareTo(FechaFin)<0 || fecha.compareTo(FechaFin)==0;
   
         
     }
