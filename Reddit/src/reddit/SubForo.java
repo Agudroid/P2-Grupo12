@@ -11,19 +11,30 @@ import java.util.ArrayList;
  *
  * @author Alba Sevillano
  */
-public class SubForo {
+public class SubForo implements Subject{
    
     private String titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
+    private ArrayList<Subscritor> Observadores = new ArrayList<>();
     
-    public void añadirSubscriptor (Usuarios subscriptor){
-        ListaUsuario.add(subscriptor);
+    
+    public void enlazarObservador(Subscritor o){
+        Observadores.add(o);
     }
-    
-    public void notificar (){   
+
+    @Override
+    public void añadirSubscritor(Usuarios sub) {
     }
-    
-    public void eliminarSubscriptor (Usuarios subscriptor){
-        ListaUsuario.remove(subscriptor);
+
+    @Override
+    public void eleminarSubscritor(Usuarios sub) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void notificar() {
+        for(Subscritor o:Observadores){
+            o.recibirNotificacion("notificacion nueva");          
+        }
     }
 }

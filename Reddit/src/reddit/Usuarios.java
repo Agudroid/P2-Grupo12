@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Administrador
  */
-class Usuarios implements Serializable{
+class Usuarios implements Serializable,Subscritor{
     private String Nombre;
     private String Apellido;
     private String Correo;
@@ -52,7 +52,7 @@ class Usuarios implements Serializable{
     public void recibirNotificacion(String notificacion){
         
         notificaciones.add(notificacion);
-        
+        System.out.println(notificacion);
     }
 
     @Override
