@@ -16,7 +16,7 @@ import java.util.Scanner;
 class Foro {
     
     private List <Usuarios> ListaUsuarios=new LinkedList<>();
-    private List <SubForos> ListaSubForos=new LinkedList<>();
+    private List <SubForo> ListaSubForos=new LinkedList<>();
     
     public void Welcome(){
         
