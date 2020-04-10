@@ -29,6 +29,9 @@ public class Foro {
     
     private Foro(String nombre){
         this.nombre = nombre;
+        System.out.println("hola");
+        System.out.println("");
+        System.out.println("");
     }
     
     public static Foro getForo(String nombre){
