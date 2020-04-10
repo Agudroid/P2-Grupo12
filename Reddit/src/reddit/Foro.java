@@ -24,6 +24,7 @@ public class Foro {
     private static Foro instancia;
     private  String nombre;
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
+    boolean verificado = false;
     
     private Foro(String nombre){
         this.nombre = nombre;
@@ -37,7 +38,6 @@ public class Foro {
     }
     
         public boolean login (String contraseña, String correo){
-        boolean verificado = false;
         Iterator <Usuarios> it = ListaUsuarios.iterator() ;
            while(it.hasNext() && verificado==false){
            Usuarios usuarioActual = it.next();
@@ -88,8 +88,10 @@ public class Foro {
             }
         }
         
-        public void logout (){
+        public boolean logout (){
             System.out.println("Se ha desconectado con éxito");
+            verificado = false;
+            return verificado;
             // Despues de esto llamar a los metodos login o registrarse
         }
 }            
