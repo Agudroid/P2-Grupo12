@@ -13,19 +13,28 @@ import java.util.Scanner;
  *
  * @author Administrador
  */
-class Foro {
+public class Foro {
+    private Foro instancia;
+    public String nombre;
     
-    private List <Usuarios> ListaUsuarios=new LinkedList<>();       
-            
-        }
-        
-        
-        
-        
-        
+    private Foro(String nombre){
+        this.nombre = nombre;
     }
+    
+    public Foro getForo(String nombre){
+        if (instancia == null){
+            instancia = new Foro(nombre);
+        }
+        return instancia;
+    }
+}            
+
+        
+        
+        
+        
+
     
     
     
    
-}
