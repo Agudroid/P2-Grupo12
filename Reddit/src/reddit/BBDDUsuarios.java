@@ -71,10 +71,10 @@ public class BBDDUsuarios implements Serializable{
                  verificado = true;
                    System.out.println("Es correcto.");
                }
-               if (verificado==false) {
-                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
 
-               }
+           }
+           if (verificado==false) {
+                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
            }
         return verificado;
     }
