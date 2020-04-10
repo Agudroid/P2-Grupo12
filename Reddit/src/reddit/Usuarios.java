@@ -51,7 +51,6 @@ class Usuarios implements Serializable,Subscritor{
     
     public void recibirNotificacion(String notificacion){
         
-        notificaciones.add(notificacion);
         System.out.println(notificacion);
     }
 

@@ -14,7 +14,21 @@ import java.util.Calendar;
 public class Penalizacion {
     
     private Calendar FechaIni;
+
+    public Calendar getFechaIni() {
+        return FechaIni;
+    }
+
+    public Calendar getFechaFin() {
+        return FechaFin;
+    }
     private Calendar FechaFin;
+    
+    public Penalizacion(){
+        this.FechaIni=Calendar.getInstance();
+        FechaFin=FechaIni;
+        FechaFin.add(Calendar.DAY_OF_MONTH, 2);
+    }
     
     public void FechaDePenalizacion(){
         Calendar FechaIni = Calendar.getInstance();

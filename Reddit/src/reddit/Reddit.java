@@ -16,8 +16,10 @@ public class Reddit {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Foro foro = new Foro();
-        
+        Usuarios pepe = new Usuarios("Antonio","Agudo","alumnos.urjc","Pepe","patata");
+        SubForo s = new SubForo();
+        s.enlazarObservador(pepe);
+        s.notificar();
     }
     
     
