@@ -15,6 +15,10 @@ public class SubForo implements Subject{
    
     private String titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
+
+    public SubForo(String titulo) {
+        this.titulo = titulo;
+    }
     
     public void añadirSuscriptor (Usuarios suscriptor){
         ListaUsuario.add(suscriptor);

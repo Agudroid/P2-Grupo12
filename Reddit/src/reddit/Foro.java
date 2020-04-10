@@ -24,6 +24,7 @@ public class Foro {
     private static Foro instancia;
     private  String nombre;
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
+    private List <SubForo> ListaSubForo = new LinkedList<>();
     boolean verificado = false;
     
     private Foro(String nombre){
@@ -94,6 +95,11 @@ public class Foro {
             return verificado;
             // Despues de esto llamar a los metodos login o registrarse
         }
+    public boolean crearSubForo(String nombre){
+        SubForo f = new SubForo(nombre);
+        ListaSubForo.add(f);
+        return ListaSubForo.contains(f);
+    }
 }            
 
         
