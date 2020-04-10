@@ -14,14 +14,14 @@ import java.util.Scanner;
  * @author Administrador
  */
 public class Foro {
-    private Foro instancia;
-    private String nombre;
+    private static Foro instancia;
+    private  String nombre;
     
     private Foro(String nombre){
         this.nombre = nombre;
     }
     
-    public Foro getForo(String nombre){
+    public static Foro getForo(String nombre){
         if (instancia == null){
             instancia = new Foro(nombre);
         }
