@@ -54,7 +54,7 @@ public class Foro {
         return verificado;
         }
 
-        public void añadirLista(Usuarios u){
+        public void Registrarse (Usuarios u){
             ListaUsuarios.add(u);
         }
 
