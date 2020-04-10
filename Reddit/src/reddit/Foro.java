@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class Foro {
     private Foro instancia;
-    public String nombre;
+    private String nombre;
     
     private Foro(String nombre){
         this.nombre = nombre;
