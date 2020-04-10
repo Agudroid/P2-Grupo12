@@ -16,14 +16,14 @@ public class SubForo implements Subject{
     private String titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
     
-    public void añadirSubscriptor (Usuarios subscriptor){
-        ListaUsuario.add(subscriptor);
+    public void añadirSuscriptor (Usuarios suscriptor){
+        ListaUsuario.add(suscriptor);
     }
     
     public void notificar (){   
     }
     
-    public void eliminarSubscriptor (Usuarios subscriptor){
-        ListaUsuario.remove(subscriptor);
+    public void eliminarSuscriptor (Usuarios suscriptor){
+        ListaUsuario.remove(suscriptor);
     }
 }
