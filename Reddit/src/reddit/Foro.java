@@ -40,6 +40,7 @@ class Foro {
                 String correo=Sc.nextLine();
                 System.out.println("Introduce tu contraseña");
                 String contraseña=Sc.nextLine();
+                System.out.println("Patata");
                 
                 
             

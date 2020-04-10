@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -26,41 +27,55 @@ public class BBDDUsuarios implements Serializable{
     public BBDDUsuarios(List<Usuarios> Usuarios) {
         this.ListaUsuarios=Usuarios;
     }
+    
+    public void añadirLista(Usuarios u){
+        ListaUsuarios.add(u);
+    }
    
-    public void CargarBBDD(File f) throws IOException{
-        
+    public void CargarBBDD(File f) throws IOException, ClassNotFoundException{
+        try{
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-      
+        
+        Usuarios aux = (Usuarios) ois.readObject();
+        System.out.println(aux.getNombre());
+        System.out.println(aux.getApellido());
+        System.out.println(aux.getCorreo());
+        System.out.println(aux.getNick());
+        System.out.println(aux.getContraseña());
+        System.out.println("");
+        }catch(IOException e){
+            System.out.println(e.getMessage()); 
+        }
     }
     
     public void EscribirBBDD(File f)throws IOException{
         
-        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-    }
-    
-    public boolean VerificarUsuario(String Correo,String Contrasena){
-        
-        
-        return UsuarioEncontrado(Correo) && ContrasenaValida(Correo,Contrasena);
-    }
-    
-    private boolean UsuarioEncontrado(String Correo){
-        boolean encontrado=false;
-        for (int i = 0; i < ListaUsuarios.size(); i++) {
-            String correoA=ListaUsuarios.get(i).getCorreo();
-            if(correoA.equalsIgnoreCase(Correo)){
-                encontrado=true;
-            }
+        try{
+           ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+           Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+           while(it.hasNext()){
+           Usuarios usuarioActual = it.next();
+           oos.writeObject(usuarioActual);
+           }
+        }catch(IOException e){
+            System.out.println(e.getMessage()); 
         }
-        return encontrado;
     }
     
-    private boolean BuscarUsuario(String Correo,String Contrasena){
-        return false;
-        
-    }
+    public boolean Verificar (String contraseña, String correo){
+        boolean verificado = false;
+        Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+           while(it.hasNext() && verificado==false){
+           Usuarios usuarioActual = it.next();
+               if (usuarioActual.getCorreo().equals(correo) && usuarioActual.getContraseña().equals(contraseña) ) {
+                 verificado = true;
+                   System.out.println("Es correcto.");
+               }
+               if (verificado==false) {
+                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
 
-    private boolean ContrasenaValida(String Correo, String Contrasena) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+               }
+           }
+        return verificado;
     }
 }
