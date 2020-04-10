@@ -28,6 +28,6 @@ public class SubForo implements Subject{
     }
     
     public void eliminarSuscriptor (Usuarios suscriptor){
-        ListaUsuario.remove(suscriptor);ss
+        ListaUsuario.remove(suscriptor);
     }
 }
