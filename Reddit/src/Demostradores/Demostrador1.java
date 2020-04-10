@@ -4,11 +4,23 @@
  * and open the template in the editor.
  */
 package Demostradores;
-
+import reddit.Foro;
 /**
  *
  * @author miriamdefrancisco
  */
 public class Demostrador1 {
-    
+    public static void main(String[] args) {
+            System.out.println("Inicializamos el foro:");
+            Foro sistema = Foro.getForo("Reddit URJC");
+            System.out.println("El foro ha sido creado.");
+            System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
+            boolean encontrado = sistema.login("12345", "m.d.2018@alumnos.urjc.es");
+            if (encontrado){
+                System.out.println("Bienvenido al foro");
+            } else {
+                System.out.println("Error, la contraseña y/o correo no coinciden");
+            }
+            System.out.println("Creamos un subforo");
+    }   
 }
