@@ -87,6 +87,11 @@ public class Foro {
                 System.out.println(e.getMessage()); 
             }
         }
+        
+        public void logout (){
+            System.out.println("Se ha desconectado con éxito");
+            // Despues de esto llamar a los metodos login o registrarse
+        }
 }            
 
         
