@@ -5,6 +5,13 @@
  */
 package reddit;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,45 +20,95 @@ import java.util.Scanner;
  *
  * @author Administrador
  */
-class Foro {
+public class Foro {
+    private static Foro instancia;
+    private  String nombre;
+    private List <Usuarios> ListaUsuarios = new LinkedList<>();
+    private List <SubForo> ListaSubForo = new LinkedList<>();
+    boolean verificado = false;
     
-    private List <Usuarios> ListaUsuarios=new LinkedList<>();
-    private List <SubForos> ListaSubForos=new LinkedList<>();
+    private Foro(String nombre){
+        this.nombre = nombre;
+    }
     
-    public void Welcome(){
-        
-        System.out.println("Bienvenido al Foro");
-        System.out.println("1.Iniciar sesion sin registro");
-        System.out.println("2.Iniciar sesion registrado");
-        System.out.println("3.Registrarse");
-        Scanner Sc = new Scanner(System.in);
-        
-        int opcion = Sc.nextInt();
-        
-        switch (opcion) {
-            
-            case 1:
-                System.out.println("Bienvenido ");
-                
-            break;
-            
-            case 2:
-                System.out.println("Introduce tu correo");
-                String correo=Sc.nextLine();
-                System.out.println("Introduce tu contraseña");
-                String contraseña=Sc.nextLine();
-                
-                
-            
+    public static Foro getForo(String nombre){
+        if (instancia == null){
+            instancia = new Foro(nombre);
+        }
+        return instancia;
+    }
+    
+        public boolean login (String contraseña, String correo){
+        Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+           while(it.hasNext() && verificado==false){
+           Usuarios usuarioActual = it.next();
+               if (usuarioActual.getCorreo().equals(correo) && usuarioActual.getContraseña().equals(contraseña) ) {
+                 verificado = true;
+                   System.out.println("Es correcto.");
+               }
+
+           }
+           if (verificado==false) {
+                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
+                   
+           }
+        return verificado;
+        }
+
+        public void Registrarse (Usuarios u){
+            ListaUsuarios.add(u);
+        }
+
+        public void CargarBBDD(File f) throws IOException, ClassNotFoundException{
+            try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+
+            Usuarios aux = (Usuarios) ois.readObject();
+            System.out.println(aux.getNombre());
+            System.out.println(aux.getApellido());
+            System.out.println(aux.getCorreo());
+            System.out.println(aux.getNick());
+            System.out.println(aux.getContraseña());
+            System.out.println("");
+            }catch(IOException e){
+                System.out.println(e.getMessage()); 
+            }
+        }
+
+        public void EscribirBBDD(File f)throws IOException{
+
+            try{
+               ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+               Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+               while(it.hasNext()){
+               Usuarios usuarioActual = it.next();
+               oos.writeObject(usuarioActual);
+               }
+            }catch(IOException e){
+                System.out.println(e.getMessage()); 
+            }
         }
         
+        public boolean logout (){
+            System.out.println("Se ha desconectado con éxito");
+            verificado = false;
+            return verificado;
+            // Despues de esto llamar a los metodos login o registrarse
+        }
+        public boolean crearSubForo(String nombre){
+            SubForo f = new SubForo(nombre);
+            ListaSubForo.add(f);
+            return ListaSubForo.contains(f);
+        }
+    
+}            
+
         
         
         
         
-    }
+
     
     
     
    
-}

@@ -1,0 +1,72 @@
+
+package reddit;
+
+import java.util.ArrayList;
+
+public class Encuesta extends EntradaGenerica{
+    private int puntuacion;
+    private String titulo;
+    private String texto;
+    boolean verificada;
+    private ArrayList<String> respuestas = new ArrayList<>();
+    private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
+    
+    public void setRespuesta(String respuesta){
+        respuestas.add(respuesta);
+    }
+    
+    public ArrayList<String> getRespuestas(){
+        return respuestas;
+    }
+    
+    @Override
+    public int getPuntuacion() {
+        return puntuacion;
+    }
+    
+    @Override
+    public void verificar(boolean resultado) {
+        verificada = resultado;
+    }
+
+    @Override
+    public boolean comentar(String texto) {
+        Comentario comment = new Comentario();
+        comment.comentar(texto);
+        ListaComentarios.add(comment);
+        return true;
+    }
+
+    @Override
+    public boolean votar(int valor) {
+        puntuacion += valor;
+        return true;
+    }
+
+    @Override
+    public String getTitulo() {
+        return titulo;
+    }
+
+    @Override
+    public String getTexto() {
+        return texto;
+    }
+
+    @Override
+    public void setTitulo(String title) {
+        titulo = title;
+    }
+
+    @Override
+    public void setTexto(String text) {
+        texto = text;
+    }
+
+    @Override
+    public boolean getVerificada() {
+        return verificada;
+    }
+   
+    
+}

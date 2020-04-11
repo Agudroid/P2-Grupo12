@@ -6,6 +6,7 @@
 package reddit;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +18,7 @@ class Usuarios implements Serializable{
     private String Correo;
     private String Nick;
     private String Contraseña;
+    private ArrayList<String> notificaciones;
 
     public Usuarios(String Nombre, String Apellido, String Correo, String Nick, String Contraseña) {
         this.Nombre = Nombre;
@@ -25,6 +27,7 @@ class Usuarios implements Serializable{
         this.Nick = Nick;
         this.Contraseña = Contraseña;
     }
+    
 
     public String getNombre() {
         return Nombre;
@@ -46,6 +49,11 @@ class Usuarios implements Serializable{
         return Contraseña;
     }
     
+    public void recibirNotificacion(String notificacion){
+        
+        notificaciones.add(notificacion);
+        
+    }
 
     @Override
     public String toString() {
