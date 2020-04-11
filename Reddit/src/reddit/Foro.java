@@ -29,9 +29,6 @@ public class Foro {
     
     private Foro(String nombre){
         this.nombre = nombre;
-        System.out.println("hola");
-        System.out.println("");
-        System.out.println("");
     }
     
     public static Foro getForo(String nombre){
@@ -98,11 +95,12 @@ public class Foro {
             return verificado;
             // Despues de esto llamar a los metodos login o registrarse
         }
-    public boolean crearSubForo(String nombre){
-        SubForo f = new SubForo(nombre);
-        ListaSubForo.add(f);
-        return ListaSubForo.contains(f);
-    }
+        public boolean crearSubForo(String nombre){
+            SubForo f = new SubForo(nombre);
+            ListaSubForo.add(f);
+            return ListaSubForo.contains(f);
+        }
+    
 }            
 
         
