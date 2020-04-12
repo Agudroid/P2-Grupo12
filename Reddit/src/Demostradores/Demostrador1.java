@@ -16,17 +16,17 @@ public class Demostrador1 {
      registrándolo en la base de datos, después, creamos un subforo y una entrada*/
     public static void main(String[] args) {
             System.out.println("Inicializamos el foro:");
-            Foro sistema = Foro.getForo("Reddit URJC");
+            Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
             System.out.println("Iniciamos sesión en el sistema con un usuario no registrado");
-            boolean encontrado = sistema.login("12345", "m.defrancisco.2018@alumnos.urjc.es");
+            boolean encontrado = sistema.Login("12345", "m.defrancisco.2018@alumnos.urjc.es");
             if (encontrado){
                 System.out.println("Bienvenido al foro");
             } else {
                 System.out.println("Error, la contraseña y/o correo no coinciden");
             }
             System.out.println("Vamos a registrarnos en el sistema");
-            sistema.Registrarse("Miriam","de Francisco","m.defrancisco.2018@alumnos.urjc.es","miri.fa","12345");
+            sistema.RegistrarUsuario("Miriam","de Francisco","m.defrancisco.2018@alumnos.urjc.es","miri.fa","12345");
                
             
     }   
