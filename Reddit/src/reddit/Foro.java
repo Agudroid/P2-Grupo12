@@ -64,7 +64,9 @@ public class Foro {
         return Verificado;
     }
 
-    public void RegistrarUsuario (Usuarios usuario){ //la aplicacion debe permitir al usuario que se registre en la aplicación
+    public void RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contraseña){ 
+    //la aplicacion debe permitir al usuario que se registre en la aplicación
+        Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña);
         ListaUsuarios.add(usuario);
     }
 
