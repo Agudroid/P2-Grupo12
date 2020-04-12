@@ -18,88 +18,101 @@ import java.util.Scanner;
 
 /**
  *
- * @author Administrador
+ * @author Administrador // Alba Sevillano // miriamdefrancisco
  */
 public class Foro {
-    private static Foro instancia;
-    private  String nombre;
+    
+    private static Foro Foro;
+    private  String Nombre;
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
     private List <SubForo> ListaSubForo = new LinkedList<>();
-    boolean verificado = false;
+    
+    boolean Verificado = false;
+    
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+    la clase principal del programa, Foro (sistema) */
     
     private Foro(String nombre){
-        this.nombre = nombre;
+        this.Nombre = nombre;
     }
     
-    public static Foro getForo(String nombre){
-        if (instancia == null){
-            instancia = new Foro(nombre);
+    public static Foro GetForo(String nombre){ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
+        if (Foro == null){
+            Foro = new Foro(nombre);
         }
-        return instancia;
+        return Foro;
     }
     
-        public boolean login (String contraseña, String correo){
+    public boolean Login (String contraseña, String correo){ //método para que el usuario inicie sesión en la aplicación
         Iterator <Usuarios> it = ListaUsuarios.iterator() ;
-           while(it.hasNext() && verificado==false){
-           Usuarios usuarioActual = it.next();
-               if (usuarioActual.getCorreo().equals(correo) && usuarioActual.getContraseña().equals(contraseña) ) {
-                 verificado = true;
-                   System.out.println("Es correcto.");
-               }
-
-           }
-           if (verificado==false) {
-                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
-                   
-           }
-        return verificado;
+        while(it.hasNext() && Verificado==false){ 
+        /*mientras haya mas usuarios en la lista, seguiré recorriendola hasta encontrar 
+            al que coincida con los daos pasados como parámetros*/
+            Usuarios usuarioActual = it.next();
+            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña) ) {
+            /*si coincide lo que hay en el "usuarioActual" con los parámetros 
+                devolvermos un true y un comenatrio*/
+                Verificado = true;
+                System.out.println("Es correcto.");
+            }
         }
-
-        public void Registrarse (Usuarios u){
-            ListaUsuarios.add(u);
+        /*tras ese proceso, comprobaremos como se encuentra la variable verificado
+            y realizaremos lo oportuno en cada caso*/
+        if (Verificado==false) {
+            System.out.println("Has escrito mal el correo o la contraseña. Por favor, intentelo de nuevo");
         }
+        return Verificado;
+    }
 
-        public void CargarBBDD(File f) throws IOException, ClassNotFoundException{
-            try{
+    public void RegistrarUsuario (Usuarios usuario){ //la aplicacion debe permitir al usuario que se registre en la aplicación
+        ListaUsuarios.add(usuario);
+    }
+
+    public void CargarBBDD_Usuario(File f) throws IOException, ClassNotFoundException{
+    /*con este método podremos cargar la información que tenemos en la base de datos del usuario*/
+        try{
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
 
             Usuarios aux = (Usuarios) ois.readObject();
-            System.out.println(aux.getNombre());
-            System.out.println(aux.getApellido());
-            System.out.println(aux.getCorreo());
-            System.out.println(aux.getNick());
-            System.out.println(aux.getContraseña());
-            System.out.println("");
-            }catch(IOException e){
-                System.out.println(e.getMessage()); 
+            /*A continuación mostraremos todos los campos guardados en la base de datos*/
+            System.out.println(aux.GetNombre());
+            System.out.println(aux.GetApellido());
+            System.out.println(aux.GetCorreo());
+            System.out.println(aux.GetNick());
+            System.out.println(aux.GetContraseña());
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage()); 
+        }
+    }
+
+    public void GuardarBBDD_Uusario(File f)throws IOException{
+    /*con este método podremos cargar al nuevo usuario que haya iniciado sesión*/
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+            Iterator <Usuarios> it = ListaUsuarios.iterator() ;
+            while(it.hasNext()){
+                Usuarios usuarioActual = it.next();
+                oos.writeObject(usuarioActual);
             }
         }
-
-        public void EscribirBBDD(File f)throws IOException{
-
-            try{
-               ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-               Iterator <Usuarios> it = ListaUsuarios.iterator() ;
-               while(it.hasNext()){
-               Usuarios usuarioActual = it.next();
-               oos.writeObject(usuarioActual);
-               }
-            }catch(IOException e){
-                System.out.println(e.getMessage()); 
-            }
+        catch(IOException e){
+            System.out.println(e.getMessage()); 
         }
+    }
         
-        public boolean logout (){
-            System.out.println("Se ha desconectado con éxito");
-            verificado = false;
-            return verificado;
-            // Despues de esto llamar a los metodos login o registrarse
-        }
-        public boolean crearSubForo(String nombre){
-            SubForo f = new SubForo(nombre);
-            ListaSubForo.add(f);
-            return ListaSubForo.contains(f);
-        }
+    public boolean Logout (){ //método que permitirá salir de la aplicación, cerrar sesión
+        System.out.println("Se ha desconectado con éxito");
+        Verificado = false;
+        return Verificado;
+        // Despues de esto llamar a los metodos login o registrarse
+    }
+    
+    public boolean CrearSubForo(String nombre){ //permitirá crear un nuevo subforo, que se añadirá al foro
+        SubForo f = new SubForo(nombre);
+        ListaSubForo.add(f);
+        return ListaSubForo.contains(f);
+    }
     
 }            
 
