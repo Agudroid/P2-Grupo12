@@ -12,20 +12,30 @@ import java.util.ArrayList;
  * @author miriamdefrancisco
  */
 public abstract class EntradaGenerica {
-    private int puntuacion;
-    private String titulo;
-    private String texto;
-    boolean verificada;
+    
+    private String Titulo;
+    private String Texto;
+    private int Puntuacion;
+    boolean Verificada;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     
-    public abstract String getTitulo();
-    public abstract String getTexto();
-    public abstract void setTitulo(String title);
-    public abstract void setTexto(String text);
-    public abstract int getPuntuacion();
-    public abstract boolean getVerificada();
-    public abstract void verificar(boolean resultado);
-    public abstract boolean comentar (String texto);
-    public abstract boolean votar (int valor);
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+    esta clase EntradaGenerica, que es una clase abstracta de la que hereda Entrada, 
+    Encuesta, Ejercicio y TextoPlano.
+    Los sihuientes métodos se explicarán en cada clase. */
     
+    public abstract String GetTitulo();
+    public abstract void SetTitulo(String titulo);
+    
+    public abstract String GetTexto();
+    public abstract void SetTexto(String texto);
+    
+    public abstract int GetPuntuacion();
+    public abstract boolean Votar (int valor);
+    
+    public abstract boolean GetVerificada();
+    public abstract void Verificar(boolean resultado);
+    
+    public abstract boolean Comentar (String texto);
+     
 }

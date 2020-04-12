@@ -7,7 +7,7 @@ package reddit;
 
 /**
  *
- * @author Administrador
+ * @author Administrador 
  */
 public class Reddit {
 
@@ -15,8 +15,8 @@ public class Reddit {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Foro foro =  Foro.getForo("Reddit");
+       
+        Foro foro =  Foro.GetForo("Reddit");
         
     }
     

@@ -24,32 +24,32 @@ public class BBDDUsuarios implements Serializable{
     
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
 
-    public BBDDUsuarios(List<Usuarios> Usuarios) {
-        this.ListaUsuarios=Usuarios;
+    public BBDDUsuarios(List<Usuarios> usuarios) {
+        this.ListaUsuarios = usuarios;
     }
     
-    public void añadirLista(Usuarios u){
+    public void AñadirUsuario(Usuarios u){
         ListaUsuarios.add(u);
     }
    
     public void CargarBBDD(File f) throws IOException, ClassNotFoundException{
         try{
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
         
-        Usuarios aux = (Usuarios) ois.readObject();
-        System.out.println(aux.getNombre());
-        System.out.println(aux.getApellido());
-        System.out.println(aux.getCorreo());
-        System.out.println(aux.getNick());
-        System.out.println(aux.getContraseña());
-        System.out.println("");
-        }catch(IOException e){
+            Usuarios aux = (Usuarios) ois.readObject();
+            System.out.println(aux.GetNombre());
+            System.out.println(aux.GetApellido());
+            System.out.println(aux.GetCorreo());
+            System.out.println(aux.GetNick());
+            System.out.println(aux.GetContraseña());
+            System.out.println("");
+        }
+        catch(IOException e){
             System.out.println(e.getMessage()); 
         }
     }
     
     public void EscribirBBDD(File f)throws IOException{
-        
         try{
            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
            Iterator <Usuarios> it = ListaUsuarios.iterator() ;
@@ -67,14 +67,13 @@ public class BBDDUsuarios implements Serializable{
         Iterator <Usuarios> it = ListaUsuarios.iterator() ;
            while(it.hasNext() && verificado==false){
            Usuarios usuarioActual = it.next();
-               if (usuarioActual.getCorreo().equals(correo) && usuarioActual.getContraseña().equals(contraseña) ) {
+               if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña)){
                  verificado = true;
                    System.out.println("Es correcto.");
                }
-
            }
            if (verificado==false) {
-                   System.out.println("Has escrito mas el correo o la contraseña. Por favor, intentelo de nuevo");
+                   System.out.println("Has escrito maL el correo o la contraseña. Por favor, intentelo de nuevo");
            }
         return verificado;
     }

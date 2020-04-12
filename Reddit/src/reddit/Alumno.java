@@ -17,25 +17,19 @@ import java.util.Calendar;
 public class Alumno extends Usuarios{
     
     private boolean EstaPenalizado;
-    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña ,boolean estaPenalizado) {
+    
+    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña ,boolean estaPenalizado){
         super(Nombre, Apellido, Correo, Nick, Contraseña);
-        this.EstaPenalizado=estaPenalizado;
+        this.EstaPenalizado = estaPenalizado;
         System.out.println("ALUMNO");
     }
     
-    public void penalizar(Calendar FechaFin){
+    public void Penalizar(Calendar FechaFin){
         Calendar fecha = Calendar.getInstance();
-        
-        EstaPenalizado=fecha.compareTo(FechaFin)<0;
-  
-        
+        EstaPenalizado=fecha.compareTo(FechaFin)<0;  
     }
     
-    public boolean estaPenalizado(){
-        
+    public boolean EstaPenalizado(){
         return EstaPenalizado;
-    }
-    
-    
-    
+    }  
 }

@@ -13,21 +13,21 @@ import java.util.ArrayList;
  */
 public class SubForo implements Subject{
    
-    private String titulo;
+    private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
 
     public SubForo(String titulo) {
-        this.titulo = titulo;
+        this.Titulo = titulo;
     }
     
-    public void añadirSuscriptor (Usuarios suscriptor){
+    public void AñadirSuscriptor (Usuarios suscriptor){
         ListaUsuario.add(suscriptor);
     }
     
-    public void notificar (){   
+    public void Notificar (){   
     }
     
-    public void eliminarSuscriptor (Usuarios suscriptor){
+    public void EliminarSuscriptor (Usuarios suscriptor){
         ListaUsuario.remove(suscriptor);
     }
 }

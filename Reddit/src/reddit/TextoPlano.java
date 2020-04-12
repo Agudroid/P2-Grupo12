@@ -13,59 +13,61 @@ import java.util.ArrayList;
  */
 public class TextoPlano extends EntradaGenerica{
     
-    private int puntuacion;
-    private String titulo;
-    private String texto;
-    boolean verificada;
+    private String Titulo;
+    private String Texto;
+    private int Puntuacion;
+    boolean Verificada;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
-    
+
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+    esta clase TextoPlano */
+   
     @Override
-    public String getTitulo(){
-        return titulo;
+    public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
+        return Titulo;
     }
     
     @Override
-    public String getTexto(){
-        return texto;
+    public void SetTitulo(String titulo){ //asignará a la variable Titulo el valor que se le pase por parámetro
+        this.Titulo= titulo;
     }
     
     @Override
-    public void setTitulo(String titulo){
-        this.titulo= titulo;
+    public String GetTexto(){ //con este metodo get coseguiremos lo guardado en la variable Texto
+        return Texto;
     }
     
     @Override
-    public void setTexto(String texto){
-        this.texto= texto;
+    public void SetTexto(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro
+        this.Texto= texto;
     }
     
     @Override
-    public int getPuntuacion(){
-        return puntuacion;
+    public int GetPuntuacion(){ //con este metodo get coseguiremos lo guardado en la variable Puntuacion
+        return Puntuacion;
     }
     
     @Override
-    public boolean getVerificada(){
-        return verificada;
+    public boolean Votar (int valor){ //permite modificar la variable Puntuacion sumando el valor que se le pase por parámetro
+        this.Puntuacion= Puntuacion+valor;
+        return true;
     }
     
     @Override
-    public void verificar(boolean resultado){
-        this.verificada= resultado;
+    public boolean GetVerificada(){ //con este metodo get coseguiremos el booleano guardado en la variable Verficada
+        return Verificada;
     }
     
     @Override
-    public boolean comentar(String texto) {
+    public void Verificar(boolean resultado){ //modificará el booleano de la variable Verificada
+        this.Verificada= resultado;
+    }
+    
+    @Override
+    public boolean Comentar(String texto) { //permitirá crear el comnentario y añadirlo a la lista de comentarios
         Comentario comentario = new Comentario();
-        comentario.comentar(texto);
+        comentario.Comentar(texto);
         ListaComentarios.add(comentario);
         return true;
-    }
-    
-    @Override
-    public boolean votar (int valor){
-        this.puntuacion= puntuacion+valor;
-        return true;
-    }
-    
+    } 
 }

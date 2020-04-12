@@ -13,45 +13,45 @@ import java.util.ArrayList;
  * @author Administrador
  */
 class Usuarios implements Serializable{
+    
     private String Nombre;
     private String Apellido;
     private String Correo;
     private String Nick;
     private String Contraseña;
-    private ArrayList<String> notificaciones;
+    private ArrayList<String> Notificaciones;
 
-    public Usuarios(String Nombre, String Apellido, String Correo, String Nick, String Contraseña) {
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.Correo = Correo;
-        this.Nick = Nick;
-        this.Contraseña = Contraseña;
+    public Usuarios(String nombre, String apellido, String correo, String nick, String contraseña){
+        this.Nombre = nombre;
+        this.Apellido = apellido;
+        this.Correo = correo;
+        this.Nick = nick;
+        this.Contraseña = contraseña;
     }
     
-
-    public String getNombre() {
+    public String GetNombre() {
         return Nombre;
     }
 
-    public String getApellido() {
+    public String GetApellido() {
         return Apellido;
     }
 
-    public String getCorreo() {
+    public String GetCorreo() {
         return Correo;
     }
 
-    public String getNick() {
+    public String GetNick() {
         return Nick;
     }
 
-    public String getContraseña() {
+    public String GetContraseña() {
         return Contraseña;
     }
     
-    public void recibirNotificacion(String notificacion){
+    public void RecibirNotificacion(String notificacion){
         
-        notificaciones.add(notificacion);
+        Notificaciones.add(notificacion);
         
     }
 

@@ -22,8 +22,8 @@ public class BBDDForo {
     
     private List<SubForo> ListaSubForos= new LinkedList<>();
     
-    public BBDDForo(List ListaSubForos){
-        this.ListaSubForos=ListaSubForos;
+    public BBDDForo(List listaSubForos){
+        this.ListaSubForos = listaSubForos;
     }
     
     public void AñadirSubForo(SubForo f){
@@ -31,25 +31,25 @@ public class BBDDForo {
     }
     
     public void CargarBBDD(File f) throws ClassNotFoundException{
-    try{
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-        SubForo s = (SubForo) ois.readObject();
-        
-        }catch(IOException e){
+        try{
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+            SubForo s = (SubForo) ois.readObject();
+        }
+        catch(IOException e){
             System.out.println(e.getMessage()); 
         }
     }
     
-        public void EscribirBBDD(File f)throws IOException{
-        
+    public void EscribirBBDD(File f)throws IOException{
         try{
-           ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-           Iterator <SubForo> it = ListaSubForos.iterator() ;
-           while(it.hasNext()){
-           SubForo subForoActual = it.next();
-           oos.writeObject(subForoActual);
-           }
-        }catch(IOException e){
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+            Iterator <SubForo> it = ListaSubForos.iterator() ;
+            while(it.hasNext()){
+                SubForo subForoActual = it.next();
+                oos.writeObject(subForoActual);
+            }
+        }
+        catch(IOException e){
             System.out.println(e.getMessage()); 
         }
     }
