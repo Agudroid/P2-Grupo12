@@ -5,6 +5,9 @@
  */
 package Demostradores;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import reddit.Foro;
 
 /**
@@ -14,7 +17,8 @@ import reddit.Foro;
 public class Demostrador2 {
     /**En este demostrador iniciamos sesión con un usuario ya registrado y
      comentamos y votamos una entrada ya existente de manera correcta*/
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException{
+        try {
             System.out.println("Inicializamos el foro:");
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
@@ -26,5 +30,8 @@ public class Demostrador2 {
                 System.out.println("Error, la contraseña y/o correo no coinciden");
             }
             System.out.println("Vamos a acceder a un subforo");         
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Demostrador2.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }   
 }

@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package Demostradores;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import reddit.Foro;
 /**
  *
@@ -14,7 +17,8 @@ public class Demostrador1 {
     /**Este primer demostrador sirve para añadir contenido a las bases de datos,
      primero intentando iniciar sesión de manera fallida y luego creando un usuario
      registrándolo en la base de datos, después, creamos un subforo y una entrada*/
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        try {
             System.out.println("Inicializamos el foro:");
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
@@ -27,6 +31,9 @@ public class Demostrador1 {
             }
             System.out.println("Vamos a registrarnos en el sistema");
             sistema.RegistrarUsuario("Miriam","de Francisco","m.defrancisco.2018@alumnos.urjc.es","miri.fa","12345");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Demostrador1.class.getName()).log(Level.SEVERE, null, ex);
+        }
                
             
     }   
