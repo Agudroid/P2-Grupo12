@@ -18,9 +18,12 @@ import java.util.List;
  *
  * @author Administrador
  */
+
+
 public class BBDDForo {
     
     private List<SubForo> ListaSubForos= new LinkedList<>();
+    private File f = new File("BBDDUsuarios");
     
     public BBDDForo(List listaSubForos){
         this.ListaSubForos = listaSubForos;
@@ -30,17 +33,26 @@ public class BBDDForo {
         ListaSubForos.add(f);
     }
     
-    public void CargarBBDD(File f) throws ClassNotFoundException{
-        try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-            SubForo s = (SubForo) ois.readObject();
+    public void CargarBBDD() throws ClassNotFoundException, IOException{
+        if(f.exists()){
+            
+        
+            try{
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+                SubForo s = (SubForo) ois.readObject();
+            }
+            catch(IOException e){
+                System.out.println(e.getMessage()); 
+            }
         }
-        catch(IOException e){
-            System.out.println(e.getMessage()); 
+        else{
+            f.createNewFile();
+            
         }
+        
     }
     
-    public void EscribirBBDD(File f)throws IOException{
+    public void EscribirBBDD()throws IOException{
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
             Iterator <SubForo> it = ListaSubForos.iterator() ;
@@ -54,3 +66,8 @@ public class BBDDForo {
         }
     }
 }
+
+
+
+
+

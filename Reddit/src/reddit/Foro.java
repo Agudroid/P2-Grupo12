@@ -26,17 +26,18 @@ public class Foro {
     private  String Nombre;
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
     private List <SubForo> ListaSubForo = new LinkedList<>();
-    
+    private BBDDForo foro = new BBDDForo(ListaSubForo);
     boolean Verificado = false;
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
     
-    private Foro(String nombre){
+    private Foro(String nombre) throws ClassNotFoundException, IOException{
         this.Nombre = nombre;
+        foro.CargarBBDD();
     }
     
-    public static Foro GetForo(String nombre){ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
+    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
         if (Foro == null){
             Foro = new Foro(nombre);
         }
@@ -53,14 +54,10 @@ public class Foro {
             /*si coincide lo que hay en el "usuarioActual" con los parámetros 
                 devolvermos un true y un comenatrio*/
                 Verificado = true;
-                System.out.println("Es correcto.");
             }
         }
         /*tras ese proceso, comprobaremos como se encuentra la variable verificado
             y realizaremos lo oportuno en cada caso*/
-        if (Verificado==false) {
-            System.out.println("Has escrito mal el correo o la contraseña. Por favor, intentelo de nuevo");
-        }
         return Verificado;
     }
 
@@ -104,20 +101,19 @@ public class Foro {
     }
         
     public boolean Logout (){ //método que permitirá salir de la aplicación, cerrar sesión
-        System.out.println("Se ha desconectado con éxito");
         Verificado = false;
         return Verificado;
         // Despues de esto llamar a los metodos login o registrarse
     }
     
-    public boolean CrearSubForo(String nombre){ //permitirá crear un nuevo subforo, que se añadirá al foro
+    public boolean CrearSubForo(String nombre) throws IOException{ //permitirá crear un nuevo subforo, que se añadirá al foro
         SubForo f = new SubForo(nombre);
         ListaSubForo.add(f);
+        foro.EscribirBBDD();
         return ListaSubForo.contains(f);
     }
     
-}            
-
+}  
         
         
         
