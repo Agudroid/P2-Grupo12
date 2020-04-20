@@ -5,6 +5,10 @@
  */
 package reddit;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Administrador 
@@ -14,9 +18,13 @@ public class Reddit {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
        
-        Foro foro =  Foro.GetForo("Reddit");
+        try {
+            Foro foro =  Foro.GetForo("Reddit");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Reddit.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     

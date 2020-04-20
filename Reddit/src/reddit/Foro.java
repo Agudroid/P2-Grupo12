@@ -65,6 +65,7 @@ public class Foro {
     //la aplicacion debe permitir al usuario que se registre en la aplicación
         Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña);
         ListaUsuarios.add(usuario);
+        
     }
 
     public void CargarBBDD_Usuario(File f) throws IOException, ClassNotFoundException{

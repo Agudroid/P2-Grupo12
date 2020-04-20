@@ -29,10 +29,6 @@ public class BBDDForo {
         this.ListaSubForos = listaSubForos;
     }
     
-    public void AñadirSubForo(SubForo f){
-        ListaSubForos.add(f);
-    }
-    
     public void CargarBBDD() throws ClassNotFoundException, IOException{
         if(f.exists()){
             

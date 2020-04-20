@@ -15,6 +15,7 @@ public class SubForo implements Subject{
    
     private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
+    private ArrayList<Entrada> ListaEntradas = new ArrayList<>();
 
     public SubForo(String titulo) {
         this.Titulo = titulo;
@@ -30,4 +31,9 @@ public class SubForo implements Subject{
     public void EliminarSuscriptor (Usuarios suscriptor){
         ListaUsuario.remove(suscriptor);
     }
+    
+    public void CrearEntrada (Entrada entrada){
+        ListaEntradas.add(entrada);
+    }
+    
 }
