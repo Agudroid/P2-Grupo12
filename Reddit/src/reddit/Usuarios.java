@@ -60,5 +60,9 @@ class Usuarios implements Serializable{
         return "Usuarios{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", Nick=" + Nick + ", Contrase\u00f1a=" + Contraseña + '}';
     }
     
+    public boolean isProfesor(Usuarios user){
+        return user instanceof Profesor;
+    }
+    
     
 }
