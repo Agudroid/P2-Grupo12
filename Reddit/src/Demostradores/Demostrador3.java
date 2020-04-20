@@ -5,6 +5,9 @@
  */
 package Demostradores;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import reddit.Foro;
 
 /**
@@ -16,18 +19,23 @@ public class Demostrador3 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        System.out.println("Inicializamos el foro:");
+    public static void main(String[] args) throws IOException {
+        try {
+            System.out.println("Inicializamos el foro:");
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
-            System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
+            System.out.println("Iniciamos sesión en el sistema con un usuario no registrado");
             boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (encontrado){
                 System.out.println("Bienvenido al foro");
             } else {
                 System.out.println("Error, la contraseña y/o correo no coinciden");
             }
-            System.out.println("Vamos a acceder a un subforo");  
+            System.out.println("Vamos a registrarnos en el sistema");
+            sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","anto.pe","67890");  
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Demostrador3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
