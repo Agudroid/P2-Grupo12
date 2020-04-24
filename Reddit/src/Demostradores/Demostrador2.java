@@ -25,14 +25,12 @@ public class Demostrador2 {
             System.out.println("El foro ha sido creado.");
             System.out.println("Iniciamos sesión en el sistema con un usuario no registrado");
             boolean encontrado = sistema.Login("12345", "m.defrancisco.2018@alumnos.urjc.es");
-            if (encontrado){
-                System.out.println("Bienvenido al foro");
-            } else {
+            if (!encontrado){
                 System.out.println("Error, la contraseña y/o correo no coinciden");
                 System.out.println("Vamos a registrarnos en el sistema");
                 boolean esRegistrado = sistema.RegistrarUsuario("Miriam","de Francisco","m.defrancisco.2018@alumnos.urjc.com","miri.fa","12345", "12345");
                 if(esRegistrado == false){
-                System.out.println("No se ha podido registrar.");
+                    System.out.println("No se ha podido registrar.");
                 }
             }
 
