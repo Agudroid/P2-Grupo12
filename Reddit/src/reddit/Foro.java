@@ -61,11 +61,31 @@ public class Foro {
         return Verificado;
     }
 
-    public void RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contraseña){ 
+    public boolean RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contraseña1, String contraseña2){
     //la aplicacion debe permitir al usuario que se registre en la aplicación
-        Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña);
-        ListaUsuarios.add(usuario);
-        
+        String prueba;
+        boolean resultado;
+        Scanner sc = new Scanner(correo);
+        prueba = sc.findInLine("([a-z]).([a-z]+)20([0-9][0-9])@alumnos.urjc.es");
+        String prueba2 = sc.findInLine("([a-z]).([a-z]+)@urjc.es");
+        boolean alumno = correo.equals(prueba);
+        boolean profesor = correo.equals(prueba2);
+        resultado = false;
+        if (alumno==true || profesor ==true){
+           if (contraseña1.equals(contraseña2)){
+            Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña1);
+            ListaUsuarios.add(usuario); 
+            resultado = true;
+           }
+           else{
+               System.out.println("Las contraseñas no coinciden. Por favor intentelo de nuevo.");  
+           }
+        }
+        else{
+           System.out.println("Has escrito mal el correo. Por favor intentelo de nuevo.");         
+           
+        }
+        return resultado;
     }
 
     public void CargarBBDD_Usuario(File f) throws IOException, ClassNotFoundException{
