@@ -32,7 +32,7 @@ public class Demostrador3 {
                 System.out.println("Error, la contraseña y/o correo no coinciden");
             }
             System.out.println("Vamos a registrarnos en el sistema");
-            sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","anto.pe","67890");  
+            sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","anto.pe","67890","67890");  
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador3.class.getName()).log(Level.SEVERE, null, ex);
         }
