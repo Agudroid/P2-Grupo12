@@ -5,6 +5,11 @@
  */
 package Demostradores;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import reddit.Foro;
+
 /**
  *
  * @author Alba Sevillano
@@ -16,8 +21,19 @@ public class Demostrador6 {
      penalizará a un alumno
      (PROFESOR)
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args) throws IOException {
+        try {
+            System.out.println("Inicializamos el foro:");
+            Foro sistema = Foro.GetForo("Reddit URJC");
+            System.out.println("El foro ha sido creado.");
+            System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
+            boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            if (encontrado){
+                System.out.println("Bienvenido al foro");
+            }   
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Demostrador3.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
