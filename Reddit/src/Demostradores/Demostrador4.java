@@ -26,14 +26,17 @@ public class Demostrador4 {
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
             System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
-            boolean encontrado = sistema.Login("12345", "m.d.2018@alumnos.urjc.es");
-            if (encontrado){
-                System.out.println("Bienvenido al foro");
-            } else {
+            boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            if (!encontrado){
                 System.out.println("Error, la contraseña y/o correo no coinciden");
+                System.out.println("Vamos a registrarnos en el sistema");
+                boolean esRegistrado = sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","a.perez","67890", "67890");
+                if(esRegistrado == true){
+                    System.out.println("Se ha registrado con existo");
+                }
             }
-            System.out.println("Vamos a acceder a un subforo");         
-        } catch (ClassNotFoundException ex) {
+        } 
+        catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
