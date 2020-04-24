@@ -15,9 +15,9 @@ import reddit.Foro;
  * @author miriamdefrancisco
  */
 public class Demostrador2 {
-    /**Este primer demostrador sirve para añadir contenido a las bases de datos,
-     primero intentando iniciar sesión de manera fallida y luego creando un usuario
-     registrándolo en la base de datos, después, creamos un subforo y una entrada*/
+    /**En este demostrador iniciamos sesión con un alumno no registrado y veremos 
+     que da error, intentaremos registrarlo pero no se podrá porque los datos son 
+     erroneos (ALUMNO)*/
     public static void main(String[] args) throws IOException {
         try {
             System.out.println("Inicializamos el foro:");

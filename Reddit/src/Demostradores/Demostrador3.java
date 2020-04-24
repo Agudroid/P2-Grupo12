@@ -16,9 +16,9 @@ import reddit.Foro;
  */
 public class Demostrador3 {
 
-    /**
-     * @param args the command line arguments
-     */
+    /** En este demostrador iniciamos sesión con un alumno registrado y entraremos
+     en el foro, y tras esto podremos ver una entrada y comentarla de nuevo
+     (ALUMNO)*/
     public static void main(String[] args) throws IOException {
         try {
             System.out.println("Inicializamos el foro:");

@@ -16,9 +16,10 @@ import reddit.Foro;
  */
 public class Demostrador4 {
 
-    /**
-     * @param args the command line arguments
-     */
+    /**Este primer demostrador sirve para añadir contenido a las bases de datos,
+     primero intentando iniciar sesión de manera fallida y luego creando un usuario
+     profesor registrándolo en la base de datos, después podremos añadir una entrada 
+     a un subforo (PROFESOR)*/
     public static void main(String[] args) throws IOException{
         try {
             System.out.println("Inicializamos el foro:");
