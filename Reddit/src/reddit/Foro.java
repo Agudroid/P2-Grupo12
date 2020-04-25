@@ -87,39 +87,6 @@ public class Foro {
         }
         return resultado;
     }
-
-    public void CargarBBDD_Usuario(File f) throws IOException, ClassNotFoundException{
-    /*con este método podremos cargar la información que tenemos en la base de datos del usuario*/
-        try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-
-            Usuarios aux = (Usuarios) ois.readObject();
-            /*A continuación mostraremos todos los campos guardados en la base de datos*/
-            System.out.println(aux.GetNombre());
-            System.out.println(aux.GetApellido());
-            System.out.println(aux.GetCorreo());
-            System.out.println(aux.GetNick());
-            System.out.println(aux.GetContraseña());
-        }
-        catch(IOException e){
-            System.out.println(e.getMessage()); 
-        }
-    }
-
-    public void GuardarBBDD_Uusario(File f)throws IOException{
-    /*con este método podremos cargar al nuevo usuario que haya iniciado sesión*/
-        try{
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-            Iterator <Usuarios> it = ListaUsuarios.iterator() ;
-            while(it.hasNext()){
-                Usuarios usuarioActual = it.next();
-                oos.writeObject(usuarioActual);
-            }
-        }
-        catch(IOException e){
-            System.out.println(e.getMessage()); 
-        }
-    }
         
     public boolean Logout (){ //método que permitirá salir de la aplicación, cerrar sesión
         Verificado = false;
@@ -134,6 +101,38 @@ public class Foro {
         return ListaSubForo.contains(f);
     }
     
+    public void CargarBBDD() throws ClassNotFoundException, IOException{
+        if(f.exists()){
+            
+        
+            try{
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
+                SubForo s = (SubForo) ois.readObject();
+            }
+            catch(IOException e){
+                System.out.println("la base de datos está vacía"); 
+            }
+        }
+        else{
+            f.createNewFile();
+            
+        }
+        
+    }
+    
+    public void EscribirBBDD()throws IOException{
+        try{
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
+            Iterator <SubForo> it = ListaSubForos.iterator() ;
+            while(it.hasNext()){
+                SubForo subForoActual = it.next();
+                oos.writeObject(subForoActual);
+            }
+        }
+        catch(IOException e){
+            System.out.println(e.getMessage()); 
+        }
+    }
 }  
         
         
