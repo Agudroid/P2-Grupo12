@@ -5,7 +5,7 @@
  */
 package reddit;
 
-import java.sql.Date;
+
 import java.util.Calendar;
 
 
@@ -16,19 +16,20 @@ import java.util.Calendar;
  */
 public class Alumno extends Usuarios{
     
-    private boolean EstaPenalizado;
-    
-    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña ,boolean estaPenalizado){
+    private Penalizacion penalizacion=new Penalizacion(null,null);
+    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña){
         super(Nombre, Apellido, Correo, Nick, Contraseña);
-        this.EstaPenalizado = estaPenalizado;
+        
     }
     
     public void Penalizar(Calendar FechaFin){
-        Calendar fecha = Calendar.getInstance();
-        EstaPenalizado=fecha.compareTo(FechaFin)<0;  
+        Calendar FechaIni = Calendar.getInstance();
+        penalizacion.setFechaFin(Calendar.getInstance());
+        penalizacion.setFechaFin(FechaFin);
     }
     
     public boolean EstaPenalizado(){
-        return EstaPenalizado;
+        Calendar FechaFin = penalizacion.getFechaFin();
+        return FechaFin.after(Calendar.getInstance());
     }  
 }
