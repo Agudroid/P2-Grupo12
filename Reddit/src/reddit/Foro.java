@@ -28,6 +28,7 @@ public class Foro {
     private List <SubForo> ListaSubForo = new LinkedList<>();
     private BBDDForo foro = new BBDDForo(ListaSubForo);
     boolean Verificado = false;
+    File f;
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
@@ -101,7 +102,8 @@ public class Foro {
         return ListaSubForo.contains(f);
     }
     
-    public void CargarBBDD() throws ClassNotFoundException, IOException{
+    public void CargarBBDD(File f) throws ClassNotFoundException, IOException{
+        
         if(f.exists()){
             
         
@@ -123,7 +125,7 @@ public class Foro {
     public void EscribirBBDD()throws IOException{
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-            Iterator <SubForo> it = ListaSubForos.iterator() ;
+            Iterator <SubForo> it = ListaSubForo.iterator() ;
             while(it.hasNext()){
                 SubForo subForoActual = it.next();
                 oos.writeObject(subForoActual);
