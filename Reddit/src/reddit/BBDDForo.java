@@ -38,7 +38,7 @@ public class BBDDForo {
                 SubForo s = (SubForo) ois.readObject();
             }
             catch(IOException e){
-                System.out.println(e.getMessage()); 
+                System.out.println("la base de datos está vacía"); 
             }
         }
         else{
