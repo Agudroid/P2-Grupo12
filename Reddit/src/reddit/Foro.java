@@ -102,7 +102,7 @@ public class Foro {
         return ListaSubForo.contains(f);
     }
     
-    public void CargarBBDD(File f) throws ClassNotFoundException, IOException{
+    public void CargarBBDD() throws ClassNotFoundException, IOException{
         
         if(f.exists()){
             
