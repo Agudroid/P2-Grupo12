@@ -20,6 +20,7 @@ public class Demostrador1 {
      comentarla (ALUMNO)*/
     public static void main(String[] args) throws IOException {
         try {
+            
             System.out.println("Inicializamos el foro:");
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");

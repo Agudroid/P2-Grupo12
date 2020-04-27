@@ -67,7 +67,7 @@ public class Foro {
         String prueba;
         boolean resultado;
         Scanner sc = new Scanner(correo);
-        prueba = sc.findInLine("([a-z]).([a-z]+)20([0-9][0-9])@alumnos.urjc.es"); //comprobamos que es el patron del correo del alumno
+        prueba = sc.findInLine("([a-z]).([a-z]+).20([0-9][0-9])@alumnos.urjc.es"); //comprobamos que es el patron del correo del alumno
         String prueba2 = sc.findInLine("([a-z]).([a-z]+)@urjc.es"); //comprobamos que es el patron del correo del profesor
         boolean alumno = correo.equals(prueba); //comprobamos que es el correo del alumno
         boolean profesor = correo.equals(prueba2); //comprobamos que es el correo del alumno
