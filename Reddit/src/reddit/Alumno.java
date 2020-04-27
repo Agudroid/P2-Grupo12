@@ -6,6 +6,7 @@
 package reddit;
 
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 
@@ -14,7 +15,7 @@ import java.util.Calendar;
  *
  * @author Administrador
  */
-public class Alumno extends Usuarios{
+public class Alumno extends Usuarios implements Serializable{
     
     private Penalizacion penalizacion=new Penalizacion(null,null);
     public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña){
