@@ -25,7 +25,11 @@ public class SubForo implements Subject{
         ListaUsuario.add(suscriptor);
     }
     
-    public void Notificar (){   
+    public void Notificar (){
+        for (int i = 0; i < ListaUsuario.size(); i++) {
+            String notificacion = "Se ha creado una entrada nueva";
+            ListaUsuario.get(i).RecibirNotificacion(notificacion);
+        }
     }
     
     public void EliminarSuscriptor (Usuarios suscriptor){
@@ -34,6 +38,7 @@ public class SubForo implements Subject{
     
     public void CrearEntrada (Entrada entrada){
         ListaEntradas.add(entrada);
+        Notificar();
     }
     
 }
