@@ -11,6 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.Scanner;
  *
  * @author Administrador // Alba Sevillano // miriamdefrancisco
  */
-public class Foro {
+public class Foro implements Serializable{
     
     private static Foro Foro;
     private  String Nombre;
@@ -95,9 +96,11 @@ public class Foro {
         return resultado;
     }
         
-    public boolean Logout (){ //método que permitirá salir de la aplicación, cerrar sesión
+    public boolean Logout () throws ClassNotFoundException, IOException{ //método que permitirá salir de la aplicación, cerrar sesión
         Verificado = false;
-        return Verificado; // siempre va a devolver false porque haces logout
+        EscribirBBDD();
+        return Verificado;
+// siempre va a devolver false porque haces logout
         // Despues de esto llamar a los metodos login o registrarse
     }
     
