@@ -8,6 +8,8 @@ package Demostradores;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import reddit.Ejercicio;
+import reddit.Entrada;
 import reddit.Foro;
 import reddit.SubForo;
 import reddit.Usuarios;
@@ -36,6 +38,10 @@ public class Demostrador6 {
             Usuarios u = sistema.getUsuarioActual();
             sf.setUsuarioActual(u);
             sf.CrearEntrada("Prueba1", "esto es una pruebaaaaa");
+            Entrada e = sf.verEntrada("esto es una pruebaaaaa");
+            sf.AñadirSuscriptor(u);
+            Ejercicio en = new Ejercicio("Ejercicio", "es una prueba", 10, true, "=2");
+            sf.añadirComponente(en, e);
             
             boolean logout = sistema.Logout();
             if(logout==false){
