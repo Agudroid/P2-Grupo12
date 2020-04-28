@@ -39,6 +39,10 @@ public class Foro implements Serializable{
         this.Nombre = nombre;
     }
     
+    public Usuarios  getUsuarioActual(){
+        return usuarioLoggeado;
+    }
+    
     public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
         if (Foro == null){
             if (f.exists()){ 
