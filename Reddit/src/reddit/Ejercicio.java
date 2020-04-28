@@ -24,11 +24,9 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Ejercicio */
     
-    public Ejercicio (String Titulo, String Texto, int Puntuacion, boolean Verificada, String Solucion){
+    public Ejercicio (String Titulo, String Texto, String Solucion){
         this.Titulo = Titulo;
         this.Texto = Texto;
-        this.Puntuacion = Puntuacion;
-        this.Verificada = Verificada;
         this.Solucion = Solucion;
         
     }
