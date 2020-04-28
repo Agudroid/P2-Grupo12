@@ -25,11 +25,11 @@ public class Demostrador2 {  //HECHO
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
             System.out.println("Iniciamos sesión en el sistema con un usuario no registrado");
-            boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            boolean encontrado = sistema.Login("67890", "j.perez@urjc.es");
             if (!encontrado){
                 System.out.println("Error, la contraseña y/o correo no coinciden");
                 System.out.println("Vamos a registrarnos en el sistema");
-                boolean esRegistrado = sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","a.perez","67890", "67890");
+                boolean esRegistrado = sistema.RegistrarUsuario("Juan","Perez","j.perez@urjc.com","j.perez","67890", "67890");
                 if(esRegistrado == false){
                     System.out.println("No se ha podido registrar.");
                 }
