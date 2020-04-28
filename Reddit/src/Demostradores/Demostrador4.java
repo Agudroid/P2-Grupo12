@@ -42,7 +42,7 @@ public class Demostrador4 {
             sf.AñadirSuscriptor();
             Entrada ent = sf.verEntrada("Entrada de prueba");
             ent.Comentar("Muchas gracias por la información aportada!!!");
-            
+            sistema.Logout();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador4.class.getName()).log(Level.SEVERE, null, ex);
         }
