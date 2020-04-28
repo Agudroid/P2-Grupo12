@@ -13,13 +13,14 @@ import java.util.ArrayList;
  * @author Alba Sevillano
  */
 public class SubForo implements Subject,Serializable{
-   
+    private Administrador admin = null;
     private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
     private ArrayList<Entrada> ListaEntradas = new ArrayList<>();
 
-    public SubForo(String titulo) {
+    public SubForo(String titulo, Administrador admin) {
         this.Titulo = titulo;
+        this.admin = admin;
     }
     
     public void AñadirSuscriptor (Usuarios suscriptor){
