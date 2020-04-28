@@ -28,6 +28,7 @@ public class Foro {
     private List <SubForo> ListaSubForo = new LinkedList<>();
     private BBDDForo foro = new BBDDForo(ListaSubForo);
     boolean Verificado = false;
+    Usuarios usuarioLoggeado = null;
     File f;
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
@@ -35,12 +36,16 @@ public class Foro {
     
     private Foro(String nombre) throws ClassNotFoundException, IOException{
         this.Nombre = nombre;
-        foro.CargarBBDD();
     }
     
-    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
+    public Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
         if (Foro == null){
-            Foro = new Foro(nombre);
+            if (f.exists()){ 
+                Foro = Foro.LeerBBDD();
+            }
+            else{
+                Foro = new Foro(nombre);
+            }
         }
         return Foro;
     }
@@ -54,6 +59,7 @@ public class Foro {
             if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña) ) {
             /*si coincide lo que hay en el "usuarioActual" con los parámetros 
                 devolvermos un true y un comenatrio*/
+                usuarioLoggeado = usuarioActual;
                 Verificado = true;
             }
         }
@@ -96,45 +102,49 @@ public class Foro {
     }
     
     public boolean CrearSubForo(String nombre) throws IOException{ //permitirá crear un nuevo subforo, que se añadirá al foro
-        SubForo f = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
-        ListaSubForo.add(f); //se añade a la lista de subforors
-        foro.EscribirBBDD(); //lo guardamos en la base de datos
-        return ListaSubForo.contains(f); //devolvemos true si se ha guardado con exito y false en caso contrario
-    }
-    
-    public void CargarBBDD() throws ClassNotFoundException, IOException{
-        
-        if(f.exists()){
-
-            try{
-                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f));
-                SubForo s = (SubForo) ois.readObject();
-            }
-            catch(IOException e){
-                System.out.println("la base de datos está vacía"); 
-            }
+        if (usuarioLoggeado.isProfesor(usuarioLoggeado)){
+            SubForo f = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
+            ListaSubForo.add(f); //se añade a la lista de subforors
+            foro.EscribirBBDD(); //lo guardamos en la base de datos
+             //devolvemos true si se ha guardado con exito y false en caso contrario
+            return ListaSubForo.contains(f);
         }
         else{
-            f.createNewFile();
-            
+            return false;
         }
-        
     }
     
-    public void EscribirBBDD()throws IOException{
-        try{
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f));
-            Iterator <SubForo> it = ListaSubForo.iterator() ; //creamos el iterador para recorrer la lista
-            while(it.hasNext()){ //no salimos del bucle hasta recorrer por completo la lista
-                SubForo subForoActual = it.next(); // asignamos a la var subForoActual el subforo actual de la lista que estamos recorriendo
-                oos.writeObject(subForoActual); //Escribimos el subforo
+    public boolean EscribirBBDD() throws ClassNotFoundException, IOException{      
+        
+            try{
+                FileOutputStream file = new FileOutputStream("basededatos.obj");
+                ObjectOutputStream finalFile = new ObjectOutputStream(file);
+                finalFile.writeObject(this);
+                finalFile.close();
+                file.close();
+                return true;
             }
+            catch(IOException e){
+                return false; 
+            }       
+    }
+    
+    public Foro LeerBBDD()throws IOException, ClassNotFoundException{
+        Foro foro = null;
+        try{
+            FileInputStream file = new FileInputStream("basededatos.obj");
+            ObjectInputStream inputFile = new ObjectInputStream(file);
+            foro = (Foro) inputFile.readObject();
+            inputFile.close();
+            file.close();
         }
         catch(IOException e){
             System.out.println(e.getMessage()); 
         }
+        return foro;
     }
-}  
+}
+  
         
         
         
