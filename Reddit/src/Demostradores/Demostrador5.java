@@ -33,6 +33,7 @@ public class Demostrador5 { //HECHO
                     System.out.println("No se ha podido registrar.");
                 }
             }
+            
 
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador4.class.getName()).log(Level.SEVERE, null, ex);
