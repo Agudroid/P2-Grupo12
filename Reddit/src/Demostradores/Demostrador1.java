@@ -48,7 +48,15 @@ public class Demostrador1 {
                     SubForo SubForoActual = sistema.verSubForo("SubForo de prueba");
                     SubForoActual.CrearEntrada("Entrada de prueba", "La mejor entrada del mundo");
                     Entrada entrada=SubForoActual.verEntrada("Entrada de prueba");
+                    Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
+                    admin.verificarEntrada(entrada);
+                    System.out.println("Creamos una entrada al subForo");
                     System.out.println(entrada.GetTexto());
+                    Encuesta encuesta = new Encuesta("Los ovnis existen?","Crees que existen los ovnis 1.Si 2.No");
+                    System.out.println("Añadimos a la Entrada una encuesta");
+                    entrada.AñadirComponente(encuesta);
+                    System.out.println(encuesta.GetTexto());
+                    
                 }
             }
             sistema.Logout();
