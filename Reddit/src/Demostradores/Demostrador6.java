@@ -39,7 +39,7 @@ public class Demostrador6 {
             sf.setUsuarioActual(u);
             sf.CrearEntrada("Prueba1", "esto es una pruebaaaaa");
             Entrada e = sf.verEntrada("esto es una pruebaaaaa");
-            sf.AñadirSuscriptor(u);
+            sf.AñadirSuscriptor();
             Ejercicio en = new Ejercicio("Ejercicio", "es una prueba", 10, true, "=2");
             sf.añadirComponente(en, e);
             
