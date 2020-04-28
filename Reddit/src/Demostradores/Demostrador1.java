@@ -46,11 +46,12 @@ public class Demostrador1 {
                 if(SubForoCreado){
                     System.out.println("SubForo creado");
                     SubForo SubForoActual = sistema.verSubForo("SubForo de prueba");
-                    SubForoActual.CrearEntrada("Entrada de prueba", "La mejore entrada del mundo");
+                    SubForoActual.CrearEntrada("Entrada de prueba", "La mejor entrada del mundo");
                     Entrada entrada=SubForoActual.verEntrada("Entrada de prueba");
-                    entrada.GetTexto();
+                    System.out.println(entrada.GetTexto());
                 }
             }
+            sistema.Logout();
             
         } 
         catch (ClassNotFoundException ex) {
