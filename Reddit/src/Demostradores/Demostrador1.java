@@ -8,7 +8,7 @@ package Demostradores;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import reddit.Foro;
+import reddit.*;
 
 /**
  *
@@ -42,7 +42,14 @@ public class Demostrador1 {
             encontrado =sistema.Login("67890", "a.perez@urjc.es");
             if(encontrado){
                 System.out.println("Hemos encontrado el usuario");
-                sistema.CrearSubForo("SubForo de prueba");
+                boolean SubForoCreado=sistema.CrearSubForo("SubForo de prueba");
+                if(SubForoCreado){
+                    System.out.println("SubForo creado");
+                    SubForo SubForoActual = sistema.verSubForo("SubForo de prueba");
+                    SubForoActual.CrearEntrada("Entrada de prueba", "La mejore entrada del mundo");
+                    Entrada entrada=SubForoActual.verEntrada("Entrada de prueba");
+                    entrada.GetTexto();
+                }
             }
             
         } 

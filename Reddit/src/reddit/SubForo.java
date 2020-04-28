@@ -60,11 +60,11 @@ public class SubForo implements Subject,Serializable{
         if (aux.GetVerificada()){
            ent = aux; 
         }
-        return ent;
+        return aux;
     }
     
     public void añadirComponente(EntradaGenerica componente, Entrada ent){
-        if ((usuarioActual.isProfesor(usuarioActual)) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
+        if ((usuarioActual.isProfesor()) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
             ent.AñadirComponente(componente);
         }else if (componente instanceof Entrada){
             ent.AñadirComponente(componente);

@@ -105,7 +105,7 @@ public class Foro implements Serializable{
     }
     
     public boolean CrearSubForo(String nombre) throws IOException{ //permitirá crear un nuevo subforo, que se añadirá al foro
-        if (usuarioLoggeado.isProfesor(usuarioLoggeado)){
+        if (usuarioLoggeado.isProfesor()){
             SubForo f = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
             ListaSubForo.add(f); //se añade a la lista de subforors
             foro.EscribirBBDD(); //lo guardamos en la base de datos
