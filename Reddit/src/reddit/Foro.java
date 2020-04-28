@@ -30,7 +30,7 @@ public class Foro implements Serializable{
     private BBDDForo foro = new BBDDForo(ListaSubForo);
     boolean Verificado = false;
     Usuarios usuarioLoggeado = null;
-    File f;
+    private static File f;
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
@@ -39,7 +39,7 @@ public class Foro implements Serializable{
         this.Nombre = nombre;
     }
     
-    public Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
+    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
         if (Foro == null){
             if (f.exists()){ 
                 Foro = Foro.LeerBBDD();
