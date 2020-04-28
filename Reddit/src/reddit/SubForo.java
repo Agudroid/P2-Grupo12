@@ -61,7 +61,7 @@ public class SubForo implements Subject,Serializable{
         if (aux.GetVerificada()){
            ent = aux; 
         }
-        return aux;
+        return ent;
     }
     
     public void añadirComponente(EntradaGenerica componente, Entrada ent){

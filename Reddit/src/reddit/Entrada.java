@@ -27,6 +27,7 @@ public class Entrada extends EntradaGenerica implements Serializable{
         this.Titulo = titulo;
         this.Texto = texto;
     }
+    
     @Override
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
         return Titulo;

@@ -30,6 +30,7 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
         this.Solucion = Solucion;
         
     }
+    
     @Override
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
         return Titulo;
