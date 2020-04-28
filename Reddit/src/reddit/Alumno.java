@@ -19,11 +19,11 @@ import java.util.Calendar;
 
 public class Alumno extends Usuarios implements Serializable{
     private ArrayList<Penalizacion> penalizaciones;
-	
-	public Alumno() {
-		penalizaciones = new ArrayList<Penalizacion>();
-	}
-	
+    
+    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña){
+        super(Nombre, Apellido, Correo, Nick, Contraseña);
+        
+    }
     
     public void avanzarDias(int dias) {
 		for(Penalizacion p : penalizaciones) {
