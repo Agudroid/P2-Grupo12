@@ -5,13 +5,14 @@
  */
 package reddit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Alba Sevillano
  */
-public class SubForo implements Subject{
+public class SubForo implements Subject,Serializable{
    
     private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();

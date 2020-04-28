@@ -5,13 +5,14 @@
  */
 package reddit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author miriamdefrancisco
  */
-public abstract class EntradaGenerica {
+public abstract class EntradaGenerica implements Serializable{
     
     private String Titulo;
     private String Texto;

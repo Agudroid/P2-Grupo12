@@ -5,13 +5,14 @@
  */
 package reddit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author miriamdefrancisco
  */
-public class Comentario {
+public class Comentario implements Serializable{
     
     private String Texto;
     private int Puntuacion;

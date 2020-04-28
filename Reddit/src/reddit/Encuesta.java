@@ -1,12 +1,13 @@
 
 package reddit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  *
  * @author Alba Sevillano // miriamdefrancisco
  */
-public class Encuesta extends EntradaGenerica{
+public class Encuesta extends EntradaGenerica implements Serializable{
     
     private String Titulo;
     private String Texto;

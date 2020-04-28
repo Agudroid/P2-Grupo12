@@ -9,7 +9,7 @@ package reddit;
  *
  * @author miriamdefrancisco
  */
-public interface Subject {
+public interface Subject{
     
     public void AñadirSuscriptor(Usuarios suscriptor);
     public void Notificar();

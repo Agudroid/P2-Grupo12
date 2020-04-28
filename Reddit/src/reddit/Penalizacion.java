@@ -5,13 +5,14 @@
  */
 package reddit;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
  * @author Administrador
  */
-public class Penalizacion {
+public class Penalizacion implements Serializable{
     private Calendar FechaIni;
     private Calendar FechaFin;
 

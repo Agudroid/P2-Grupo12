@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 
 
-public class BBDDForo {
+public class BBDDForo implements Serializable{
     
     private List<SubForo> ListaSubForos= new LinkedList<>();
     private File f = new File("BBDDUsuarios");
