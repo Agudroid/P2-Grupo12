@@ -37,8 +37,9 @@ public class Demostrador4 {
                     System.out.println("Se ha registrado con existo");
                 }
             } 
-            System.out.println("Vamos a visualizar una entrada ya creada");
+            System.out.println("Vamos a visualizar una entrada ya creada y subscribirnos a un foro");
             SubForo sf = sistema.verSubForo("SubForo de prueba");
+            sf.AñadirSuscriptor();
             Entrada ent = sf.verEntrada("Entrada de prueba");
             ent.Comentar("Muchas gracias por la información aportada!!!");
             
