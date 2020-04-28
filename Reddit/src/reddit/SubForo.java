@@ -43,10 +43,24 @@ public class SubForo implements Subject,Serializable{
         ListaUsuario.remove(suscriptor);
     }
     
-    public void CrearEntrada (String titulo, Usuarios user, String texto){
+    public void CrearEntrada (String titulo, String texto){
         Entrada entrada = new Entrada(titulo, texto);
         ListaEntradas.add(entrada);
         Notificar();     
+    }
+    
+    public Entrada verEntrada(String titulo){
+        Entrada ent = null;
+        Entrada aux = null;
+        for (int i = 0; i < ListaEntradas.size(); i++) {
+            if (ListaEntradas.get(i).GetTitulo().equals(titulo)){
+                aux = ListaEntradas.get(i);
+            }
+        }
+        if (aux.GetVerificada()){
+           ent = aux; 
+        }
+        return ent;
     }
     
     public void añadirComponente(EntradaGenerica componente, Entrada ent){
