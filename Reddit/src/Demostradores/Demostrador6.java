@@ -17,7 +17,7 @@ import reddit.Foro;
 public class Demostrador6 {
 
     /** En este demostrador iniciamos sesión con un alumno registrado y entraremos
-     en el foro, y tras esto podremos ver una entrada y comentarla de nuevo
+     en el foro, y tras esto podremos añadir una entrada al subforo creado
      (ALUMNO)*/
     public static void main(String[] args) throws IOException {
         try {

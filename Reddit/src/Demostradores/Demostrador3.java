@@ -30,7 +30,8 @@ public class Demostrador3 {
             boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (encontrado){
                 System.out.println("Bienvenido al foro");
-            }   
+            }
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador6.class.getName()).log(Level.SEVERE, null, ex);
         }
