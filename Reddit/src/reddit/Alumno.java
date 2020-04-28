@@ -7,6 +7,7 @@ package reddit;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -15,22 +16,20 @@ import java.util.Calendar;
  *
  * @author Administrador
  */
+
 public class Alumno extends Usuarios implements Serializable{
+    private ArrayList<Penalizacion> penalizaciones;
+	
+	public Alumno() {
+		penalizaciones = new ArrayList<Penalizacion>();
+	}
+	
     
-    private Penalizacion penalizacion=new Penalizacion(null,null);
-    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña){
-        super(Nombre, Apellido, Correo, Nick, Contraseña);
-        
-    }
-    
-    public void Penalizar(Calendar FechaFin){
-        Calendar FechaIni = Calendar.getInstance();
-        penalizacion.setFechaFin(Calendar.getInstance());
-        penalizacion.setFechaFin(FechaFin);
-    }
-    
-    public boolean EstaPenalizado(){
-        Calendar FechaFin = penalizacion.getFechaFin();
-        return FechaFin.after(Calendar.getInstance());
-    }  
+    public void avanzarDias(int dias) {
+		for(Penalizacion p : penalizaciones) {
+			if(p.estaActiva()) {
+				p.avanzarDias(dias);
+			}
+		}
+	}
 }
