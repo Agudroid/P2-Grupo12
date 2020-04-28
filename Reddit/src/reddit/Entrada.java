@@ -16,14 +16,16 @@ public class Entrada extends EntradaGenerica implements Serializable{
     
     private String Titulo;
     private String Texto;
-    private int Puntuacion;
+    private int Puntuacion = 0;
     boolean Verificada;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     private ArrayList<EntradaGenerica> Componentes = new ArrayList<>();
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
    esta clase Entrada */
-    
+    public Entrada (String titulo){
+        this.Titulo = titulo;
+    }
     @Override
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
         return Titulo;

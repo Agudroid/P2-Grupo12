@@ -13,14 +13,12 @@ import java.util.ArrayList;
  * @author Alba Sevillano
  */
 public class SubForo implements Subject,Serializable{
-    private Administrador admin = null;
     private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
     private ArrayList<Entrada> ListaEntradas = new ArrayList<>();
 
-    public SubForo(String titulo, Administrador admin) {
+    public SubForo(String titulo) {
         this.Titulo = titulo;
-        this.admin = admin;
     }
     
     public void AñadirSuscriptor (Usuarios suscriptor){
@@ -38,7 +36,8 @@ public class SubForo implements Subject,Serializable{
         ListaUsuario.remove(suscriptor);
     }
     
-    public void CrearEntrada (Entrada entrada){
+    public void CrearEntrada (String titulo){
+        Entrada entrada = new Entrada(titulo);
         ListaEntradas.add(entrada);
         Notificar();
     }

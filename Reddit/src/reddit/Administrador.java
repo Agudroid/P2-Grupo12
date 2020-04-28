@@ -17,4 +17,8 @@ public class Administrador extends Usuarios implements Serializable{
         super(Nombre, Apellido, Correo, Nick, Contraseña);
     }
     
+    public void verificarEntrada(Entrada ent){
+        ent.Verificar(true);
+    }
+    
 }
