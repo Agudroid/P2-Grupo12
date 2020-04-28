@@ -76,10 +76,12 @@ public class Foro implements Serializable{
         Scanner sc = new Scanner(correo);
         prueba = sc.findInLine("([a-z]).([a-z]+).20([0-9][0-9])@alumnos.urjc.es"); //comprobamos que es el patron del correo del alumno
         String prueba2 = sc.findInLine("([a-z]).([a-z]+)@urjc.es"); //comprobamos que es el patron del correo del profesor
+        String prueba3 = sc.findInLine("([a-z]).([a-z]+)@urjcadmin.es"); //comprobamos que es el patron del correo del administrador
         boolean alumno = correo.equals(prueba); //comprobamos que es el correo del alumno
-        boolean profesor = correo.equals(prueba2); //comprobamos que es el correo del alumno
+        boolean profesor = correo.equals(prueba2); //comprobamos que es el correo del profesor
+        boolean admin = correo.equals(prueba3); //comprobamos que es el correo del admin
         resultado = false; //inicializamos la var resultado
-        if (alumno==true || profesor ==true){ //si el correo coincide tanto para alumno o profesor entramos en el if
+        if (alumno==true || profesor ==true || admin == true){ //si el correo coincide tanto para alumno o profesor entramos en el if
            if (contraseña1.equals(contraseña2)){ //si al registrarse las contraseñas coinciden entras al if
             Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña1); //te has registrado con exito
             ListaUsuarios.add(usuario); //Se añade a la lista de usuarios registrados
