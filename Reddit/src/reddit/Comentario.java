@@ -25,15 +25,11 @@ public class Comentario implements Serializable{
         return Texto;
     }
     
-    public void SetTexto(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro
+    public void Comentar(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro
         this.Texto=texto;
     }
     public ArrayList<Comentario> GetComentarios(){ //con este metodo get coseguiremos la lista de comentarios
         return ListaComentarios;
-    }
-    
-    public void Comentar(String texto){ //asignará a la variable texto el valor que se le pase
-        this.Texto = texto;
     }
     
     public int GetPuntuacion(){ //con este metodo get coseguiremos lo guardado en la variable puntuacion

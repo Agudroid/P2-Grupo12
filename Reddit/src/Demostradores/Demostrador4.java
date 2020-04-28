@@ -7,7 +7,10 @@ package Demostradores;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import reddit.Comentario;
+import reddit.Entrada;
 import reddit.Foro;
+import reddit.SubForo;
 /**
  *
  * 
@@ -34,6 +37,12 @@ public class Demostrador4 {
                     System.out.println("Se ha registrado con existo");
                 }
             } 
+            System.out.println("Vamos a visualizar una entrada ya creada y subscribirnos a un foro");
+            SubForo sf = sistema.verSubForo("SubForo de prueba");
+            sf.AñadirSuscriptor();
+            Entrada ent = sf.verEntrada("Entrada de prueba");
+            ent.Comentar("Muchas gracias por la información aportada!!!");
+            
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador4.class.getName()).log(Level.SEVERE, null, ex);
         }
