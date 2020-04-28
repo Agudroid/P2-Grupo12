@@ -28,8 +28,8 @@ public class SubForo implements Subject,Serializable{
         usuarioActual = usuario;
     }
     
-    public void AñadirSuscriptor (Usuarios suscriptor){
-        ListaUsuario.add(suscriptor);
+    public void AñadirSuscriptor (){
+        ListaUsuario.add(usuarioActual);
     }
     
     public void Notificar (){
@@ -39,8 +39,8 @@ public class SubForo implements Subject,Serializable{
         }
     }
     
-    public void EliminarSuscriptor (Usuarios suscriptor){
-        ListaUsuario.remove(suscriptor);
+    public void EliminarSuscriptor (){
+        ListaUsuario.remove(usuarioActual);
     }
     
     public void CrearEntrada (String titulo, String texto){
