@@ -22,7 +22,6 @@ import java.util.Scanner;
  * @author Administrador // Alba Sevillano // miriamdefrancisco
  */
 public class Foro implements Serializable{
-    
     private static Foro Foro;
     private static final long SerialVersionUID=1L;
     private  String Nombre;
@@ -34,10 +33,15 @@ public class Foro implements Serializable{
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
-    
     private Foro(String nombre) throws ClassNotFoundException, IOException{
         this.Nombre = nombre;
     }
+    
+    public void avanzarDias(int dias){
+		for(Usuarios u: ListaUsuarios) {
+			u.avanzarDias(dias);
+		}
+	}
     
     public Usuarios  getUsuarioActual(){
         return usuarioLoggeado;
@@ -61,13 +65,20 @@ public class Foro implements Serializable{
         /*mientras haya mas usuarios en la lista, seguiré recorriendola hasta encontrar 
             al que coincida con los daos pasados como parámetros*/
             Usuarios usuarioActual = it.next();
-            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña) ) {
+            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña))  {
             /*si coincide lo que hay en el "usuarioActual" con los parámetros 
                 devolvermos un true y un comenatrio*/
                 usuarioLoggeado = usuarioActual;
                 Verificado = true;
+                for (int i=0;i<usuarioLoggeado.tamano();i++){
+                    if (usuarioLoggeado.getListaPenalizaciones().get(i).getActiva()){
+                        Verificado = false;
+                    }
+                }
             }
+         
         }
+ 
         /*tras ese proceso, comprobaremos como se encuentra la variable verificado
             y realizaremos lo oportuno en cada caso*/
         return Verificado;

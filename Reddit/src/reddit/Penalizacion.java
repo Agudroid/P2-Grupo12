@@ -8,7 +8,15 @@ public class Penalizacion implements Serializable{
 
 	private boolean activa;
 	private int diasPenalizacion;
-	
+        
+	public int getPenalizacion(){
+            return diasPenalizacion;
+        }
+        
+        public boolean getActiva(){
+            return activa;
+        }
+        
 	public Penalizacion(int dias) {
 		diasPenalizacion = dias;
 		activa = true;

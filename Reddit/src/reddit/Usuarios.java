@@ -13,15 +13,27 @@ import java.util.ArrayList;
  * @author Administrador
  */
 public class Usuarios implements Serializable{
-    
+    private ArrayList<Penalizacion> penalizaciones;
     private String Nombre;
     private String Apellido;
     private String Correo;
     private String Nick;
     private String Contraseña;
     private ArrayList<String> Notificaciones;
-
+    
+    public int tamano(){
+        return penalizaciones.size();
+    }
+    public void añadirPenalizacion (Penalizacion penalizacion){
+        penalizaciones.add(penalizacion);
+    }
+    
+    public ArrayList<Penalizacion> getListaPenalizaciones(){
+        return penalizaciones;
+    }
+    
     public Usuarios(String nombre, String apellido, String correo, String nick, String contraseña){
+        penalizaciones = new ArrayList<Penalizacion>();
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Correo = correo;
@@ -54,7 +66,15 @@ public class Usuarios implements Serializable{
         Notificaciones.add(notificacion);
         
     }
-
+    
+    public void avanzarDias(int dias) {
+		for(Penalizacion p : penalizaciones) {
+			if(p.estaActiva()) {
+				p.avanzarDias(dias);
+			}
+		}
+	}
+    
     @Override
     public String toString() {
         return "Usuarios{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", Nick=" + Nick + ", Contrase\u00f1a=" + Contraseña + '}';
