@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Administrador
  */
-class Usuarios implements Serializable{
+public class Usuarios implements Serializable{
     
     private String Nombre;
     private String Apellido;
