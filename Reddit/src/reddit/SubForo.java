@@ -13,12 +13,19 @@ import java.util.ArrayList;
  * @author Alba Sevillano
  */
 public class SubForo implements Subject,Serializable{
+    private Usuarios usuarioActual;
     private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
     private ArrayList<Entrada> ListaEntradas = new ArrayList<>();
 
     public SubForo(String titulo) {
         this.Titulo = titulo;
+    }
+    public String getTitulo(){
+        return Titulo;
+    }
+    public void setUsuarioActual (Usuarios usuario){
+        usuarioActual = usuario;
     }
     
     public void AñadirSuscriptor (Usuarios suscriptor){
@@ -36,10 +43,17 @@ public class SubForo implements Subject,Serializable{
         ListaUsuario.remove(suscriptor);
     }
     
-    public void CrearEntrada (String titulo){
-        Entrada entrada = new Entrada(titulo);
+    public void CrearEntrada (String titulo, Usuarios user, String texto){
+        Entrada entrada = new Entrada(titulo, texto);
         ListaEntradas.add(entrada);
-        Notificar();
+        Notificar();     
     }
     
+    public void añadirComponente(EntradaGenerica componente, Entrada ent){
+        if ((usuarioActual.isProfesor(usuarioActual)) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
+            ent.AñadirComponente(componente);
+        }else if (componente instanceof Entrada){
+            ent.AñadirComponente(componente);
+        }
+    }
 }

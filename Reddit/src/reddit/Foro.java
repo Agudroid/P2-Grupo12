@@ -146,6 +146,17 @@ public class Foro implements Serializable{
         }
         return foro;
     }
+    
+    public SubForo verSubForo(String nombre){
+        SubForo sf = null;
+        for (int i = 0; i < ListaSubForo.size(); i++) {
+            if (ListaSubForo.get(i).getTitulo().equals(nombre)){
+                sf = ListaSubForo.get(i);
+                sf.setUsuarioActual(usuarioLoggeado);
+            }
+        }
+        return sf;
+    }
 }
   
         

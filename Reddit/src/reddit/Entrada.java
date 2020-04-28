@@ -23,8 +23,9 @@ public class Entrada extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
    esta clase Entrada */
-    public Entrada (String titulo){
+    public Entrada (String titulo, String texto){
         this.Titulo = titulo;
+        this.Texto = texto;
     }
     @Override
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
