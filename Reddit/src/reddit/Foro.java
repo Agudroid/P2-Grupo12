@@ -30,7 +30,7 @@ public class Foro implements Serializable{
     private BBDDForo foro = new BBDDForo(ListaSubForo);
     boolean Verificado = false;
     Usuarios usuarioLoggeado = null;
-    private static File f;
+    private static File f= new File("BBDDForo.obj");
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */

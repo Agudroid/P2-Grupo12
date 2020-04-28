@@ -33,10 +33,17 @@ public class Demostrador1 {
                 boolean esRegistrado = sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","a.perez","67890", "67890");
                 if(esRegistrado == true){
                     System.out.println("Se ha registrado con existo");
-                    System.out.println("hola");
+                    
                 }
             }
-            
+      
+            System.out.println("Ahora intentamos iniciar sesion con el usuario que"
+                    + "acabamos de crear");
+            encontrado =sistema.Login("67890", "a.perez@urjc.es");
+            if(encontrado){
+                System.out.println("Hemos encontrado el usuario");
+                sistema.CrearSubForo("SubForo de prueba");
+            }
             
         } 
         catch (ClassNotFoundException ex) {
