@@ -24,13 +24,13 @@ import java.util.Scanner;
 public class Foro implements Serializable{
     
     private static Foro Foro;
+    private static final long SerialVersionUID=1L;
     private  String Nombre;
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
     private List <SubForo> ListaSubForo = new LinkedList<>();
-    private BBDDForo foro = new BBDDForo(ListaSubForo);
     boolean Verificado = false;
     Usuarios usuarioLoggeado = null;
-    private static File f= new File("BBDDForo.obj");
+    private static File f= new File("basededatos.obj");
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
@@ -108,11 +108,11 @@ public class Foro implements Serializable{
         // Despues de esto llamar a los metodos login o registrarse
     }
     
-    public boolean CrearSubForo(String nombre) throws IOException{ //permitirá crear un nuevo subforo, que se añadirá al foro
+    public boolean CrearSubForo(String nombre) throws IOException, ClassNotFoundException{ //permitirá crear un nuevo subforo, que se añadirá al foro
         if (usuarioLoggeado.isProfesor()){
             SubForo f = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
             ListaSubForo.add(f); //se añade a la lista de subforors
-            foro.EscribirBBDD(); //lo guardamos en la base de datos
+            Foro.EscribirBBDD(); //lo guardamos en la base de datos
              //devolvemos true si se ha guardado con exito y false en caso contrario
             return ListaSubForo.contains(f);
         }
@@ -136,19 +136,24 @@ public class Foro implements Serializable{
             }       
     }
     
-    public Foro LeerBBDD()throws IOException, ClassNotFoundException{
-        Foro foro = null;
+    public static Foro LeerBBDD() throws ClassNotFoundException{
+        Foro foroCargado=null;
         try{
+            
             FileInputStream file = new FileInputStream("basededatos.obj");
             ObjectInputStream inputFile = new ObjectInputStream(file);
-            foro = (Foro) inputFile.readObject();
+            foroCargado = (Foro) inputFile.readObject();
             inputFile.close();
             file.close();
+            
+            
         }
         catch(IOException e){
             System.out.println(e.getMessage()); 
         }
-        return foro;
+        
+        return foroCargado;
+        
     }
     
     public SubForo verSubForo(String nombre){
