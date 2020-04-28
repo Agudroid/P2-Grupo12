@@ -52,6 +52,8 @@ public class Demostrador3 {
             System.out.println("Vamos a verificar la entrada, para poder mostrarla");
             admin.verificarEntrada(entrada);
             System.out.println("Entrada verificada");
+            System.out.println("Mostramos el ejercicio");
+            System.out.println(ejercicio.GetTexto());
             sistema.Logout();
             
         } catch (ClassNotFoundException ex) {
