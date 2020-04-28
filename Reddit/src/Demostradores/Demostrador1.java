@@ -19,7 +19,7 @@ public class Demostrador1 {
     /**Este primer demostrador sirve para añadir contenido a las bases de datos,
      primero intentando iniciar sesión de manera fallida y luego creando un usuario
      profesor registrándolo en la base de datos, después podremos crear un subforo
-     y añadir una entrada (PROFESOR)*/
+       y añadir una entrada (PROFESOR)*/
     public static void main(String[] args) throws IOException{
         try {
             System.out.println("Inicializamos el foro:");
@@ -48,7 +48,15 @@ public class Demostrador1 {
                     SubForo SubForoActual = sistema.verSubForo("SubForo de prueba");
                     SubForoActual.CrearEntrada("Entrada de prueba", "La mejor entrada del mundo");
                     Entrada entrada=SubForoActual.verEntrada("Entrada de prueba");
+                    Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
+                    admin.verificarEntrada(entrada);
+                    System.out.println("Creamos una entrada al subForo");
                     System.out.println(entrada.GetTexto());
+                    Encuesta encuesta = new Encuesta("Los ovnis existen?","Crees que existen los ovnis 1.Si 2.No");
+                    System.out.println("Añadimos a la Entrada una encuesta");
+                    entrada.AñadirComponente(encuesta);
+                    System.out.println(encuesta.GetTexto());
+                    
                 }
             }
             sistema.Logout();
