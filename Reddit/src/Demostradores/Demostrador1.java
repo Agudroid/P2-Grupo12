@@ -19,7 +19,7 @@ public class Demostrador1 {
     /**Este primer demostrador sirve para añadir contenido a las bases de datos,
      primero intentando iniciar sesión de manera fallida y luego creando un usuario
      profesor registrándolo en la base de datos, después podremos crear un subforo
-     y añadir una entrada (PROFESOR)*/
+       y añadir una entrada (PROFESOR)*/
     public static void main(String[] args) throws IOException{
         try {
             System.out.println("Inicializamos el foro:");

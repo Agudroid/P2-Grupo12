@@ -43,10 +43,11 @@ public class SubForo implements Subject,Serializable{
         ListaUsuario.remove(usuarioActual);
     }
     
-    public void CrearEntrada (String titulo, String texto){
+    public Entrada CrearEntrada (String titulo, String texto){
         Entrada entrada = new Entrada(titulo, texto);
         ListaEntradas.add(entrada);
-        Notificar();     
+        Notificar(); 
+        return entrada;
     }
     
     public Entrada verEntrada(String titulo){

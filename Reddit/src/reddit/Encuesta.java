@@ -18,6 +18,10 @@ public class Encuesta extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Encuesta */
+    public Encuesta (String Titulo, String Texto){
+        this.Titulo = Titulo;
+        this.Texto = Texto;
+    }
     
     @Override
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
