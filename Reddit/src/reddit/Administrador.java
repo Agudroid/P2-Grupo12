@@ -17,8 +17,14 @@ public class Administrador extends Usuarios implements Serializable{
         super(Nombre, Apellido, Correo, Nick, Contraseña);
     }
     
-    public void verificarEntrada(Entrada ent){
-        ent.Verificar(true);
+    public void verificarEntrada(Entrada ent,boolean verificar){
+        ent.Verificar(verificar);
+        if (!verificar){
+            Usuarios autor = ent.GetAutor();
+            Penalizacion p = new Penalizacion();
+            autor.añadirPenalizacion(p);
+
+        } 
     }
     
 }

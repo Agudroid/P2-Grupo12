@@ -17,8 +17,8 @@ public class Penalizacion implements Serializable{
             return activa;
         }
         
-	public Penalizacion(int dias) {
-		diasPenalizacion = dias;
+	public Penalizacion() {
+		diasPenalizacion = 2;
 		activa = true;
 	}
 	

@@ -19,7 +19,7 @@ public class Usuarios implements Serializable{
     private String Correo;
     private String Nick;
     private String Contraseña;
-    private ArrayList<String> Notificaciones;
+    private ArrayList<String> Notificaciones = new ArrayList<String>();
     
     public int tamano(){
         return penalizaciones.size();
@@ -34,6 +34,7 @@ public class Usuarios implements Serializable{
     
     public Usuarios(String nombre, String apellido, String correo, String nick, String contraseña){
         penalizaciones = new ArrayList<Penalizacion>();
+        Notificaciones = new ArrayList<String>();
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Correo = correo;

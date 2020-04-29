@@ -17,12 +17,16 @@ public class TextoPlano extends EntradaGenerica implements Serializable{
     private String Titulo;
     private String Texto;
     private int Puntuacion;
-    boolean Verificada;
+    boolean Verificada = false;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase TextoPlano */
-   
+    public TextoPlano(String titulo, String texto){
+        this.Titulo= titulo;
+        this.Texto = texto;
+    }
+    
     @Override
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
         return Titulo;
@@ -33,12 +37,12 @@ public class TextoPlano extends EntradaGenerica implements Serializable{
         this.Titulo= titulo;
     }
     
-    @Override
+
     public String GetTexto(){ //con este metodo get coseguiremos lo guardado en la variable Texto
         return Texto;
     }
     
-    @Override
+
     public void SetTexto(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro
         this.Texto= texto;
     }

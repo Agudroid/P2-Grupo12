@@ -13,22 +13,23 @@ import java.util.ArrayList;
  * @author miriamdefrancisco
  */
 public class Entrada extends EntradaGenerica implements Serializable{
-    
-    private String Titulo;
-    private String Texto;
+    private Usuarios autor;
+    private String Titulo = "";
     private int Puntuacion = 0;
-    boolean Verificada;
+    boolean Verificada = false;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     private ArrayList<EntradaGenerica> Componentes = new ArrayList<>();
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
    esta clase Entrada */
-    public Entrada (String titulo, String texto){
+    public Entrada (String titulo, Usuarios autor){
         this.Titulo = titulo;
-        this.Texto = texto;
+        this.autor = autor;
     }
-    
-    @Override
+    public Usuarios GetAutor(){
+        return autor;
+    }
+
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
         return Titulo;
     }
@@ -36,16 +37,6 @@ public class Entrada extends EntradaGenerica implements Serializable{
     @Override
     public void SetTitulo(String titulo){ //asignará a la variable Titulo el valor que se le pase por parámetro 
         this.Titulo = titulo;
-    }
-
-    @Override
-    public String GetTexto(){ //con este metodo get coseguiremos lo guardado en la variable Texto
-        return Texto;
-    }
-
-    @Override
-    public void SetTexto(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro 
-        this.Texto = texto;
     }
 
     @Override
@@ -77,8 +68,16 @@ public class Entrada extends EntradaGenerica implements Serializable{
         return true;
     }
 
-    public void AñadirComponente (EntradaGenerica comp){ //permitirá añadir al array de Componentes una nuevo tipo de entrada
-        Componentes.add(comp);
+    public boolean AñadirComponente (EntradaGenerica comp){ //permitirá añadir al array de Componentes una nuevo tipo de entrada
+        boolean posible = false;
+        if ((autor.isProfesor()) && ((comp instanceof Ejercicio) || (comp instanceof Encuesta))){
+            Componentes.add(comp);
+            posible = true;
+        }else if (comp instanceof TextoPlano){
+            Componentes.add(comp);
+            posible = true;
+        }
+        return posible;
     }
     
     public void BorrarComponente (EntradaGenerica comp){ //permitirá elimianr del array de componentes aquello que no queramos que aparezca en la entrada

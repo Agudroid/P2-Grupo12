@@ -43,8 +43,8 @@ public class SubForo implements Subject,Serializable{
         ListaUsuario.remove(usuarioActual);
     }
     
-    public Entrada CrearEntrada (String titulo, String texto){
-        Entrada entrada = new Entrada(titulo, texto);
+    public Entrada CrearEntrada (String titulo){
+        Entrada entrada = new Entrada(titulo, usuarioActual);
         ListaEntradas.add(entrada);
         Notificar(); 
         return entrada;
@@ -62,6 +62,7 @@ public class SubForo implements Subject,Serializable{
            ent = aux; 
         }
         return ent;
+
     }
     
     public void añadirComponente(EntradaGenerica componente, Entrada ent){
@@ -69,6 +70,7 @@ public class SubForo implements Subject,Serializable{
             ent.AñadirComponente(componente);
         }else if (componente instanceof Entrada){
             ent.AñadirComponente(componente);
-        }
+
+    }
     }
 }

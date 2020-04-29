@@ -1,4 +1,3 @@
-
 package reddit;
 
 import java.io.Serializable;
@@ -12,7 +11,7 @@ public class Encuesta extends EntradaGenerica implements Serializable{
     private String Titulo;
     private String Texto;
     private int Puntuacion;
-    boolean Verificada;
+    boolean Verificada = false;
     private ArrayList<String> Respuestas = new ArrayList<>();
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
 
@@ -33,12 +32,12 @@ public class Encuesta extends EntradaGenerica implements Serializable{
         this.Titulo = title;
     }
     
-    @Override
+
     public String GetTexto(){ //con este metodo get coseguiremos lo guardado en la variable Texto
         return Texto;
     }
 
-    @Override
+
     public void SetTexto(String text){ //asignará a la variable Texto el valor que se le pase por parámetro
         this.Texto = text;
     }
