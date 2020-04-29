@@ -23,7 +23,9 @@ public class Demostrador4 {
     /**Este primer demostrador sirve para añadir contenido a las bases de datos,
      primero intentando iniciar sesión de manera fallida y luego creando un usuario
      alumno registrándolo en la base de datos, después podremos ver una entrada y 
-     comentarla (ALUMNO)*/
+     comentarla.Acto seguido, se penalizará al autor de esa entrada e intentaremos 
+     iniciar sesión con el usuario penalizado.Después avanzamos varios días e intentamos 
+     acceder de nuevo(ALUMNO)*/
     public static void main(String[] args) throws IOException {
         try {
             
