@@ -16,28 +16,35 @@ import reddit.*;
  */
 public class Demostrador1 {
 
-    /**Este primer demostrador sirve para añadir contenido a las bases de datos,
-     primero intentando iniciar sesión de manera fallida y luego creando un usuario
-     profesor registrándolo en la base de datos, después podremos crear un subforo
-       y añadir una entrada (PROFESOR)*/
+    /**(USUARIO PROFESOR).
+     * Este primer demostrador sirve para añadir contenido a
+     * las bases de datos, que en un primer momento están vacias.Primero se
+     * intenta iniciar sesión de manera fallida, ya que el usuario no está 
+     * registrado, posteriormente registramos un usuario profesor. Tras esto 
+     * accedemos al sistema y creamos un subforo y añadimos una entrada con 
+     * texto plano, pero posteriormente la modificaremos añadiéndole 
+     * una encuesta. */
+    
     public static void main(String[] args) throws IOException{
         try {
-            System.out.println("Inicializamos el foro Reddit URJC");
+            System.out.println("Vamos a inicializar el foro Reddit URJC");
             Foro sistema = Foro.GetForo("Reddit URJC");
-            System.out.println("");
+            System.out.print("\n");
             
             System.out.println("El foro ha sido creado con exito");
             System.out.println("Iniciamos sesión en el sistema");
             boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            
             if (!encontrado){
-                System.out.println(" ");
+                System.out.print("\n");
                 System.out.println("Error, la contraseña y/o correo no coinciden");
-                System.out.println(" ");
+                System.out.print("\n");
+                System.out.print("\n");
                 System.out.println("Vamos a registrarnos en el sistema");
                 boolean esRegistrado = sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","a.perez","67890", "67890");
                 if(esRegistrado == true){
-                    System.out.println("a.perez se ha registrado con exito");
-                    System.out.println(" ");
+                    System.out.println("El usuario a.perez se ha registrado con exito");
+                    System.out.print("\n");
                 }
             }
       
@@ -45,38 +52,44 @@ public class Demostrador1 {
                     + "acabamos de registrar");
             encontrado =sistema.Login("67890", "a.perez@urjc.es");
             if(encontrado){
-                System.out.println(" ");
+                System.out.print("\n");
                 System.out.println("El usuario se encuentra en la base de datos");
-                System.out.println(" ");
-                System.out.println("Voy a crear un subforo");
+                System.out.print("\n");
+                
+                System.out.println("A continuación, el usuario creará un subforo");
                 boolean SubForoCreado=sistema.CrearSubForo("SubForo MP");
                 if(SubForoCreado){
-                    System.out.println("El SubForo ha sido creado con éxito");
+                    System.out.println("El SubForo 'SubForo MP' ha sido creado con éxito");
                     SubForo SubForoReddit = sistema.verSubForo("SubForo MP");
                     
-                    System.out.println(" ");
-                    
+                    System.out.print("\n");
+                    System.out.print("Accedemos a él para añadirle una nueva entrada");
+                   
                     Entrada entrada = SubForoReddit.CrearEntrada("Introducción");
                     TextoPlano Entrada_txt = new TextoPlano("Explicación","El siguiente subforo"
                             +"se corresponde con la asignatura de MP");
                     entrada.AñadirComponente(Entrada_txt);
                     Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
+                    System.out.print("El administrador de esta nueva entrada será: "+admin.GetNick());
                     admin.verificarEntrada(entrada,true);
                     
-                    System.out.println("Se ha creado una entrada con texto plano, que se ha añadido"
+                    System.out.println("Se ha creado una entrada con texto plano, que se ha añadido tras ser verificada"
                             + "al SubForo Mp");
+                    
                     Encuesta Entrada_encuesta = new Encuesta("ENCUESTA ENTREGA PRÁCTICA","¿Te parece bien la entrega de la práctica?");
                     Entrada_encuesta.SetRespuesta("SÍ");
                     Entrada_encuesta.SetRespuesta("NO");
                     
-                    System.out.println(" ");
+                    System.out.print("\n");
+                    System.out.print("En este momento el administrador, quiere modificar la entrada añadiendole una encuesta");
                     
                     entrada.AñadirComponente(Entrada_encuesta);
                     admin.verificarEntrada(entrada,true);   
-                    System.out.println("Hemos verificado la entrada, tras haberle añadido la encuesta");
+                    System.out.println("Hemos verificado la entrada de nuevo, tras haberle añadido la encuesta");
                     
-                    System.out.println(" ");
+                    System.out.print("\n");
                     System.out.println("La entrada añadida es:");
+                    System.out.print("\n");
                     System.out.println(entrada.GetTitulo());
                     System.out.println(Entrada_txt.GetTitulo());
                     System.out.println(Entrada_txt.GetTexto());
