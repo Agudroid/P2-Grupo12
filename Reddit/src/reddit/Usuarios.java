@@ -12,52 +12,77 @@ import java.util.ArrayList;
  *
  * @author Administrador
  */
-class Usuarios implements Serializable{
+public class Usuarios implements Serializable{
+    private ArrayList<Penalizacion> penalizaciones;
     private String Nombre;
     private String Apellido;
     private String Correo;
     private String Nick;
     private String Contraseña;
-    private ArrayList<String> notificaciones;
-
-    public Usuarios(String Nombre, String Apellido, String Correo, String Nick, String Contraseña) {
-        this.Nombre = Nombre;
-        this.Apellido = Apellido;
-        this.Correo = Correo;
-        this.Nick = Nick;
-        this.Contraseña = Contraseña;
+    private ArrayList<String> Notificaciones = new ArrayList<String>();
+    
+    public int tamano(){
+        return penalizaciones.size();
+    }
+    public void añadirPenalizacion (Penalizacion penalizacion){
+        penalizaciones.add(penalizacion);
     }
     
-
-    public String getNombre() {
+    public ArrayList<Penalizacion> getListaPenalizaciones(){
+        return penalizaciones;
+    }
+    
+    public Usuarios(String nombre, String apellido, String correo, String nick, String contraseña){
+        penalizaciones = new ArrayList<Penalizacion>();
+        Notificaciones = new ArrayList<String>();
+        this.Nombre = nombre;
+        this.Apellido = apellido;
+        this.Correo = correo;
+        this.Nick = nick;
+        this.Contraseña = contraseña;
+    }
+    
+    public String GetNombre() {
         return Nombre;
     }
 
-    public String getApellido() {
+    public String GetApellido() {
         return Apellido;
     }
 
-    public String getCorreo() {
+    public String GetCorreo() {
         return Correo;
     }
 
-    public String getNick() {
+    public String GetNick() {
         return Nick;
     }
 
-    public String getContraseña() {
+    public String GetContraseña() {
         return Contraseña;
     }
     
-    public void recibirNotificacion(String notificacion){
+    public void RecibirNotificacion(String notificacion){
         
-        notificaciones.add(notificacion);
+        Notificaciones.add(notificacion);
         
     }
-
+    
+    public void avanzarDias(int dias) {
+		for(Penalizacion p : penalizaciones) {
+			if(p.estaActiva()) {
+				p.avanzarDias(dias);
+			}
+		}
+	}
+    
     @Override
     public String toString() {
         return "Usuarios{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", Nick=" + Nick + ", Contrase\u00f1a=" + Contraseña + '}';
+    }
+    
+    public boolean isProfesor(){
+        return Correo.endsWith("@urjc.es");
     }
     
     

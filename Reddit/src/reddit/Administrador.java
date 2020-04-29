@@ -5,14 +5,26 @@
  */
 package reddit;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Administrador
  */
-public class Administrador extends Usuarios {
+public class Administrador extends Usuarios implements Serializable{
 
     public Administrador(String Nombre, String Apellido, String Correo, String Nick, String Contraseña) {
         super(Nombre, Apellido, Correo, Nick, Contraseña);
+    }
+    
+    public void verificarEntrada(Entrada ent,boolean verificar){
+        ent.Verificar(verificar);
+        if (!verificar){
+            Usuarios autor = ent.GetAutor();
+            Penalizacion p = new Penalizacion();
+            autor.añadirPenalizacion(p);
+
+        } 
     }
     
 }

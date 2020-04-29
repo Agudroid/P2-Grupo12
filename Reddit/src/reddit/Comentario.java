@@ -5,34 +5,38 @@
  */
 package reddit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author miriamdefrancisco
  */
-public class Comentario {
-    private String texto;
-    private int puntuacion;
-    private ArrayList<Comentario> comentarios = new ArrayList<>();
+public class Comentario implements Serializable{
     
-    public void comentar(String txt){
-        texto = txt;
+    private String Texto;
+    private int Puntuacion;
+    private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
+ 
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+    esta clase Comentario */
+    
+    public String GetTexto(){ //con este metodo get coseguiremos lo guardado en la variable texto
+        return Texto;
     }
     
-    public void votar(int punt){
-        puntuacion += punt;
+    public void Comentar(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro
+        this.Texto=texto;
+    }
+    public ArrayList<Comentario> GetComentarios(){ //con este metodo get coseguiremos la lista de comentarios
+        return ListaComentarios;
     }
     
-    public ArrayList<Comentario> getComentarios(){
-        return comentarios;
+    public int GetPuntuacion(){ //con este metodo get coseguiremos lo guardado en la variable puntuacion
+        return Puntuacion;
     }
     
-    public String getTexto(){
-        return texto;
-    }
-    
-    public int getPuntuacion(){
-        return puntuacion;
-    }
+    public void Votar(int puntuacion){ //añadirá a la variable puntuacion el valor que se le pase
+        this.Puntuacion += puntuacion;
+    }  
 }

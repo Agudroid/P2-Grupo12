@@ -5,7 +5,9 @@
  */
 package reddit;
 
-import java.sql.Date;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 
@@ -14,28 +16,11 @@ import java.util.Calendar;
  *
  * @author Administrador
  */
-public class Alumno extends Usuarios{
+
+public class Alumno extends Usuarios implements Serializable{
     
-    private boolean EstaPenalizado;
-    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña ,boolean estaPenalizado) {
+    public Alumno(String Nombre, String Apellido, String Correo, String Nick, String Contraseña){
         super(Nombre, Apellido, Correo, Nick, Contraseña);
-        this.EstaPenalizado=estaPenalizado;
-        System.out.println("ALUMNO");
-    }
-    
-    public void penalizar(Calendar FechaFin){
-        Calendar fecha = Calendar.getInstance();
-        
-        EstaPenalizado=fecha.compareTo(FechaFin)<0;
-  
         
     }
-    
-    public boolean estaPenalizado(){
-        
-        return EstaPenalizado;
-    }
-    
-    
-    
 }

@@ -5,79 +5,86 @@
  */
 package reddit;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author miriamdefrancisco
  */
-public class Entrada extends EntradaGenerica {
-    private int puntuacion;
-    private String titulo;
-    private String texto;
-    boolean verificada;
+public class Entrada extends EntradaGenerica implements Serializable{
+    private Usuarios autor;
+    private String Titulo = "";
+    private int Puntuacion = 0;
+    boolean Verificada = false;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
-    private ArrayList<EntradaGenerica> componentes = new ArrayList<>();
+    private ArrayList<EntradaGenerica> Componentes = new ArrayList<>();
 
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+   esta clase Entrada */
+    public Entrada (String titulo, Usuarios autor){
+        this.Titulo = titulo;
+        this.autor = autor;
+    }
+    public Usuarios GetAutor(){
+        return autor;
+    }
+
+    public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
+        return Titulo;
+    }
+    
     @Override
-    public String getTitulo() {
-        return titulo;
+    public void SetTitulo(String titulo){ //asignará a la variable Titulo el valor que se le pase por parámetro 
+        this.Titulo = titulo;
     }
 
     @Override
-    public String getTexto() {
-        return texto;
+    public int GetPuntuacion(){ //con este metodo get coseguiremos lo guardado en la variable Puntuacion
+        return Puntuacion;
+    }
+    
+    @Override
+    public boolean Votar(int valor){ //permite modificar la variable Puntuacion sumando el valor que se le pase por parámetro 
+        this.Puntuacion= Puntuacion+valor;
+        return true;
     }
 
     @Override
-    public void setTitulo(String title) {
-        titulo = title;
+    public boolean GetVerificada(){ //con este metodo get coseguiremos el booleano guardado en la variable Verficada
+        return Verificada;
     }
 
     @Override
-    public void setTexto(String text) {
-        texto = text;
+    public void Verificar(boolean resultado){ //modificará el booleano de la variable Verificada 
+        Verificada = resultado;
     }
 
     @Override
-    public int getPuntuacion() {
-        return puntuacion;
-    }
-
-    @Override
-    public boolean getVerificada() {
-        return verificada;
-    }
-
-    @Override
-    public void verificar(boolean resultado) {
-        verificada = resultado;
-    }
-
-    @Override
-    public boolean comentar(String texto) {
+    public boolean Comentar(String texto){ //permitirá crear el comnentario y añadirlo a la lista de comentarios
         Comentario comentario = new Comentario();
-        comentario.comentar(texto);
+        comentario.Comentar(texto);
         ListaComentarios.add(comentario);
         return true;
     }
 
-    @Override
-    public boolean votar(int valor) {
-        this.puntuacion= puntuacion+valor;
-        return true;
+    public boolean AñadirComponente (EntradaGenerica comp){ //permitirá añadir al array de Componentes una nuevo tipo de entrada
+        boolean posible = false;
+        if ((autor.isProfesor()) && ((comp instanceof Ejercicio) || (comp instanceof Encuesta))){
+            Componentes.add(comp);
+            posible = true;
+        }else if (comp instanceof TextoPlano){
+            Componentes.add(comp);
+            posible = true;
+        }
+        return posible;
     }
     
-    public void añadirComponente (EntradaGenerica comp){
-        componentes.add(comp);
+    public void BorrarComponente (EntradaGenerica comp){ //permitirá elimianr del array de componentes aquello que no queramos que aparezca en la entrada
+        Componentes.remove(comp);
     }
     
-    public void borrarComponente (EntradaGenerica comp){
-        componentes.remove(comp);
-    }
-    
-    public ArrayList<EntradaGenerica> getComponentes(){
-        return componentes;
-    }
-    
+    public ArrayList<EntradaGenerica> GetComponentes(){ //con este metodo get coseguiremos el array de Componentes de la entrada con la que estamos trabajando
+        return Componentes;
+    }  
 }

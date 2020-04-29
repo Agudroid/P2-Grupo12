@@ -4,30 +4,67 @@
  * and open the template in the editor.
  */
 package Demostradores;
-import reddit.Foro;
+
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import reddit.*;
+
 /**
  *
- * 
- * @author miriamdefrancisco
+ * @author adri-
  */
 public class Demostrador1 {
+
     /**Este primer demostrador sirve para añadir contenido a las bases de datos,
      primero intentando iniciar sesión de manera fallida y luego creando un usuario
-     registrándolo en la base de datos, después, creamos un subforo y una entrada*/
-    public static void main(String[] args) {
+     profesor registrándolo en la base de datos, después podremos crear un subforo
+       y añadir una entrada (PROFESOR)*/
+    public static void main(String[] args) throws IOException{
+        try {
             System.out.println("Inicializamos el foro:");
-            Foro sistema = Foro.getForo("Reddit URJC");
+            Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.println("El foro ha sido creado.");
-            System.out.println("Iniciamos sesión en el sistema con un usuario no registrado");
-            boolean encontrado = sistema.login("12345", "m.defrancisco.2018@alumnos.urjc.es");
-            if (encontrado){
-                System.out.println("Bienvenido al foro");
-            } else {
+            System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
+            boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            if (!encontrado){
                 System.out.println("Error, la contraseña y/o correo no coinciden");
+                System.out.println("Vamos a registrarnos en el sistema");
+                boolean esRegistrado = sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","a.perez","67890", "67890");
+                if(esRegistrado == true){
+                    System.out.println("Se ha registrado con existo");
+                    
+                }
             }
-            System.out.println("Vamos a registrarnos en el sistema");
-            sistema.Registrarse("Miriam","de Francisco","m.defrancisco.2018@alumnos.urjc.es","miri.fa","12345");
-               
-            
-    }   
+      
+            System.out.println("Ahora intentamos iniciar sesion con el usuario que"
+                    + "acabamos de crear");
+            encontrado =sistema.Login("67890", "a.perez@urjc.es");
+            if(encontrado){
+                System.out.println("Hemos encontrado el usuario");
+                boolean SubForoCreado=sistema.CrearSubForo("SubForo de prueba");
+                if(SubForoCreado){
+                    System.out.println("SubForo creado");
+                    SubForo SubForoActual = sistema.verSubForo("SubForo de prueba");
+                    Entrada entrada = SubForoActual.CrearEntrada("Entrada de prueba");
+                    TextoPlano txt = new TextoPlano("Introducción","patata");
+                    entrada.AñadirComponente(txt);
+                    Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
+                    admin.verificarEntrada(entrada,true);
+                    System.out.println("Creamos una entrada al subForo");
+                    Encuesta encuesta = new Encuesta("Los ovnis existen?","Crees que existen los ovnis");
+                    encuesta.SetRespuesta("Sí");
+                    encuesta.SetRespuesta("No");
+                    System.out.println("Añadimos a la Entrada una encuesta");
+                    entrada.AñadirComponente(encuesta);
+                    admin.verificarEntrada(entrada,true);                  
+                }
+            }
+            sistema.Logout();
+        } 
+        catch (ClassNotFoundException ex) {
+            Logger.getLogger(Demostrador5.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
 }

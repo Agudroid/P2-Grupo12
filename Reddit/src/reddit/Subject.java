@@ -9,8 +9,9 @@ package reddit;
  *
  * @author miriamdefrancisco
  */
-public interface Subject {
-    public void añadirSuscriptor(Usuarios suscriptor);
-    public void notificar();
-     public void eliminarSuscriptor (Usuarios suscriptor);
+public interface Subject{
+    
+    public void AñadirSuscriptor();
+    public void Notificar();
+     public void EliminarSuscriptor ();
 }
