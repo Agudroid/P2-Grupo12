@@ -28,24 +28,29 @@ public class Demostrador3 {
      */
     public static void main(String[] args) throws IOException {
         try {
+            //iniciamos el foro
             System.out.println("Inicializamos el foro:");
             Foro sistema = Foro.GetForo("Reddit URJC");
-            System.out.println("El foro ha sido creado.");
+            System.out.println("El foro ha sido iniciado.");
+            //iniciamos sesion con un usuario existente
             System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
             boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (encontrado){
                 System.out.println("Bienvenido al foro");
             }
+            //añadimos una entrada y nos suscribimos al SubForo MP
             System.out.println("Vamos a visualizar una entrada ya creada y subscribirnos a un foro");
-            SubForo sf = sistema.verSubForo("SubForo de prueba");
+            SubForo sf = sistema.verSubForo("SubForo MP");
             System.out.println("SubForo encontrado");
             System.out.println("Vamos a añadir una nueva entrada al subforo");
             Entrada entrada= sf.CrearEntrada("Segunda entrada");
+            //creamos un administrador y verificamos la entrada
             Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
             System.out.println("Administrador creado");
             System.out.println("Vamos a verificar la entrada, para poder mostrarla");
             admin.verificarEntrada(entrada,true);
             System.out.println("Entrada verificada");
+            //creamos un ejercicio de matematicas y lo añadimos a la entrada
             Entrada segundaEntrada = sf.verEntrada("Segunda entrada");
             Ejercicio ejercicio = new Ejercicio ("Matematicas", "2+2", "4");
             segundaEntrada.AñadirComponente(ejercicio);
