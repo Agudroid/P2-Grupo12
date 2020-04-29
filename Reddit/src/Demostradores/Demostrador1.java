@@ -46,21 +46,21 @@ public class Demostrador1 {
                 if(SubForoCreado){
                     System.out.println("SubForo creado");
                     SubForo SubForoActual = sistema.verSubForo("SubForo de prueba");
-                    SubForoActual.CrearEntrada("Entrada de prueba", "La mejor entrada del mundo");
-                    Entrada entrada=SubForoActual.verEntrada("Entrada de prueba");
+                    Entrada entrada = SubForoActual.CrearEntrada("Entrada de prueba");
+                    TextoPlano txt = new TextoPlano("Introducción","patata");
+                    entrada.AñadirComponente(txt);
                     Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
-                    admin.verificarEntrada(entrada);
+                    admin.verificarEntrada(entrada,true);
                     System.out.println("Creamos una entrada al subForo");
-                    System.out.println(entrada.GetTexto());
-                    Encuesta encuesta = new Encuesta("Los ovnis existen?","Crees que existen los ovnis 1.Si 2.No");
+                    Encuesta encuesta = new Encuesta("Los ovnis existen?","Crees que existen los ovnis");
+                    encuesta.SetRespuesta("Sí");
+                    encuesta.SetRespuesta("No");
                     System.out.println("Añadimos a la Entrada una encuesta");
                     entrada.AñadirComponente(encuesta);
-                    System.out.println(encuesta.GetTexto());
-                    
+                    admin.verificarEntrada(entrada,true);                  
                 }
             }
             sistema.Logout();
-            
         } 
         catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador5.class.getName()).log(Level.SEVERE, null, ex);

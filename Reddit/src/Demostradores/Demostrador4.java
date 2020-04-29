@@ -7,6 +7,7 @@ package Demostradores;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import reddit.Administrador;
 import reddit.Comentario;
 import reddit.Entrada;
 import reddit.Foro;
@@ -44,11 +45,20 @@ public class Demostrador4 {
             sf.AñadirSuscriptor();
             Entrada ent = sf.verEntrada("Entrada de prueba");
             ent.Comentar("Muchas gracias por la información aportada!!!");
-            Penalizacion penalizacion = new Penalizacion(3);
-            Usuarios u = sistema.getUsuarioActual();
-            u.añadirPenalizacion(penalizacion);
+            Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
+            admin.verificarEntrada(ent, false);
             sistema.Logout();
+            encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            if (!encontrado){
+                System.out.println("Estas penalizado");
+            }
             sistema.avanzarDias(4);
+            encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            if (!encontrado){
+                System.out.println("No puede hacer login");
+            }else{
+                System.out.println("Se ha iniciado sesion con exito");
+            }
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador4.class.getName()).log(Level.SEVERE, null, ex);
