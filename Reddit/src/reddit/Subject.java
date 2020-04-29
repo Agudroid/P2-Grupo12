@@ -13,5 +13,5 @@ public interface Subject{
     
     public void AñadirSuscriptor();
     public void Notificar();
-     public void EliminarSuscriptor ();
+    public void EliminarSuscriptor ();
 }

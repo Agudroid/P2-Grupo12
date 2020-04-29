@@ -13,14 +13,19 @@ import java.io.Serializable;
  */
 public class Administrador extends Usuarios implements Serializable{
 
-    public Administrador(String Nombre, String Apellido, String Correo, String Nick, String Contraseña) {
-        super(Nombre, Apellido, Correo, Nick, Contraseña);
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+esta clase Administrador */
+    
+    //Constructor de la clase Administrador
+    public Administrador(String nombre, String apellido, String correo, String nick, String contraseña) {
+        super(nombre, apellido, correo, nick, contraseña);
     }
     
-    public void verificarEntrada(Entrada ent,boolean verificar){
-        ent.Verificar(verificar);
-        if (!verificar){
-            Usuarios autor = ent.GetAutor();
+    //Con este metodo conseguiremos verificar o no la entrada que vaya a revisar el Administrador 
+    public void verificarEntrada(Entrada entrada,boolean verificada){  
+        entrada.Verificar(verificada);
+        if (!verificada){
+            Usuarios autor = entrada.GetAutor();
             Penalizacion p = new Penalizacion();
             autor.añadirPenalizacion(p);
 

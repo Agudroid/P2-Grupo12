@@ -17,9 +17,10 @@ public class Encuesta extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Encuesta */
-    public Encuesta (String Titulo, String Texto){
-        this.Titulo = Titulo;
-        this.Texto = Texto;
+    
+    public Encuesta (String titulo, String texto){ //Constructor de la clase Encuesta 
+        this.Titulo = titulo;
+        this.Texto = texto;
     }
     
     @Override

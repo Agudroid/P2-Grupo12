@@ -6,31 +6,30 @@ import java.io.Serializable;
 
 public class Penalizacion implements Serializable{
 
-	private boolean activa;
-	private int diasPenalizacion;
-        
-	public int getPenalizacion(){
-            return diasPenalizacion;
+    private boolean Activa;
+    private int DiasPenalizacion;
+    
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+esta clase Administrador */
+   
+	public int GetPenalizacion(){ //con este metodo get coseguiremos lo guardado en la variable DiasPenalización
+            return DiasPenalizacion;
         }
         
-        public boolean getActiva(){
-            return activa;
-        }
-        
-	public Penalizacion() {
-		diasPenalizacion = 2;
-		activa = true;
+	public Penalizacion() { //con este metodo activaremso cuando sea necesario una penalización
+            DiasPenalizacion = 2;
+            Activa = true;
 	}
 	
-	public boolean estaActiva() {
-		return activa;
+	public boolean EstaActiva() { //con este metodo coseguiremos lo guardado en la variable Activa
+		return Activa;
 	}
 	
-	public void avanzarDias(int dias) {
-		diasPenalizacion -= dias;
-		if(diasPenalizacion < 0) {
-			diasPenalizacion = 0;
-			activa = false;
-		}
+	public void AvanzarDias(int dias) { //método que nos permitirá avanzar días para favorecer la comprobación de los demostradores
+            DiasPenalizacion -= dias;
+            if(DiasPenalizacion < 0) {
+                DiasPenalizacion = 0;
+		Activa = false;
+            }
 	}
 }

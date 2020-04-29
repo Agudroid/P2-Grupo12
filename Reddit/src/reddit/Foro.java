@@ -23,33 +23,34 @@ import java.util.Scanner;
  */
 public class Foro implements Serializable{
     private static Foro Foro;
-    private static final long SerialVersionUID=1L;
+    private static final long SerialVersionUID = 1L;
     private  String Nombre;
     private List <Usuarios> ListaUsuarios = new LinkedList<>();
     private List <SubForo> ListaSubForo = new LinkedList<>();
     boolean Verificado = false;
-    Usuarios usuarioLoggeado = null;
-    private static File f= new File("basededatos.obj");
+    Usuarios UsuarioLoggeado = null;
+    private static File fichero= new File("basededatos.obj");
     
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
-    private Foro(String nombre) throws ClassNotFoundException, IOException{
+    
+    private Foro(String nombre) throws ClassNotFoundException, IOException{ //Constructor de foro
         this.Nombre = nombre;
     }
     
-    public void avanzarDias(int dias){
-		for(Usuarios u: ListaUsuarios) {
-			u.avanzarDias(dias);
-		}
+    public void AvanzarDias(int dias){ //Función creada para poder acabar antes las penalizaciones que se le pongan a los usuarios
+	for(Usuarios u: ListaUsuarios){
+            u.AvanzarDias(dias);
 	}
-    
-    public Usuarios  getUsuarioActual(){
-        return usuarioLoggeado;
     }
     
-    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la instancia Foro esta apuntando a null o no
+    public Usuarios  GetUsuarioActual(){ //nos permitirá saber que usuario es el que ha iniciado sesión
+        return UsuarioLoggeado;
+    }
+    
+    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la base de datos esta creada o no esta creada
         if (Foro == null){
-            if (f.exists()){ 
+            if (fichero.exists()){ 
                 Foro = Foro.LeerBBDD();
             }
             else{
@@ -68,19 +69,17 @@ public class Foro implements Serializable{
             if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña))  {
             /*si coincide lo que hay en el "usuarioActual" con los parámetros 
                 devolvermos un true y un comenatrio*/
-                usuarioLoggeado = usuarioActual;
+                UsuarioLoggeado = usuarioActual;
                 Verificado = true;
-                for (int i=0;i<usuarioLoggeado.tamano();i++){
-                    if (usuarioLoggeado.getListaPenalizaciones().get(i).getActiva()){
+                for (int i=0;i<UsuarioLoggeado.tamano();i++){
+                    if (UsuarioLoggeado.getListaPenalizaciones().get(i).EstaActiva()){
                         Verificado = false;
                     }
                 }
             }
-         
         }
- 
-        /*tras ese proceso, comprobaremos como se encuentra la variable verificado
-            y realizaremos lo oportuno en cada caso*/
+        /*tras ese proceso, comprobaremos como se encuentra la variable verificado 
+        y realizaremos lo oportuno en cada caso*/
         return Verificado;
     }
 
@@ -89,8 +88,10 @@ public class Foro implements Serializable{
         String prueba;
         boolean resultado;
         Scanner sc = new Scanner(correo);
+        
         prueba = sc.findInLine("([a-z]).([a-z]+).20([0-9][0-9])@alumnos.urjc.es"); //comprobamos que es el patron del correo del alumno
         String prueba2 = sc.findInLine("([a-z]).([a-z]+)@urjc.es"); //comprobamos que es el patron del correo del profesor
+        
         boolean alumno = correo.equals(prueba); //comprobamos que es el correo del alumno
         boolean profesor = correo.equals(prueba2); //comprobamos que es el correo del alumno
         resultado = false; //inicializamos la var resultado
@@ -105,8 +106,7 @@ public class Foro implements Serializable{
            }
         }
         else{
-           System.out.println("Has escrito mal el correo. Por favor intentelo de nuevo.");  //el correo no coincide con el de profesor o alumno        
-           
+           System.out.println("Has escrito mal el correo. Por favor intentelo de nuevo.");  //el correo no coincide con el de profesor o alumno          
         }
         return resultado;
     }
@@ -115,23 +115,24 @@ public class Foro implements Serializable{
         Verificado = false;
         EscribirBBDD();
         return Verificado;
-// siempre va a devolver false porque haces logout
-        // Despues de esto llamar a los metodos login o registrarse
+        // siempre va a devolver false porque haces logout
     }
     
-    public boolean CrearSubForo(String nombre) throws IOException, ClassNotFoundException{ //permitirá crear un nuevo subforo, que se añadirá al foro
-        if (usuarioLoggeado.isProfesor()){
-            SubForo f = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
-            ListaSubForo.add(f); //se añade a la lista de subforors
+    //permitirá crear un nuevo subforo, que se añadirá al foro, comprobando que el usuario que lo crea sea un profesor
+    public boolean CrearSubForo(String nombre) throws IOException, ClassNotFoundException{  
+        if (UsuarioLoggeado.isProfesor()){
+            SubForo subforo = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
+            ListaSubForo.add(subforo); //se añade a la lista de subforors
             Foro.EscribirBBDD(); //lo guardamos en la base de datos
              //devolvemos true si se ha guardado con exito y false en caso contrario
-            return ListaSubForo.contains(f);
+            return ListaSubForo.contains(subforo);
         }
         else{
             return false;
         }
     }
     
+    //método que nos permitirá guardar los datos en la base de datos
     public boolean EscribirBBDD() throws ClassNotFoundException, IOException{      
         
             try{
@@ -147,35 +148,31 @@ public class Foro implements Serializable{
             }       
     }
     
+    //método que nos permitirá cargar la información de la base de datos
     public static Foro LeerBBDD() throws ClassNotFoundException{
         Foro foroCargado=null;
         try{
-            
             FileInputStream file = new FileInputStream("basededatos.obj");
             ObjectInputStream inputFile = new ObjectInputStream(file);
             foroCargado = (Foro) inputFile.readObject();
             inputFile.close();
             file.close();
-            
-            
         }
         catch(IOException e){
             System.out.println(e.getMessage()); 
         }
-        
         return foroCargado;
-        
     }
     
-    public SubForo verSubForo(String nombre){
-        SubForo sf = null;
+    public SubForo verSubForo(String nombre){ //método necesario para permitir acceder al foro, y verlo
+        SubForo subforo = null;
         for (int i = 0; i < ListaSubForo.size(); i++) {
-            if (ListaSubForo.get(i).getTitulo().equals(nombre)){
-                sf = ListaSubForo.get(i);
-                sf.setUsuarioActual(usuarioLoggeado);
+            if (ListaSubForo.get(i).GetTitulo().equals(nombre)){ //si lo hemos encontrado entre todos los foros creados
+                subforo = ListaSubForo.get(i);
+                subforo.SetUsuarioActual(UsuarioLoggeado);
             }
         }
-        return sf;
+        return subforo;
     }
 }
   
