@@ -13,6 +13,7 @@ import reddit.Entrada;
 import reddit.Foro;
 import reddit.Penalizacion;
 import reddit.SubForo;
+import reddit.TextoPlano;
 import reddit.Usuarios;
 /**
  *
@@ -20,54 +21,98 @@ import reddit.Usuarios;
  * @author miriamdefrancisco
  */
 public class Demostrador4 {
-    /**Este primer demostrador sirve para añadir contenido a las bases de datos,
-     primero intentando iniciar sesión de manera fallida y luego creando un usuario
-     alumno registrándolo en la base de datos, después podremos ver una entrada y 
-     comentarla.Acto seguido, se penalizará al autor de esa entrada e intentaremos 
-     iniciar sesión con el usuario penalizado.Después avanzamos varios días e intentamos 
-     acceder de nuevo(ALUMNO)*/
+    /**(USUARIO ALUMNO). En este demostrador, se intenta iniciar sesión de manera
+     * fallida y luego se realiza el proceso de registro de ese usuario, un 
+     * alumno. Después podremos ver una entrada y comentarla. 
+     * Haemos logout con el alumno, y acto seguido, se inicia sesión con un profesor
+     * intentará crear una entrada, pero esta no será verificada por el administrador 
+     * por lo que se penalizará al autor de la entrada. Intentaremos iniciar sesión 
+     * con el usuario penalizado, pero no será posible, tras el avance de unos 
+     * días comprobaremos que puede volver a hacer login en el foro.*/
+    
     public static void main(String[] args) throws IOException {
         try {
             
-            System.out.println("Inicializamos el foro:");
+            System.out.println("Vamos a inicializar el foro Reddit URJC");
             Foro sistema = Foro.GetForo("Reddit URJC");
+            System.out.print("\n");
             System.out.println("El foro ha sido inicializado");
-            System.out.println("Iniciamos sesión en el sistema con un usuario alumno no registrado");
+            System.out.print("\n");
+            System.out.println("Iniciamos sesión en el sistema");
             boolean encontrado = sistema.Login("12345", "m.defrancisco.2018@alumnos.urjc.es");
+            
             if (!encontrado){
+                System.out.print("\n");
                 System.out.println("Error, la contraseña y/o correo no coinciden");
                 System.out.println("Vamos a registrarnos en el sistema");
                 boolean esRegistrado = sistema.RegistrarUsuario("Miriam","de Francisco","m.defrancisco.2018@alumnos.urjc.es","miri.fa","12345", "12345");
                 if(esRegistrado == true){
-                    System.out.println("Se ha registrado con existo");
+                    System.out.print("\n");
+                    System.out.println("Se ha registrado con exito");
                 }
             } 
             System.out.println("Vamos a visualizar una entrada ya creada y subscribirnos a un foro");
             SubForo sf = sistema.verSubForo("SubForo MP");
             sf.AñadirSuscriptor();
-            Entrada ent = sf.verEntrada("Introducción");
+            System.out.print("\n");
+            System.out.println("se ha subscrito con éxito");
+            Entrada ent = sf.VerEntrada("Introducción");
+            System.out.print("\n");
             ent.Comentar("Muchas gracias por la información aportada!!!");
-            Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
-            System.out.println("Se penaliza al autor de la entrada");
-            admin.verificarEntrada(ent, false);
-             boolean logout = sistema.Logout();
-            if(logout==false){
-                System.out.println("Has cerrado sesion. Hasta pronto");                
+            System.out.println("Se ha comentado con éxito");
+            
+            boolean logout = sistema.Logout();
+                if(logout==false){
+                    System.out.print("\n");
+                    System.out.println("Has cerrado sesion. Hasta pronto");                
+                }
+            System.out.print("\n");
+            System.out.print("\n");
+            System.out.println("Vamos a iniciar sesión con otro usuario y crearemos una entrada "+
+                    "que va a ser penalizada");
+            encontrado = sistema.Login("67890", "a.perez@urjc.es");
+            if (encontrado){
+                System.out.print("\n");
+                System.out.println("Se ha iniciado sesion con exito");
+                SubForo SubForoReddit = sistema.verSubForo("SubForo MP");
+                Entrada entrada = SubForoReddit.CrearEntrada("Entrada penalizada");
+                TextoPlano Entrada_txt = new TextoPlano("Explicación","Esta entrada"
+                +"es para probar la penalización");
+                entrada.AñadirComponente(Entrada_txt);
+                System.out.print("\n");
+                System.out.println("se ha creado la entrada con éxito, ahora vamos a verificarla");
+                Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
+                System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
+                admin.verificarEntrada(entrada,false);
+                System.out.print("\n");
+                System.out.println("la entrada ha sido finalizada");
+                
+                logout = sistema.Logout();
+                if(logout==false){
+                    System.out.print("\n");
+                    System.out.println("Has cerrado sesion. Hasta pronto");                
+                }
             }
+            System.out.print("\n");
             System.out.println("Intentamos acceder al sistema con el usuario penalizado");
             encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (!encontrado){
                 System.out.println("Estas penalizado, no puedes acceder al foro");
+                System.out.print("\n");
             }
-            System.out.println("Avanzamos varios días e intentamos acceder de nuevo");
-            sistema.avanzarDias(4);
+            System.out.println("Avanzamos 4 días e intentamos acceder de nuevo");
+            sistema.AvanzarDias(4);
             encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (!encontrado){
+                System.out.print("\n");
                 System.out.println("Estas penalizado, no puedes acceder al foro");
             }else{
+                System.out.print("\n");
                 System.out.println("Se ha iniciado sesion con exito");
+                
                 logout = sistema.Logout();
                 if(logout==false){
+                    System.out.print("\n");
                     System.out.println("Has cerrado sesion. Hasta pronto");                
                 }
             }

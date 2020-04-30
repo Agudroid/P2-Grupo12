@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author miriamdefrancisco
  */
 public class Entrada extends EntradaGenerica implements Serializable{
-    private Usuarios autor;
+    private Usuarios Autor;
     private String Titulo = "";
     private int Puntuacion = 0;
     boolean Verificada = false;
@@ -22,12 +22,13 @@ public class Entrada extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
    esta clase Entrada */
-    public Entrada (String titulo, Usuarios autor){
+    
+    public Entrada (String titulo, Usuarios autor){ //Constructor de la clase Entrada
         this.Titulo = titulo;
-        this.autor = autor;
+        this.Autor = autor;
     }
-    public Usuarios GetAutor(){
-        return autor;
+    public Usuarios GetAutor(){ //con este metodo get conseguiremos el nombre del usurario que crea la entrada
+        return Autor;
     }
 
     public String GetTitulo(){ //con este metodo get coseguiremos lo guardado en la variable Titulo
@@ -68,19 +69,21 @@ public class Entrada extends EntradaGenerica implements Serializable{
         return true;
     }
 
-    public boolean AñadirComponente (EntradaGenerica comp){ //permitirá añadir al array de Componentes una nuevo tipo de entrada
-        boolean posible = false;
-        if ((autor.isProfesor()) && ((comp instanceof Ejercicio) || (comp instanceof Encuesta))){
-            Componentes.add(comp);
-            posible = true;
-        }else if (comp instanceof TextoPlano){
-            Componentes.add(comp);
-            posible = true;
+    //permitirá añadir al array de Componentes una nuevo tipo de entrada, comprobando que el usurio pueda o no crearla
+    public boolean AñadirComponente (EntradaGenerica componente){ 
+        boolean esposible = false;
+        if ((Autor.isProfesor()) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
+            Componentes.add(componente);
+            esposible = true;
         }
-        return posible;
+        else if (componente instanceof TextoPlano){
+            Componentes.add(componente);
+            esposible = true;
+        }
+        return esposible;
     }
     
-    public void BorrarComponente (EntradaGenerica comp){ //permitirá elimianr del array de componentes aquello que no queramos que aparezca en la entrada
+    public void BorrarComponente (EntradaGenerica comp){ //permitirá eliminar del array de componentes aquello que no queramos que aparezca en la entrada
         Componentes.remove(comp);
     }
     

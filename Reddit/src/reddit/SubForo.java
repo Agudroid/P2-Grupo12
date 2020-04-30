@@ -13,23 +13,29 @@ import java.util.ArrayList;
  * @author Alba Sevillano
  */
 public class SubForo implements Subject,Serializable{
-    private Usuarios usuarioActual;
+    
+    private Usuarios UsuarioActual;
     private String Titulo;
     private ArrayList<Usuarios> ListaUsuario = new ArrayList<>();
     private ArrayList<Entrada> ListaEntradas = new ArrayList<>();
 
-    public SubForo(String titulo) {
+/* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
+    la clase SubForo */
+    
+    public SubForo(String titulo) { //constructor de la clase SubForo
         this.Titulo = titulo;
     }
-    public String getTitulo(){
+    
+    public String GetTitulo(){ //con este metodo get coseguiremos el string guardado en la variable Titulo
         return Titulo;
     }
-    public void setUsuarioActual (Usuarios usuario){
-        usuarioActual = usuario;
+    
+    public void SetUsuarioActual (Usuarios usuario){ //con este metodo coseguiremos asiganr a la variable UsuarioActual el nombre por parámetro
+        UsuarioActual = usuario;
     }
     
-    public void AñadirSuscriptor (){
-        ListaUsuario.add(usuarioActual);
+    public void AñadirSuscriptor (){ //metodo que añade al array de usuarios del subforo un subscriptor
+        ListaUsuario.add(UsuarioActual);
     }
     
     public void Notificar (){
@@ -39,19 +45,20 @@ public class SubForo implements Subject,Serializable{
         }
     }
     
-    public void EliminarSuscriptor (){
-        ListaUsuario.remove(usuarioActual);
+    public void EliminarSuscriptor (){ //metodo que nos permitirá eliminar a un subscriptor de la lista de usuarios del subforo
+        ListaUsuario.remove(UsuarioActual);
     }
     
-    public Entrada CrearEntrada (String titulo){
-        Entrada entrada = new Entrada(titulo, usuarioActual);
+    //metodo para crear la entrada, conociendo el usuario que ha hecho login, se añadirá al array de entradas y se notificará al usuario
+    public Entrada CrearEntrada (String titulo){  
+        Entrada entrada = new Entrada(titulo, UsuarioActual);
         ListaEntradas.add(entrada);
         Notificar(); 
         return entrada;
     }
     
-    public Entrada verEntrada(String titulo){
-        Entrada ent = null;
+    public Entrada VerEntrada(String titulo){ //comprobará si la entrada esta verificada, en este caso permitirá verla
+        Entrada entrada = null;
         Entrada aux = null;
         for (int i = 0; i < ListaEntradas.size(); i++) {
             if (ListaEntradas.get(i).GetTitulo().equals(titulo)){
@@ -59,18 +66,8 @@ public class SubForo implements Subject,Serializable{
             }
         }
         if (aux.GetVerificada()){
-           ent = aux; 
+           entrada = aux; 
         }
-        return ent;
-
-    }
-    
-    public void añadirComponente(EntradaGenerica componente, Entrada ent){
-        if ((usuarioActual.isProfesor()) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
-            ent.AñadirComponente(componente);
-        }else if (componente instanceof Entrada){
-            ent.AñadirComponente(componente);
-
-    }
+        return entrada;
     }
 }

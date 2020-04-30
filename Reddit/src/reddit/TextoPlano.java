@@ -22,7 +22,8 @@ public class TextoPlano extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase TextoPlano */
-    public TextoPlano(String titulo, String texto){
+    
+    public TextoPlano(String titulo, String texto){ //constructor de la clase Texto Plano
         this.Titulo= titulo;
         this.Texto = texto;
     }

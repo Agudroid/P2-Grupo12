@@ -13,7 +13,8 @@ import java.util.ArrayList;
  * @author Administrador
  */
 public class Usuarios implements Serializable{
-    private ArrayList<Penalizacion> penalizaciones;
+    
+    private ArrayList<Penalizacion> Penalizaciones;
     private String Nombre;
     private String Apellido;
     private String Correo;
@@ -22,18 +23,18 @@ public class Usuarios implements Serializable{
     private ArrayList<String> Notificaciones = new ArrayList<String>();
     
     public int tamano(){
-        return penalizaciones.size();
+        return Penalizaciones.size();
     }
     public void añadirPenalizacion (Penalizacion penalizacion){
-        penalizaciones.add(penalizacion);
+        Penalizaciones.add(penalizacion);
     }
     
     public ArrayList<Penalizacion> getListaPenalizaciones(){
-        return penalizaciones;
+        return Penalizaciones;
     }
     
     public Usuarios(String nombre, String apellido, String correo, String nick, String contraseña){
-        penalizaciones = new ArrayList<Penalizacion>();
+        Penalizaciones = new ArrayList<Penalizacion>();
         Notificaciones = new ArrayList<String>();
         this.Nombre = nombre;
         this.Apellido = apellido;
@@ -42,39 +43,37 @@ public class Usuarios implements Serializable{
         this.Contraseña = contraseña;
     }
     
-    public String GetNombre() {
+    public String GetNombre() { //con este metodo get coseguiremos lo guardado en la variable Nombre
         return Nombre;
     }
 
-    public String GetApellido() {
+    public String GetApellido() { //con este metodo get coseguiremos lo guardado en la variable Apellido
         return Apellido;
     }
 
-    public String GetCorreo() {
+    public String GetCorreo() { //con este metodo get coseguiremos lo guardado en la variable Correo
         return Correo;
     }
 
-    public String GetNick() {
+    public String GetNick() { //con este metodo get coseguiremos lo guardado en la variable Nick
         return Nick;
     }
 
-    public String GetContraseña() {
+    public String GetContraseña() { //con este metodo get coseguiremos lo guardado en la variable Contraseña
         return Contraseña;
     }
     
-    public void RecibirNotificacion(String notificacion){
-        
+    public void RecibirNotificacion(String notificacion){ //permite añadir al array de notificaciones la notificaion pasada por parámetro
         Notificaciones.add(notificacion);
-        
     }
     
-    public void avanzarDias(int dias) {
-		for(Penalizacion p : penalizaciones) {
-			if(p.estaActiva()) {
-				p.avanzarDias(dias);
-			}
-		}
-	}
+    public void AvanzarDias(int dias) {   //Función que nos permitirá acaba antes una penalización, para realizar las pruebas pertinentes
+	for(Penalizacion p : Penalizaciones) {
+            if(p.EstaActiva()) {
+		p.AvanzarDias(dias);
+            }
+        }
+    }
     
     @Override
     public String toString() {
