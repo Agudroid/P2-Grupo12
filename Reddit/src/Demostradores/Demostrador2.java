@@ -14,27 +14,35 @@ import reddit.Foro;
  *
  * @author Alba Sevillano
  */
-public class Demostrador2 {  //HECHO
+public class Demostrador2 { 
 
-    /**En este demostrador iniciamos sesión con un profesor no registrado y veremos 
-     que da error, intentaremos registrarlo pero no se podrá porque los datos son 
-     erroneos (PROFESOR)*/
+    /**(USUARIO PROFESOR). 
+     * En este demostrador iniciamos sesión con un usuario no 
+     * registrado y veremos que da error, y no nos dejará hacer login, por lo 
+     * tanto, nos disponemos a registrarlo, pero durante el proceso de registro
+     * se introducen de manera errónea algunos datos por lo que no podrá 
+     * registrarse en el foro */
+    
     public static void main(String[] args) throws IOException {
         try {
-            System.out.println("Inicializamos el foro:");
+            System.out.println("Vamos a inicializar el foro Reddit URJC");
             Foro sistema = Foro.GetForo("Reddit URJC");
-            System.out.println("El foro ha sido creado.");
-            System.out.println("Iniciamos sesión en el sistema con un usuario no registrado");
+            System.out.print("\n");
+            System.out.println("El foro se abrió con éxito");
+            System.out.print("\n");
+            System.out.println("Iniciamos sesión en el sistema");
             boolean encontrado = sistema.Login("67890", "j.perez@urjc.es");
             if (!encontrado){
+                System.out.print("\n");
                 System.out.println("Error, la contraseña y/o correo no coinciden");
+                System.out.print("\n");
                 System.out.println("Vamos a registrarnos en el sistema");
                 boolean esRegistrado = sistema.RegistrarUsuario("Juan","Perez","j.perez@urjc.com","j.perez","67890", "67890");
                 if(esRegistrado == false){
-                    System.out.println("No se ha podido registrar.");
+                    System.out.print("\n");
+                    System.out.println("No se ha podido registrar. Hay datos introducidos erróneos");
                 }
             }
-
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador4.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -21,31 +21,57 @@ import reddit.Usuarios;
  */
 public class Demostrador6 {
 
-    /** En este demostrador iniciamos sesión con un alumno registrado y entraremos
-     en el foro, y tras esto podremos añadir una entrada al subforo creado
-     (ALUMNO)*/
+    /** (USUARIO ALUMNO) En este demostrador iniciamos sesión con un alumno 
+     * registrado (el del demostrador 1) y entraremos en el foro, tras esto 
+     * intentaremos añadir una entrada al subforo creado, pero con un tipo de 
+     * componente que no puede crear el alumno, por lo que se devolverá un mensaje 
+     * advirtiendo de este fallo.En este demostrador, también se probará a votar 
+     * una entrada del subforo.*/
+    
     public static void main(String[] args) throws IOException {
         try {
-            System.out.println("Inicializamos el foro:");
+            System.out.println("Vamos a inicializar el foro Reddit URJC");
             Foro sistema = Foro.GetForo("Reddit URJC");
-            System.out.println("El foro ha sido creado."); //se ha cargado el Foro con exito
-            System.out.println("Iniciamos sesión en el sistema con un usuario registrado");
+            System.out.print("\n");
+            
+            System.out.println("El foro se abrió con exito"); //se ha abierto el Foro con exito
+            System.out.println("Iniciamos sesión en el sistema");
+            System.out.print("\n");
             boolean encontrado = sistema.Login("12345", "m.defrancisco.2018@alumnos.urjc.es"); // si el usuario esta registrado y escribe bien el correo y la contraseña se guarda true
+            
             if (encontrado){ // existe el usuario
                 System.out.println("Bienvenido al foro");
+                
                 SubForo sf  = sistema.verSubForo("SubForo MP"); //accedemos al subforo "SubForo MP"
+                System.out.println("Hemos accedido al SubForo MP");
+                
                 sf.AñadirSuscriptor(); // el usuario loggeado se suscribe al subforo
-                Entrada e = sf.CrearEntrada("Ejercicio de Matemáticas"); // creamos una entrada con su titulo
+                
+                System.out.println("Vamos a añadir una nueva entrada al subforo");
+                System.out.print("\n");
+                Entrada entrada = sf.CrearEntrada("Ejercicio de Matemáticas"); // creamos una entrada con su titulo
                 Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987"); //creamos un administrador para verificar la entrada
-                admin.verificarEntrada(e, true); // El administrador acepta la entrada
-                Ejercicio en = new Ejercicio("Ejercicio", "1+1 ", "= 2"); // Introducimos el titulo, el enunciado y la solucion  
-                boolean posible = e.AñadirComponente(en); //si tienes autorizacion para añadir el componente, se guarda true, en caso contrario se guarda false
+                System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
+                admin.verificarEntrada(entrada, true); // El administrador acepta la entrada
+                System.out.println("Se ha creado una entrada con texto plano, que se ha añadido tras ser verificada"
+                            + "al SubForo Mp");
+                
+                System.out.print("\n");
+                System.out.println("Ahora el alumno, quiere añadir un ejercicio"
+                        + "entrada que no puede crear");
+                System.out.print("\n");
+                Ejercicio en = new Ejercicio("Ejercicio", "1+1 ", "= 2"); // Introducimos el titulo, el enunciado y la solucion
+                
+                boolean posible = entrada.AñadirComponente(en); //si tienes autorizacion para añadir el componente, se guarda true, en caso contrario se guarda false
                 if (!posible){
-                    System.out.println("No puedes añadir un ejercicio siendo un alumno."); //solo los profesores pueden crear ejercicios
+                    System.out.println("No puedes añadir un ejercicio siendo un alumno"); //solo los profesores pueden crear ejercicios
                 }
-                Entrada e2 = sf.verEntrada("Segunda entrada"); //accedemos a "Segunda entrada" 
+                System.out.print("\n");
+                System.out.println("Ahora va a votar la segunda entrada");
+                Entrada e2 = sf.VerEntrada("SEGUNDA ENTRADA"); //accedemos a "Segunda entrada" 
                 e2.Votar(1);
-                System.out.println("La entrada tiene de valoración: "+e2.GetPuntuacion()); //mostramos la valoracion de "Segunda entrada"               
+                System.out.println("La entrada tiene una valoración de: "+e2.GetPuntuacion()); //mostramos la valoracion de "Segunda entrada"               
+                System.out.print("\n");
             }
             boolean logout = sistema.Logout();
             if(logout==false){ // si en la var logout se guarda un false, es decir, se hace logout correctamente, entra en el if
@@ -54,6 +80,5 @@ public class Demostrador6 {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Demostrador6.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
+    } 
 }

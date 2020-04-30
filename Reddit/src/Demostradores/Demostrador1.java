@@ -31,14 +31,14 @@ public class Demostrador1 {
             Foro sistema = Foro.GetForo("Reddit URJC");
             System.out.print("\n");
             
-            System.out.println("El foro ha sido creado con exito");
+            System.out.println("El foro se abrió con exito");
+            System.out.print("\n");
             System.out.println("Iniciamos sesión en el sistema");
             boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
             
             if (!encontrado){
                 System.out.print("\n");
                 System.out.println("Error, la contraseña y/o correo no coinciden");
-                System.out.print("\n");
                 System.out.print("\n");
                 System.out.println("Vamos a registrarnos en el sistema");
                 boolean esRegistrado = sistema.RegistrarUsuario("Antonio","Perez","a.perez@urjc.es","a.perez","67890", "67890");
@@ -63,14 +63,14 @@ public class Demostrador1 {
                     SubForo SubForoReddit = sistema.verSubForo("SubForo MP");
                     
                     System.out.print("\n");
-                    System.out.print("Accedemos a él para añadirle una nueva entrada");
+                    System.out.println("Accedemos a él para añadirle una nueva entrada");
                    
                     Entrada entrada = SubForoReddit.CrearEntrada("Introducción");
                     TextoPlano Entrada_txt = new TextoPlano("Explicación","El siguiente subforo"
                             +"se corresponde con la asignatura de MP");
                     entrada.AñadirComponente(Entrada_txt);
                     Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
-                    System.out.print("El administrador de esta nueva entrada será: "+admin.GetNick());
+                    System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
                     admin.verificarEntrada(entrada,true);
                     
                     System.out.println("Se ha creado una entrada con texto plano, que se ha añadido tras ser verificada"
@@ -81,7 +81,7 @@ public class Demostrador1 {
                     Entrada_encuesta.SetRespuesta("NO");
                     
                     System.out.print("\n");
-                    System.out.print("En este momento el administrador, quiere modificar la entrada añadiendole una encuesta");
+                    System.out.println("En este momento el administrador, quiere modificar la entrada añadiendole una encuesta");
                     
                     entrada.AñadirComponente(Entrada_encuesta);
                     admin.verificarEntrada(entrada,true);   
@@ -100,6 +100,7 @@ public class Demostrador1 {
             }
             boolean logout = sistema.Logout();
             if(logout==false){
+                System.out.print("\n");
                 System.out.println("Has cerrado sesion. Hasta pronto");                
             }
         } 
