@@ -1,1 +1,1 @@
-# La carpeta que contiene el proyecto es Reddit, estamos trabajando en dos ramas diferentes sobre esa carpeta. 
+Este proyecto corresponde a la práctica 2 de la asignatura de metodología de la programación, de ingeniería del software URJC.
