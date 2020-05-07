@@ -17,6 +17,10 @@ public class Encuesta extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Encuesta */
+    //Hemos incorporado este método más tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    } 
     
     public Encuesta (String titulo, String texto){ //Constructor de la clase Encuesta 
         this.Titulo = titulo;
