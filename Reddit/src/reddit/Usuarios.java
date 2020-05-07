@@ -43,6 +43,9 @@ public class Usuarios implements Serializable{
         this.Contraseña = contraseña;
     }
     
+    public ArrayList GetNotificaciones(){
+        return Notificaciones;
+    }
     public String GetNombre() { //con este metodo get coseguiremos lo guardado en la variable Nombre
         return Nombre;
     }
