@@ -23,6 +23,11 @@ public class Entrada extends EntradaGenerica implements Serializable{
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
    esta clase Entrada */
     
+    //Hemos incorporado este método más tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    } 
+    
     public Entrada (String titulo, Usuarios autor){ //Constructor de la clase Entrada
         this.Titulo = titulo;
         this.Autor = autor;
