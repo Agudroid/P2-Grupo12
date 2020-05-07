@@ -27,7 +27,7 @@ esta clase Administrador */
 	
 	public void AvanzarDias(int dias) { //método que nos permitirá avanzar días para favorecer la comprobación de los demostradores
             DiasPenalizacion -= dias;
-            if(DiasPenalizacion < 0) {
+            if(DiasPenalizacion <= 0) {
                 DiasPenalizacion = 0;
 		Activa = false;
             }

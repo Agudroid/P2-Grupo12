@@ -60,13 +60,13 @@ public class Foro implements Serializable{
         return Foro;
     }
     
-    public boolean Login (String contraseña, String correo){ //método para que el usuario inicie sesión en la aplicación
+    public boolean Login (String contrasena, String correo){ //método para que el usuario inicie sesión en la aplicación
         Iterator <Usuarios> it = ListaUsuarios.iterator() ;
         while(it.hasNext() && Verificado==false){ 
         /*mientras haya mas usuarios en la lista, seguiré recorriendola hasta encontrar 
             al que coincida con los daos pasados como parámetros*/
             Usuarios usuarioActual = it.next();
-            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña))  {
+            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContrasena().equals(contrasena))  {
             /*si coincide lo que hay en el "usuarioActual" con los parámetros 
                 devolvermos un true y un comenatrio*/
                 UsuarioLoggeado = usuarioActual;

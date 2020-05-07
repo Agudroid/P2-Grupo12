@@ -59,7 +59,7 @@ public class Usuarios implements Serializable{
         return Nick;
     }
 
-    public String GetContraseña() { //con este metodo get coseguiremos lo guardado en la variable Contraseña
+    public String GetContrasena() { //con este metodo get coseguiremos lo guardado en la variable Contraseña
         return Contraseña;
     }
     
