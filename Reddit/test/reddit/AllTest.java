@@ -21,6 +21,8 @@ import org.junit.runners.Suite.SuiteClasses;
                 EjercicioTest.class,
                 ComentarioTest.class,
                 EncuestaTest.class,
+                TextoPlanoTest.class,
+                EntradaTest.class,
                 
                         
 })
