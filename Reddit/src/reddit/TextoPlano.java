@@ -19,6 +19,12 @@ public class TextoPlano extends EntradaGenerica implements Serializable{
     private int Puntuacion;
     boolean Verificada = false;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
+    
+    //Hemos incorporado este método más tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    } 
+    
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase TextoPlano */
