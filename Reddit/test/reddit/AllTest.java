@@ -23,6 +23,8 @@ import org.junit.runners.Suite.SuiteClasses;
                 EncuestaTest.class,
                 TextoPlanoTest.class,
                 EntradaTest.class,
+                ForoTest.class,
+                SubForoTest.class,
                 
                         
 })
