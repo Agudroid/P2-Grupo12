@@ -75,7 +75,7 @@ public class Entrada extends EntradaGenerica implements Serializable{
     }
 
     //permitirá añadir al array de Componentes una nuevo tipo de entrada, comprobando que el usurio pueda o no crearla
-    public boolean AñadirComponente (EntradaGenerica componente){ 
+    public boolean AnadirComponente (EntradaGenerica componente){ 
         boolean esposible = false;
         if ((Autor.isProfesor()) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
             Componentes.add(componente);

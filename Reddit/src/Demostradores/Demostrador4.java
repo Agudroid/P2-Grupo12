@@ -53,13 +53,13 @@ public class Demostrador4 {
             } 
             System.out.println("Vamos a visualizar una entrada ya creada y subscribirnos a un foro");
             SubForo sf = sistema.verSubForo("SubForo MP");
-            sf.AñadirSuscriptor();
+            sf.AnadirSuscriptor();
             System.out.print("\n");
-            System.out.println("se ha subscrito con éxito");
-            Entrada ent = sf.VerEntrada("Introducción");
+            System.out.println("se ha subscrito con exito");
+            Entrada ent = sf.VerEntrada("Introduccion");
             System.out.print("\n");
             ent.Comentar("Muchas gracias por la información aportada!!!");
-            System.out.println("Se ha comentado con éxito");
+            System.out.println("Se ha comentado con exito");
             
             boolean logout = sistema.Logout();
                 if(logout==false){
@@ -68,7 +68,7 @@ public class Demostrador4 {
                 }
             System.out.print("\n");
             System.out.print("\n");
-            System.out.println("Vamos a iniciar sesión con otro usuario y crearemos una entrada "+
+            System.out.println("Vamos a iniciar sesion con otro usuario y crearemos una entrada "+
                     "que va a ser penalizada");
             encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (encontrado){
@@ -76,11 +76,11 @@ public class Demostrador4 {
                 System.out.println("Se ha iniciado sesion con exito");
                 SubForo SubForoReddit = sistema.verSubForo("SubForo MP");
                 Entrada entrada = SubForoReddit.CrearEntrada("Entrada penalizada");
-                TextoPlano Entrada_txt = new TextoPlano("Explicación","Esta entrada"
-                +"es para probar la penalización");
-                entrada.AñadirComponente(Entrada_txt);
+                TextoPlano Entrada_txt = new TextoPlano("Explicacion","Esta entrada"
+                +"es para probar la penalizacion");
+                entrada.AnadirComponente(Entrada_txt);
                 System.out.print("\n");
-                System.out.println("se ha creado la entrada con éxito, ahora vamos a verificarla");
+                System.out.println("se ha creado la entrada con exito, ahora vamos a verificarla");
                 Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
                 System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
                 admin.verificarEntrada(entrada,false);

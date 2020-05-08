@@ -51,7 +51,7 @@ public class EntradaTest {
         Usuarios autor = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         Entrada e = new Entrada("prueba",autor);
         Encuesta encuesta = new Encuesta("prueba","prueba");
-        e.AñadirComponente(encuesta);
+        e.AnadirComponente(encuesta);
         assertEquals(e.GetComponentes().get(0).GetTitulo(),"prueba");
     }
 
@@ -63,7 +63,7 @@ public class EntradaTest {
         Usuarios autor = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         Entrada e = new Entrada("prueba",autor);
         Encuesta encuesta = new Encuesta("prueba","prueba");
-        e.AñadirComponente(encuesta);
+        e.AnadirComponente(encuesta);
         assertEquals(e.GetComponentes().size(),1);
         e.BorrarComponente(encuesta);
         assertEquals(e.GetComponentes().size(),0);

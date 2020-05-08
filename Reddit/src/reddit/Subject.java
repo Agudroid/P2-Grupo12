@@ -11,7 +11,7 @@ package reddit;
  */
 public interface Subject{
     
-    public void AñadirSuscriptor();
+    public void AnadirSuscriptor();
     public void Notificar();
     public void EliminarSuscriptor ();
 }

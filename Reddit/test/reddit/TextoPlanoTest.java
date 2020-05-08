@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author miriamdefrancisco
+ * @author Alba Sevillano
  */
 public class TextoPlanoTest {
     

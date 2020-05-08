@@ -83,7 +83,7 @@ public class Foro implements Serializable{
         return Verificado;
     }
 
-    public boolean RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contraseña1, String contraseña2){
+    public boolean RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contrasena1, String contrasena2){
     //la aplicacion debe permitir al usuario que se registre en la aplicación
         String prueba;
         boolean resultado;
@@ -96,8 +96,8 @@ public class Foro implements Serializable{
         boolean profesor = correo.equals(prueba2); //comprobamos que es el correo del alumno
         resultado = false; //inicializamos la var resultado
         if (alumno==true || profesor ==true){ //si el correo coincide tanto para alumno o profesor entramos en el if
-           if (contraseña1.equals(contraseña2)){ //si al registrarse las contraseñas coinciden entras al if
-            Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña1); //te has registrado con exito
+           if (contrasena1.equals(contrasena2)){ //si al registrarse las contraseñas coinciden entras al if
+            Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contrasena1); //te has registrado con exito
             ListaUsuarios.add(usuario); //Se añade a la lista de usuarios registrados
             resultado = true; // resultado pasa a valer true porque se ha registrado con exito
            }

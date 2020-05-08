@@ -34,7 +34,7 @@ public class SubForo implements Subject,Serializable{
         UsuarioActual = usuario;
     }
     
-    public void AñadirSuscriptor (){ //metodo que añade al array de usuarios del subforo un subscriptor
+    public void AnadirSuscriptor (){ //metodo que añade al array de usuarios del subforo un subscriptor
         ListaUsuario.add(UsuarioActual);
     }
     

@@ -19,13 +19,13 @@ public class Usuarios implements Serializable{
     private String Apellido;
     private String Correo;
     private String Nick;
-    private String Contraseña;
+    private String Contrasena;
     private ArrayList<String> Notificaciones = new ArrayList<String>();
     
     public int tamano(){
         return Penalizaciones.size();
     }
-    public void añadirPenalizacion (Penalizacion penalizacion){
+    public void anadirPenalizacion (Penalizacion penalizacion){
         Penalizaciones.add(penalizacion);
     }
     
@@ -33,14 +33,14 @@ public class Usuarios implements Serializable{
         return Penalizaciones;
     }
     
-    public Usuarios(String nombre, String apellido, String correo, String nick, String contraseña){
+    public Usuarios(String nombre, String apellido, String correo, String nick, String contrasena){
         Penalizaciones = new ArrayList<Penalizacion>();
         Notificaciones = new ArrayList<String>();
         this.Nombre = nombre;
         this.Apellido = apellido;
         this.Correo = correo;
         this.Nick = nick;
-        this.Contraseña = contraseña;
+        this.Contrasena = contrasena;
     }
     
     public ArrayList GetNotificaciones(){
@@ -63,7 +63,7 @@ public class Usuarios implements Serializable{
     }
 
     public String GetContrasena() { //con este metodo get coseguiremos lo guardado en la variable Contraseña
-        return Contraseña;
+        return Contrasena;
     }
     
     public void RecibirNotificacion(String notificacion){ //permite añadir al array de notificaciones la notificaion pasada por parámetro
@@ -80,7 +80,7 @@ public class Usuarios implements Serializable{
     
     @Override
     public String toString() {
-        return "Usuarios{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", Nick=" + Nick + ", Contrase\u00f1a=" + Contraseña + '}';
+        return "Usuarios{" + "Nombre=" + Nombre + ", Apellido=" + Apellido + ", Correo=" + Correo + ", Nick=" + Nick + ", Contrase\u00f1a=" + Contrasena + '}';
     }
     
     public boolean isProfesor(){

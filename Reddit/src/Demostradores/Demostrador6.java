@@ -45,13 +45,13 @@ public class Demostrador6 {
                 SubForo sf  = sistema.verSubForo("SubForo MP"); //accedemos al subforo "SubForo MP"
                 System.out.println("Hemos accedido al SubForo MP");
                 
-                sf.AñadirSuscriptor(); // el usuario loggeado se suscribe al subforo
+                sf.AnadirSuscriptor(); // el usuario loggeado se suscribe al subforo
                 
                 System.out.println("Vamos a añadir una nueva entrada al subforo");
                 System.out.print("\n");
-                Entrada entrada = sf.CrearEntrada("Ejercicio de Matemáticas"); // creamos una entrada con su titulo
+                Entrada entrada = sf.CrearEntrada("Ejercicio de Matematicas"); // creamos una entrada con su titulo
                 Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987"); //creamos un administrador para verificar la entrada
-                System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
+                System.out.println("El administrador de esta nueva entrada sera: "+admin.GetNick());
                 admin.verificarEntrada(entrada, true); // El administrador acepta la entrada
                 System.out.println("Se ha creado una entrada con texto plano, que se ha añadido tras ser verificada"
                             + "al SubForo Mp");
@@ -62,7 +62,7 @@ public class Demostrador6 {
                 System.out.print("\n");
                 Ejercicio en = new Ejercicio("Ejercicio", "1+1 ", "= 2"); // Introducimos el titulo, el enunciado y la solucion
                 
-                boolean posible = entrada.AñadirComponente(en); //si tienes autorizacion para añadir el componente, se guarda true, en caso contrario se guarda false
+                boolean posible = entrada.AnadirComponente(en); //si tienes autorizacion para añadir el componente, se guarda true, en caso contrario se guarda false
                 if (!posible){
                     System.out.println("No puedes añadir un ejercicio siendo un alumno"); //solo los profesores pueden crear ejercicios
                 }
@@ -70,7 +70,7 @@ public class Demostrador6 {
                 System.out.println("Ahora va a votar la segunda entrada");
                 Entrada e2 = sf.VerEntrada("SEGUNDA ENTRADA"); //accedemos a "Segunda entrada" 
                 e2.Votar(1);
-                System.out.println("La entrada tiene una valoración de: "+e2.GetPuntuacion()); //mostramos la valoracion de "Segunda entrada"               
+                System.out.println("La entrada tiene una valoracion de: "+e2.GetPuntuacion()); //mostramos la valoracion de "Segunda entrada"               
                 System.out.print("\n");
             }
             boolean logout = sistema.Logout();

@@ -52,7 +52,7 @@ public class Demostrador3 {
                 Entrada entrada= sf.CrearEntrada("SEGUNDA ENTRADA");
                 TextoPlano Entrada_txt = new TextoPlano("Ejercicio","A continuación veremos un"
                         + "simple ejercicio, para asi probar esta función");
-                entrada.AñadirComponente(Entrada_txt);
+                entrada.AnadirComponente(Entrada_txt);
                 
                //creamos un administrador y verificamos la entrada
                 Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
@@ -64,7 +64,7 @@ public class Demostrador3 {
                 //creamos un ejercicio de matematicas y lo añadimos a la entrada
                 Entrada segundaEntrada = sf.VerEntrada("SEGUNDA ENTRADA");
                 Ejercicio ejercicio = new Ejercicio ("Matematicas", "2+2", "4");
-                segundaEntrada.AñadirComponente(ejercicio);
+                segundaEntrada.AnadirComponente(ejercicio);
                 System.out.print("\n");
                 System.out.println("Ahora se quiere modificar la entrada, por lo que deberá ser verificada por el "
                         + "administrador");

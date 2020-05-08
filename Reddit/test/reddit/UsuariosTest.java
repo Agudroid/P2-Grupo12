@@ -37,7 +37,7 @@ public class UsuariosTest {
         Usuarios usuario = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         SubForo s = new SubForo("titulo");
         s.SetUsuarioActual(usuario);
-        s.AñadirSuscriptor();
+        s.AnadirSuscriptor();
         s.CrearEntrada("entrada1");
         assertTrue(usuario.GetNotificaciones().size()==1);
     }

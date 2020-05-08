@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author miriamdefrancisco
+ * @author Administrador
  */
 public class EjercicioTest {
     
