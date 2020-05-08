@@ -5,12 +5,13 @@
  */
 package reddit;
 
+import java.io.IOException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Alba Sevillano
+ * @author adri-
  */
 public class ForoTest {
     
@@ -18,38 +19,23 @@ public class ForoTest {
     }
 
     /**
-     * Test of AvanzarDias method, of class Foro.
-     */
-    @Test
-    public void testAvanzarDias() {
-    }
-
-    /**
-     * Test of GetUsuarioActual method, of class Foro.
-     */
-    @Test
-    public void testGetUsuarioActual() {
-    }
-
-    /**
-     * Test of GetForo method, of class Foro.
-     */
-    @Test
-    public void testGetForo() throws Exception {
-    }
-
-    /**
      * Test of Login method, of class Foro.
      */
     @Test
-    public void testLogin() {
+    public void testLogin() throws ClassNotFoundException, IOException {
+        Foro sistema = Foro.GetForo("Reddit URJC");
+        sistema.RegistrarUsuario("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adrian","aaaddd", "aaaddd");
+        assertTrue(sistema.Login("aaaddd", "a.lopezco.2018@alumnos.urjc.es"));
+                
     }
 
     /**
      * Test of RegistrarUsuario method, of class Foro.
      */
     @Test
-    public void testRegistrarUsuario() {
+    public void testRegistrarUsuario() throws ClassNotFoundException, IOException {
+        Foro sistema = Foro.GetForo("Reddit URJC");
+        assertTrue(sistema.RegistrarUsuario("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adrian","aaaddd", "aaaddd"));
     }
 
     /**
@@ -57,6 +43,10 @@ public class ForoTest {
      */
     @Test
     public void testLogout() throws Exception {
+        Foro sistema = Foro.GetForo("Reddit URJC");
+        sistema.RegistrarUsuario("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adrian","aaaddd", "aaaddd");
+        sistema.Login("aaaddd", "a.lopezco.2018@alumnos.urjc.es");
+        assertFalse(sistema.Logout());
     }
 
     /**
@@ -64,27 +54,34 @@ public class ForoTest {
      */
     @Test
     public void testCrearSubForo() throws Exception {
+        String Prueba = "esto es una prueba";
+        SubForo sf = new SubForo(Prueba);
+        assertEquals(sf.GetTitulo(), Prueba);
     }
 
-    /**
-     * Test of EscribirBBDD method, of class Foro.
-     */
-    @Test
-    public void testEscribirBBDD() throws Exception {
-    }
-
-    /**
-     * Test of LeerBBDD method, of class Foro.
-     */
-    @Test
-    public void testLeerBBDD() throws Exception {
-    }
+//    /**
+//     * Test of EscribirBBDD method, of class Foro.
+//     */
+//    @Test
+//    public void testEscribirBBDD() throws Exception {
+//    }
+//
+//    /**
+//     * Test of LeerBBDD method, of class Foro.
+//     */
+//    @Test
+//    public void testLeerBBDD() throws Exception {
+//    }
 
     /**
      * Test of verSubForo method, of class Foro.
      */
     @Test
     public void testVerSubForo() {
+        String Prueba = "esto es una prueba";
+        SubForo sf = new SubForo(Prueba);
+        sf.verSubForo("esto es una prueba");
+        assertEquals(sf.GetTitulo(), Prueba);
     }
     
 }
