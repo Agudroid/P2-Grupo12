@@ -77,10 +77,11 @@ public class ForoTest {
      * Test of verSubForo method, of class Foro.
      */
     @Test
-    public void testVerSubForo() {
+    public void testVerSubForo() throws ClassNotFoundException, IOException {
+        Foro sistema = Foro.GetForo("Reddit URJC");
         String Prueba = "esto es una prueba";
         SubForo sf = new SubForo(Prueba);
-        sf.verSubForo("esto es una prueba");
+        sistema.verSubForo(Prueba);
         assertEquals(sf.GetTitulo(), Prueba);
     }
     
