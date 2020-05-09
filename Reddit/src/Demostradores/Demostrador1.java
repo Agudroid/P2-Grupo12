@@ -17,9 +17,9 @@ import reddit.*;
 public class Demostrador1 {
 
     /**(USUARIO PROFESOR).
-     * Este primer demostrador sirve para añadir contenido a
+     * Este primer demostrador sirve para anadir contenido a
      * las bases de datos, que en un primer momento están vacias.Primero se
-     * intenta iniciar sesión de manera fallida, ya que el usuario no está 
+     * intenta iniciar sesion de manera fallida, ya que el usuario no esta 
      * registrado, posteriormente registramos un usuario profesor. Tras esto 
      * accedemos al sistema y creamos un subforo y añadimos una entrada con 
      * texto plano, pero posteriormente la modificaremos añadiéndole 
@@ -56,24 +56,24 @@ public class Demostrador1 {
                 System.out.println("El usuario se encuentra en la base de datos");
                 System.out.print("\n");
                 
-                System.out.println("A continuación, el usuario creara un subforo");
+                System.out.println("A continuacion, el usuario creara un subforo");
                 boolean SubForoCreado=sistema.CrearSubForo("SubForo MP");
                 if(SubForoCreado){
-                    System.out.println("El SubForo 'SubForo MP' ha sido creado con éxito");
+                    System.out.println("El SubForo 'SubForo MP' ha sido creado con exito");
                     SubForo SubForoReddit = sistema.verSubForo("SubForo MP");
                     
                     System.out.print("\n");
-                    System.out.println("Accedemos a el para añadirle una nueva entrada");
+                    System.out.println("Accedemos a el para anadirle una nueva entrada");
                    
                     Entrada entrada = SubForoReddit.CrearEntrada("Introduccion");
                     TextoPlano Entrada_txt = new TextoPlano("Explicacion","El siguiente subforo"
                             +"se corresponde con la asignatura de MP");
                     entrada.AnadirComponente(Entrada_txt);
                     Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
-                    System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
+                    System.out.println("El administrador de esta nueva entrada sera: "+admin.GetNick());
                     admin.verificarEntrada(entrada,true);
                     
-                    System.out.println("Se ha creado una entrada con texto plano, que se ha añadido tras ser verificada"
+                    System.out.println("Se ha creado una entrada con texto plano, que se ha anadido tras ser verificada"
                             + "al SubForo Mp");
                     
                     Encuesta Entrada_encuesta = new Encuesta("ENCUESTA ENTREGA PRÁCTICA","¿Te parece bien la entrega de la practica?");
@@ -81,11 +81,11 @@ public class Demostrador1 {
                     Entrada_encuesta.SetRespuesta("NO");
                     
                     System.out.print("\n");
-                    System.out.println("En este momento el administrador, quiere modificar la entrada añadiendole una encuesta");
+                    System.out.println("En este momento el administrador, quiere modificar la entrada anadiendole una encuesta");
                     
                     entrada.AnadirComponente(Entrada_encuesta);
                     admin.verificarEntrada(entrada,true);   
-                    System.out.println("Hemos verificado la entrada de nuevo, tras haberle añadido la encuesta");
+                    System.out.println("Hemos verificado la entrada de nuevo, tras haberle anadido la encuesta");
                     
                     System.out.print("\n");
                     System.out.println("La entrada añadida es:");

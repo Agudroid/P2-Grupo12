@@ -22,10 +22,10 @@ import reddit.TextoPlano;
  */
 public class Demostrador3 {
 
-    /** (USUARIO PROFESOR) En este demostrador iniciamos sesión con un profesor
+    /** (USUARIO PROFESOR) En este demostrador iniciamos sesion con un profesor
      * registrado (el del primer demostrador) y accedemos al foro Reddit, tras 
-     * esto se añadirá una nueva entrada a un subforo ya creado, esta entrada 
-     * tendrá un componente de tipo texto plano.Finalmente se añadirá a esta 
+     * esto se añadira una nueva entrada a un subforo ya creado, esta entrada 
+     * tendra un componente de tipo texto plano.Finalmente se añadira a esta 
      * entrada un componente del tipo ejercicio.)
      */
     public static void main(String[] args) throws IOException {
@@ -47,29 +47,29 @@ public class Demostrador3 {
                 SubForo sf = sistema.verSubForo("SubForo MP");
                 System.out.println("Hemos accedido al SubForo MP");
                 System.out.print("\n");
-                System.out.println("Vamos a añadir una nueva entrada al subforo");
+                System.out.println("Vamos a anadir una nueva entrada al subforo");
                 System.out.print("\n");
                 Entrada entrada= sf.CrearEntrada("SEGUNDA ENTRADA");
-                TextoPlano Entrada_txt = new TextoPlano("Ejercicio","A continuación veremos un"
-                        + "simple ejercicio, para asi probar esta función");
+                TextoPlano Entrada_txt = new TextoPlano("Ejercicio","A continuacion veremos un"
+                        + "simple ejercicio, para asi probar esta funcion");
                 entrada.AnadirComponente(Entrada_txt);
                 
                //creamos un administrador y verificamos la entrada
                 Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
                 System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
                 admin.verificarEntrada(entrada,true);
-                System.out.println("Se ha creado una entrada con texto plano, que se ha añadido tras ser verificada"
+                System.out.println("Se ha creado una entrada con texto plano, que se ha anadido tras ser verificada"
                             + "al SubForo Mp");
                 
-                //creamos un ejercicio de matematicas y lo añadimos a la entrada
+                //creamos un ejercicio de matematicas y lo anadimos a la entrada
                 Entrada segundaEntrada = sf.VerEntrada("SEGUNDA ENTRADA");
                 Ejercicio ejercicio = new Ejercicio ("Matematicas", "2+2", "4");
                 segundaEntrada.AnadirComponente(ejercicio);
                 System.out.print("\n");
-                System.out.println("Ahora se quiere modificar la entrada, por lo que deberá ser verificada por el "
+                System.out.println("Ahora se quiere modificar la entrada, por lo que debera ser verificada por el "
                         + "administrador");
                 admin.verificarEntrada(entrada,true);
-                System.out.println("Hemos verificado la entrada de nuevo, tras haberle añadido la encuesta");
+                System.out.println("Hemos verificado la entrada de nuevo, tras haberle anadido la encuesta");
                 
                 System.out.print("\n");
                 
