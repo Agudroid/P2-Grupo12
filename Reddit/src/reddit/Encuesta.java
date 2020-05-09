@@ -53,7 +53,7 @@ public class Encuesta extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public boolean Votar(int valor){ //modificar la variable Puntuacion sumandole el valor que se le pase por parámetro
+    public boolean Votar(int valor){ //modificar la variable Puntuacion sumandole el valor que se le pase por parametro
         Puntuacion += valor;
         return true;
     }

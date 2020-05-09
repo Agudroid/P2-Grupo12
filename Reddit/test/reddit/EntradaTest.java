@@ -37,6 +37,7 @@ public class EntradaTest {
      */
     @Test
     public void testComentar() {
+        System.out.println("testComentar");
         Usuarios autor = new Usuarios("Miriam","de Francisco","miriam@alumnos.urjc.es","miri.fa","0123456");
         Entrada e = new Entrada("prueba",autor);
          e.Comentar("hola");
@@ -48,6 +49,7 @@ public class EntradaTest {
      */
     @Test
     public void testAñadirComponente() {
+        System.out.println("testAñadirComponente");
         Usuarios autor = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         Entrada e = new Entrada("prueba",autor);
         Encuesta encuesta = new Encuesta("prueba","prueba");
@@ -60,6 +62,7 @@ public class EntradaTest {
      */
     @Test
     public void testBorrarComponente() {
+        System.out.println("testBorrarComponente");
         Usuarios autor = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         Entrada e = new Entrada("prueba",autor);
         Encuesta encuesta = new Encuesta("prueba","prueba");

@@ -31,6 +31,16 @@ public class Foro implements Serializable{
     Usuarios UsuarioLoggeado = null;
     private static File fichero= new File("basededatos.obj");
     
+    //anadimos los getters de las listas para los test
+    public List<Usuarios> getListaUsuarios() {
+        return ListaUsuarios;
+    }
+
+    public List<SubForo> getListaSubForo() {
+        return ListaSubForo;
+    }
+
+    
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
     

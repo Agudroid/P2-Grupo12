@@ -16,25 +16,25 @@ import static org.junit.Assert.*;
 public class EncuestaTest {
     
     public EncuestaTest() {
+        
     }
     /**
      * Test of Votar method, of class Encuesta.
      */
     
+    @Test
     public void testVotar() {
+        System.out.println("testVotar");
         Encuesta e = new Encuesta("prueba","prueba");
         e.Votar(4);
         assertEquals(e.GetPuntuacion(),4);
         e.Votar(2);
         assertEquals(e.GetPuntuacion(),6);
     }
-
-    /**
-     * Test of GetVerificada method, of class Encuesta.
-     */
     
     @Test
     public void testComentar() {
+        System.out.println("testComentar");
         Encuesta e = new Encuesta("prueba","prueba");
          e.Comentar("hola");
          assertEquals(e.GetListaComentarios().get(0).GetTexto(),"hola");
