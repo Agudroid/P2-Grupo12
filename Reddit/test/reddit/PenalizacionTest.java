@@ -23,6 +23,7 @@ public class PenalizacionTest {
      */
     @Test
     public void testGetPenalizacion() {
+        System.out.println("testGetPenalizacion");
         Penalizacion p = new Penalizacion();
         p.AvanzarDias(2);
         
@@ -34,6 +35,7 @@ public class PenalizacionTest {
      */
     @Test
     public void testEstaActiva() {
+        System.out.println("testEstaActiva");
         Penalizacion p = new Penalizacion();
         boolean estaActiva = p.EstaActiva();
         if (estaActiva){
@@ -48,6 +50,7 @@ public class PenalizacionTest {
      */
     @Test
     public void testAvanzarDias() {
+        System.out.println("testAvanzarDias");
         Penalizacion p = new Penalizacion();
         p.AvanzarDias(2);
         
