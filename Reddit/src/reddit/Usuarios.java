@@ -62,15 +62,15 @@ public class Usuarios implements Serializable{
         return Nick;
     }
 
-    public String GetContrasena() { //con este metodo get coseguiremos lo guardado en la variable Contraseña
+    public String GetContrasena() { //con este metodo get coseguiremos lo guardado en la variable Contrasena
         return Contrasena;
     }
     
-    public void RecibirNotificacion(String notificacion){ //permite añadir al array de notificaciones la notificaion pasada por parámetro
+    public void RecibirNotificacion(String notificacion){ //permite anadir al array de notificaciones la notificacion pasada por parametro
         Notificaciones.add(notificacion);
     }
     
-    public void AvanzarDias(int dias) {   //Función que nos permitirá acaba antes una penalización, para realizar las pruebas pertinentes
+    public void AvanzarDias(int dias) {   //Función que nos permitira acaba antes una penalizacion, para realizar las pruebas pertinentes
 	for(Penalizacion p : Penalizaciones) {
             if(p.EstaActiva()) {
 		p.AvanzarDias(dias);

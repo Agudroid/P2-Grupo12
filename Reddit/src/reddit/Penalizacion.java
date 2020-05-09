@@ -12,11 +12,11 @@ public class Penalizacion implements Serializable{
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
 esta clase Administrador */
    
-	public int GetPenalizacion(){ //con este metodo get coseguiremos lo guardado en la variable DiasPenalización
+	public int GetPenalizacion(){ //con este metodo get coseguiremos lo guardado en la variable DiasPenalizacion
             return DiasPenalizacion;
         }
         
-	public Penalizacion() { //con este metodo activaremso cuando sea necesario una penalización
+	public Penalizacion() { //con este metodo activaremso cuando sea necesario una penalizacion
             DiasPenalizacion = 2;
             Activa = true;
 	}
@@ -25,7 +25,7 @@ esta clase Administrador */
 		return Activa;
 	}
 	
-	public void AvanzarDias(int dias) { //método que nos permitirá avanzar días para favorecer la comprobación de los demostradores
+	public void AvanzarDias(int dias) { //metodo que nos permitira avanzar dias para favorecer la comprobacion de los demostradores
             DiasPenalizacion -= dias;
             if(DiasPenalizacion <= 0) {
                 DiasPenalizacion = 0;
