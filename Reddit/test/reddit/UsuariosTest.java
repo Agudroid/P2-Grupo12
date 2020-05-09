@@ -22,6 +22,7 @@ public class UsuariosTest {
      */
     @Test
     public void testTamano() {
+        System.out.println("test Tamano");
         Usuarios usuario = new Usuarios("Miriam","de Francisco","miriam@alumnos.urjc.es","miri.fa","0123456");
         Entrada ent = new Entrada("Titulo",usuario);
         Administrador admin = new Administrador("admin","admin","admin@urjc.es","admin","01234");
@@ -34,6 +35,7 @@ public class UsuariosTest {
      */
     @Test
     public void testRecibirNotificacion() {
+        System.out.println("test RecibirNotificacion");
         Usuarios usuario = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         SubForo s = new SubForo("titulo");
         s.SetUsuarioActual(usuario);
