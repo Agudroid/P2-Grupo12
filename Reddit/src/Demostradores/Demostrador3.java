@@ -24,8 +24,8 @@ public class Demostrador3 {
 
     /** (USUARIO PROFESOR) En este demostrador iniciamos sesion con un profesor
      * registrado (el del primer demostrador) y accedemos al foro Reddit, tras 
-     * esto se añadira una nueva entrada a un subforo ya creado, esta entrada 
-     * tendra un componente de tipo texto plano.Finalmente se añadira a esta 
+     * esto se anadira una nueva entrada a un subforo ya creado, esta entrada 
+     * tendra un componente de tipo texto plano.Finalmente se anadira a esta 
      * entrada un componente del tipo ejercicio.)
      */
     public static void main(String[] args) throws IOException {
@@ -37,12 +37,12 @@ public class Demostrador3 {
             System.out.println("El foro ha sido creado con exito");
             
             //iniciamos sesion con un usuario existente
-            System.out.println("Iniciamos sesión en el sistema");
+            System.out.println("Iniciamos sesion en el sistema");
             boolean encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (encontrado){
                 System.out.println("Bienvenido al foro");
                 
-               //añadimos una entrada y nos suscribimos al SubForo MP
+               //anadimos una entrada y nos suscribimos al SubForo MP
                 System.out.print("\n");
                 SubForo sf = sistema.verSubForo("SubForo MP");
                 System.out.println("Hemos accedido al SubForo MP");
@@ -56,7 +56,7 @@ public class Demostrador3 {
                 
                //creamos un administrador y verificamos la entrada
                 Administrador admin = new Administrador("Pedro", "Garcia", "p.garcia@urjc.es", "p.garcia", "cc987");
-                System.out.println("El administrador de esta nueva entrada será: "+admin.GetNick());
+                System.out.println("El administrador de esta nueva entrada sera: "+admin.GetNick());
                 admin.verificarEntrada(entrada,true);
                 System.out.println("Se ha creado una entrada con texto plano, que se ha anadido tras ser verificada"
                             + "al SubForo Mp");

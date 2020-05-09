@@ -22,7 +22,7 @@ public class Demostrador1 {
      * intenta iniciar sesion de manera fallida, ya que el usuario no esta 
      * registrado, posteriormente registramos un usuario profesor. Tras esto 
      * accedemos al sistema y creamos un subforo y añadimos una entrada con 
-     * texto plano, pero posteriormente la modificaremos añadiéndole 
+     * texto plano, pero posteriormente la modificaremos anadiendole 
      * una encuesta. */
     
     public static void main(String[] args) throws IOException{
@@ -76,7 +76,7 @@ public class Demostrador1 {
                     System.out.println("Se ha creado una entrada con texto plano, que se ha anadido tras ser verificada"
                             + "al SubForo Mp");
                     
-                    Encuesta Entrada_encuesta = new Encuesta("ENCUESTA ENTREGA PRÁCTICA","¿Te parece bien la entrega de la practica?");
+                    Encuesta Entrada_encuesta = new Encuesta("ENCUESTA ENTREGA PRACTICA","¿Te parece bien la entrega de la practica?");
                     Entrada_encuesta.SetRespuesta("SI");
                     Entrada_encuesta.SetRespuesta("NO");
                     
@@ -88,7 +88,7 @@ public class Demostrador1 {
                     System.out.println("Hemos verificado la entrada de nuevo, tras haberle anadido la encuesta");
                     
                     System.out.print("\n");
-                    System.out.println("La entrada añadida es:");
+                    System.out.println("La entrada anadida es:");
                     System.out.print("\n");
                     System.out.println(entrada.GetTitulo());
                     System.out.println(Entrada_txt.GetTitulo());
