@@ -34,6 +34,10 @@ public class SubForo implements Subject,Serializable{
         UsuarioActual = usuario;
     }
     
+    public ArrayList<Usuarios> GetListaUsuarios (){ //con este metodo coseguiremos asiganr a la variable UsuarioActual el nombre por parametro
+        return ListaUsuario;
+    }
+    
     public void AnadirSuscriptor (){ //metodo que anade al array de usuarios del subforo un subscriptor
         ListaUsuario.add(UsuarioActual);
     }

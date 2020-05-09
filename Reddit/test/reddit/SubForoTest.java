@@ -13,20 +13,18 @@ import static org.junit.Assert.*;
  * @author Alba Sevillano
  */
 public class SubForoTest {
-    
-    public SubForoTest() {
-    }
 
-    
-    
-
-   
 
     /**
      * Test of AnadirSuscriptor method, of class SubForo.
      */
     @Test
     public void testAnadirSuscriptor() {
+        Usuarios u = new Usuarios("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adri","aaaddd");
+        String Prueba = "esto es una prueba";
+        SubForo sf = new SubForo(Prueba);
+        sf.AnadirSuscriptor();
+        assertTrue(sf.GetListaUsuarios().size()==1 ); //hemos tenido que crear un GetListaUsuarios
     }
 
     /**
@@ -41,6 +39,12 @@ public class SubForoTest {
      */
     @Test
     public void testEliminarSuscriptor() {
+        Usuarios u = new Usuarios("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adri","aaaddd");
+        String Prueba = "esto es una prueba";
+        SubForo sf = new SubForo(Prueba);
+        sf.AnadirSuscriptor();
+        sf.EliminarSuscriptor();
+        assertTrue(sf.GetListaUsuarios().size()==0 ); //hemos tenido que crear un GetListaUsuarios
     }
 
     /**
@@ -48,6 +52,10 @@ public class SubForoTest {
      */
     @Test
     public void testCrearEntrada() {
+        String Prueba = "esto es una prueba";
+        SubForo sf = new SubForo(Prueba);
+        sf.CrearEntrada(Prueba);
+        assertEquals(Prueba, sf.GetTitulo());
     }
 
     /**
@@ -55,6 +63,11 @@ public class SubForoTest {
      */
     @Test
     public void testVerEntrada() {
+       String Prueba = "esto es una prueba";
+       SubForo sf = new SubForo(Prueba);
+       sf.CrearEntrada(Prueba);
+       sf.VerEntrada(Prueba);
+       assertEquals(Prueba,sf.GetTitulo());
     }
     
 }
