@@ -18,6 +18,10 @@ public class EjercicioTest {
     public EjercicioTest() {
     }
  
+    /**
+     * Test of Votar method, of class TextoPlano.
+     */
+    
     @Test
     public void testVotar() {
         System.out.println("test Votar");
@@ -27,6 +31,10 @@ public class EjercicioTest {
         e.Votar(2);
         assertEquals(e.GetPuntuacion(),6);
     }
+    
+    /**
+     * Test of Comentar method, of class TextoPlano.
+     */
     
     @Test
     public void testComentar() {

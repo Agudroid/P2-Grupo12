@@ -32,6 +32,10 @@ public class EncuestaTest {
         assertEquals(e.GetPuntuacion(),6);
     }
     
+    /**
+     * Test of Comentar method, of class TextoPlano.
+     */
+    
     @Test
     public void testComentar() {
         System.out.println("testComentar");

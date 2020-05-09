@@ -18,6 +18,9 @@ public class TextoPlanoTest {
     public TextoPlanoTest() {
     }
     
+    /**
+     * Test of Votar method, of class TextoPlano.
+     */
     @Test
     public void testVotar() {
         System.out.println("testVotar");
@@ -29,7 +32,7 @@ public class TextoPlanoTest {
     }
 
     /**
-     * Test of GetVerificada method, of class TextoPlano.
+     * Test of Comentar method, of class TextoPlano.
      */
    
     @Test

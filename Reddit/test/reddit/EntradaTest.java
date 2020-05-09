@@ -35,6 +35,7 @@ public class EntradaTest {
     /**
      * Test of Comentar method, of class Entrada.
      */
+    
     @Test
     public void testComentar() {
         System.out.println("testComentar");
@@ -45,11 +46,12 @@ public class EntradaTest {
     }
 
     /**
-     * Test of AñadirComponente method, of class Entrada.
+     * Test of AnadirComponente method, of class Entrada.
      */
+    
     @Test
-    public void testAñadirComponente() {
-        System.out.println("testAñadirComponente");
+    public void testAnadirComponente() {
+        System.out.println("testAnadirComponente");
         Usuarios autor = new Usuarios("Miriam","de Francisco","miriam@urjc.es","miri.fa","0123456");
         Entrada e = new Entrada("prueba",autor);
         Encuesta encuesta = new Encuesta("prueba","prueba");
@@ -60,6 +62,7 @@ public class EntradaTest {
     /**
      * Test of BorrarComponente method, of class Entrada.
      */
+    
     @Test
     public void testBorrarComponente() {
         System.out.println("testBorrarComponente");
