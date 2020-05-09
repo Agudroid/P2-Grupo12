@@ -22,7 +22,7 @@ public abstract class EntradaGenerica implements Serializable{
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase EntradaGenerica, que es una clase abstracta de la que hereda Entrada, 
     Encuesta, Ejercicio y TextoPlano.
-    Los siguientes metodos se explicarán en cada clase. */
+    Los siguientes metodos se explicaran en cada clase. */
     
     public abstract String GetTitulo();
     public abstract void SetTitulo(String titulo);

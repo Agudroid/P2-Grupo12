@@ -70,7 +70,7 @@ public class Usuarios implements Serializable{
         Notificaciones.add(notificacion);
     }
     
-    public void AvanzarDias(int dias) {   //Función que nos permitira acaba antes una penalizacion, para realizar las pruebas pertinentes
+    public void AvanzarDias(int dias) {   //Funcion que nos permitira acaba antes una penalizacion, para realizar las pruebas pertinentes
 	for(Penalizacion p : Penalizaciones) {
             if(p.EstaActiva()) {
 		p.AvanzarDias(dias);

@@ -84,7 +84,7 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public boolean Comentar(String texto) { //nos permitira comentar el ejercicio, permitiendo llamar a los métodos de la clase Comentario         
+    public boolean Comentar(String texto) { //nos permitira comentar el ejercicio, permitiendo llamar a los metodos de la clase Comentario         
         Comentario comentario = new Comentario();
         comentario.Comentar(texto);
         ListaComentarios.add(comentario);
