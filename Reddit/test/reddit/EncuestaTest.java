@@ -22,6 +22,7 @@ public class EncuestaTest {
      * Test of Votar method, of class Encuesta.
      */
     
+    @Test
     public void testVotar() {
         System.out.println("testVotar");
         Encuesta e = new Encuesta("prueba","prueba");
@@ -31,9 +32,6 @@ public class EncuestaTest {
         assertEquals(e.GetPuntuacion(),6);
     }
     
-    
-    
-    
     @Test
     public void testComentar() {
         System.out.println("testComentar");
@@ -42,11 +40,4 @@ public class EncuestaTest {
          assertEquals(e.GetListaComentarios().get(0).GetTexto(),"hola");
     }
     
-    @Test
-    public void testVerificar(){
-        System.out.println("testVerificar");
-        Encuesta e = new Encuesta("prueba","prueba");
-        e.Verificar(true);
-        assertEquals(true,e.Verificada);
-    }
 }

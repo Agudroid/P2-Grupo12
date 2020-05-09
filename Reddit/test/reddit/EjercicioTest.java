@@ -18,6 +18,7 @@ public class EjercicioTest {
     public EjercicioTest() {
     }
  
+    @Test
     public void testVotar() {
         System.out.println("test Votar");
         Ejercicio e = new Ejercicio("prueba","prueba","prueba");
@@ -27,9 +28,6 @@ public class EjercicioTest {
         assertEquals(e.GetPuntuacion(),6);
     }
     
-    /**
-     * Test of Comentar method, of class Ejercicio.
-     */
     @Test
     public void testComentar() {
         System.out.println("test Comentar");
