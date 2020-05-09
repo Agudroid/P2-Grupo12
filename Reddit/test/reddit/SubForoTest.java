@@ -17,19 +17,10 @@ public class SubForoTest {
     public SubForoTest() {
     }
 
-    /**
-     * Test of GetTitulo method, of class SubForo.
-     */
-    @Test
-    public void testGetTitulo() {
-    }
+    
+    
 
-    /**
-     * Test of SetUsuarioActual method, of class SubForo.
-     */
-    @Test
-    public void testSetUsuarioActual() {
-    }
+   
 
     /**
      * Test of AnadirSuscriptor method, of class SubForo.

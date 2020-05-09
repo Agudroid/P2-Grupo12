@@ -20,6 +20,7 @@ public class TextoPlanoTest {
     
     @Test
     public void testVotar() {
+        System.out.println("testVotar");
         TextoPlano t = new TextoPlano("prueba","prueba");
         t.Votar(4);
         assertEquals(t.GetPuntuacion(),4);
@@ -33,6 +34,7 @@ public class TextoPlanoTest {
    
     @Test
     public void testComentar() {
+        System.out.println("testComentar");
         TextoPlano t = new TextoPlano("prueba","prueba");
         t.Comentar("hola");
         assertEquals(t.GetListaComentarios().get(0).GetTexto(),"hola");
