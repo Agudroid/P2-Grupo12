@@ -67,8 +67,8 @@ public class SubForoTest {
         System.out.println("testCrearEntrada");
         String Prueba = "esto es una prueba";
         SubForo sf = new SubForo(Prueba);
-        sf.CrearEntrada("Ejercicio");
-        assertTrue(sf.GetListaEntradas().size()==1); //hemos tenido que crear un GetListaEntradas
+        Entrada e = sf.CrearEntrada("Ejercicio");
+        assertEquals("Ejercicio",e.GetTitulo());
     }
 
     /**
@@ -76,12 +76,12 @@ public class SubForoTest {
      */
     @Test
     public void testVerEntrada() {
-        System.out.println("testVerEntrada");
+       System.out.println("testVerEntrada");
        String Prueba = "esto es una prueba";
        SubForo sf = new SubForo(Prueba);
-       Entrada e = sf.CrearEntrada("Ejercicio");
+       sf.CrearEntrada("Ejercicio");
        sf.VerEntrada("Ejercicio");
-       assertEquals("Ejercicio",e.GetTitulo()); 
+       assertTrue(sf.GetListaEntradas().size()==1); //hemos tenido que crear un GetListaEntradas
     }
     
 }
