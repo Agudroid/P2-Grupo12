@@ -14,7 +14,7 @@ import reddit.Foro;
  * @author miriamdefrancisco
  */
 public class Demostrador5 { 
-    /**(USUARIO ALUMNO) En este demostrador iniciamos sesión con un alumno no 
+    /**(USUARIO ALUMNO) En este demostrador iniciamos sesion con un alumno no 
      * registrado y veremos que dara error, intentaremos registrarlo, pero no se
      * podra porque los datos introducidos son erroneos, por lo tanto, se quiere 
      * mostrar lo mismo que ocurre en el demostrador 2.*/

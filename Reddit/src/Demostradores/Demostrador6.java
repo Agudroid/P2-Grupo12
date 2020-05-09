@@ -21,7 +21,7 @@ import reddit.Usuarios;
  */
 public class Demostrador6 {
 
-    /** (USUARIO ALUMNO) En este demostrador iniciamos sesión con un alumno 
+    /** (USUARIO ALUMNO) En este demostrador iniciamos sesion con un alumno 
      * registrado (el del demostrador 1) y entraremos en el foro, tras esto 
      * intentaremos anadir una entrada al subforo creado, pero con un tipo de 
      * componente que no puede crear el alumno, por lo que se devolvera un mensaje 
@@ -37,7 +37,7 @@ public class Demostrador6 {
             System.out.println("El foro se abrio con exito"); //se ha abierto el Foro con exito
             System.out.println("Iniciamos sesion en el sistema");
             System.out.print("\n");
-            boolean encontrado = sistema.Login("12345", "m.defrancisco.2018@alumnos.urjc.es"); // si el usuario esta registrado y escribe bien el correo y la contraseña se guarda true
+            boolean encontrado = sistema.Login("12345", "m.defrancisco.2018@alumnos.urjc.es"); // si el usuario esta registrado y escribe bien el correo y la contrasena se guarda true
             
             if (encontrado){ // existe el usuario
                 System.out.println("Bienvenido al foro");
@@ -62,7 +62,7 @@ public class Demostrador6 {
                 System.out.print("\n");
                 Ejercicio en = new Ejercicio("Ejercicio", "1+1 ", "= 2"); // Introducimos el titulo, el enunciado y la solucion
                 
-                boolean posible = entrada.AnadirComponente(en); //si tienes autorizacion para añadir el componente, se guarda true, en caso contrario se guarda false
+                boolean posible = entrada.AnadirComponente(en); //si tienes autorizacion para anadir el componente, se guarda true, en caso contrario se guarda false
                 if (!posible){
                     System.out.println("No puedes anadir un ejercicio siendo un alumno"); //solo los profesores pueden crear ejercicios
                 }

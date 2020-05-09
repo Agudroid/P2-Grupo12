@@ -20,7 +20,7 @@ public class Demostrador2 {
      * En este demostrador iniciamos sesion con un usuario no 
      * registrado y veremos que da error, y no nos dejara hacer login, por lo 
      * tanto, nos disponemos a registrarlo, pero durante el proceso de registro
-     * se introducen de manera errónea algunos datos por lo que no podra 
+     * se introducen de manera erronea algunos datos por lo que no podra 
      * registrarse en el foro */
     
     public static void main(String[] args) throws IOException {
@@ -30,7 +30,7 @@ public class Demostrador2 {
             System.out.print("\n");
             System.out.println("El foro se abrio con exito");
             System.out.print("\n");
-            System.out.println("Iniciamos sesión en el sistema");
+            System.out.println("Iniciamos sesion en el sistema");
             boolean encontrado = sistema.Login("67890", "j.perez@urjc.es");
             if (!encontrado){
                 System.out.print("\n");

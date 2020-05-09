@@ -58,7 +58,7 @@ public class Demostrador4 {
             System.out.println("se ha subscrito con exito");
             Entrada ent = sf.VerEntrada("Introduccion");
             System.out.print("\n");
-            ent.Comentar("Muchas gracias por la información aportada!!!");
+            ent.Comentar("Muchas gracias por la informacion aportada!!!");
             System.out.println("Se ha comentado con exito");
             
             boolean logout = sistema.Logout();
@@ -102,7 +102,7 @@ public class Demostrador4 {
                 System.out.println("Estas penalizado, no puedes acceder al foro");
                 System.out.print("\n");
             }
-            System.out.println("Avanzamos 4 días e intentamos acceder de nuevo");
+            System.out.println("Avanzamos 4 dias e intentamos acceder de nuevo");
             sistema.AvanzarDias(4);
             encontrado = sistema.Login("67890", "a.perez@urjc.es");
             if (!encontrado){
