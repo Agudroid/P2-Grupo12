@@ -43,13 +43,5 @@ public class UsuariosTest {
         s.CrearEntrada("entrada1");
         assertTrue(usuario.GetNotificaciones().size()==1);
     }
-
-    /**
-     * Test of AvanzarDias method, of class Usuarios.
-     */
-    @Test
-    public void testAvanzarDias() {
-    }
-
     
 }
