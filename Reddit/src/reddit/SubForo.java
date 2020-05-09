@@ -34,7 +34,7 @@ public class SubForo implements Subject,Serializable{
         UsuarioActual = usuario;
     }
     
-    public ArrayList<Usuarios> GetListaUsuarios (){ //con este metodo coseguiremos asiganr a la variable UsuarioActual el nombre por parametro
+    public ArrayList<Usuarios> GetListaUsuarios (){ //con este metodo Devolvemos la lista de usuarios suscritos 
         return ListaUsuario;
     }
     
