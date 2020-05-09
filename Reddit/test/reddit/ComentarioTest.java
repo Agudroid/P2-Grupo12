@@ -22,6 +22,7 @@ public class ComentarioTest {
      */
     @Test
     public void testComentar() {
+        System.out.println("test Comentar");
         Comentario c = new Comentario();
         c.Comentar("hola");
         assertEquals(c.GetTexto(),"hola");
@@ -32,6 +33,7 @@ public class ComentarioTest {
      */
     @Test
     public void testVotar() {
+        System.out.println("test Votar");
         Comentario c = new Comentario();
         c.Votar(5);
         assertEquals(c.GetPuntuacion(),5);
