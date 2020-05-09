@@ -20,9 +20,11 @@ public class SubForoTest {
      */
     @Test
     public void testAnadirSuscriptor() {
+        System.out.println("testAnadirSuscriptor");
         Usuarios u = new Usuarios("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adri","aaaddd");
         String Prueba = "esto es una prueba";
         SubForo sf = new SubForo(Prueba);
+        sf.SetUsuarioActual(u);
         sf.AnadirSuscriptor();
         assertTrue(sf.GetListaUsuarios().size()==1 ); //hemos tenido que crear un GetListaUsuarios
     }
@@ -32,6 +34,14 @@ public class SubForoTest {
      */
     @Test
     public void testNotificar() {
+        System.out.println("testNotificar");
+        Usuarios u = new Usuarios("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adri","aaaddd");
+        String Prueba = "esto es una prueba";
+        SubForo sf = new SubForo(Prueba);
+        sf.SetUsuarioActual(u);
+        sf.AnadirSuscriptor();
+        sf.CrearEntrada("Ejercicio");
+        assertTrue(u.GetNotificaciones().size()==1);
     }
 
     /**
@@ -39,9 +49,11 @@ public class SubForoTest {
      */
     @Test
     public void testEliminarSuscriptor() {
+        System.out.println("testEliminarSuscriptor");
         Usuarios u = new Usuarios("adri","lopez","a.lopezco.2018@alumnos.urjc.es","adri","aaaddd");
         String Prueba = "esto es una prueba";
         SubForo sf = new SubForo(Prueba);
+        sf.SetUsuarioActual(u);
         sf.AnadirSuscriptor();
         sf.EliminarSuscriptor();
         assertTrue(sf.GetListaUsuarios().size()==0 ); //hemos tenido que crear un GetListaUsuarios
@@ -52,10 +64,11 @@ public class SubForoTest {
      */
     @Test
     public void testCrearEntrada() {
+        System.out.println("testCrearEntrada");
         String Prueba = "esto es una prueba";
         SubForo sf = new SubForo(Prueba);
-        sf.CrearEntrada(Prueba);
-        assertEquals(Prueba, sf.GetTitulo());
+        sf.CrearEntrada("Ejercicio");
+        assertTrue(sf.GetListaEntradas().size()==1); //hemos tenido que crear un GetListaEntradas
     }
 
     /**
@@ -63,11 +76,12 @@ public class SubForoTest {
      */
     @Test
     public void testVerEntrada() {
+        System.out.println("testVerEntrada");
        String Prueba = "esto es una prueba";
        SubForo sf = new SubForo(Prueba);
-       sf.CrearEntrada(Prueba);
-       sf.VerEntrada(Prueba);
-       assertEquals(Prueba,sf.GetTitulo());
+       Entrada e = sf.CrearEntrada("Ejercicio");
+       sf.VerEntrada("Ejercicio");
+       assertEquals("Ejercicio",e.GetTitulo()); 
     }
     
 }

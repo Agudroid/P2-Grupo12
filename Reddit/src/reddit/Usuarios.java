@@ -57,6 +57,7 @@ public class Usuarios implements Serializable{
     public String GetCorreo() { //con este metodo get coseguiremos lo guardado en la variable Correo
         return Correo;
     }
+    
 
     public String GetNick() { //con este metodo get coseguiremos lo guardado en la variable Nick
         return Nick;

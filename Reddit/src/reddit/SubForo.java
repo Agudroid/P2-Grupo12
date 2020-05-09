@@ -38,6 +38,10 @@ public class SubForo implements Subject,Serializable{
         return ListaUsuario;
     }
     
+    public ArrayList<Entrada> GetListaEntradas (){ //con este metodo Devolvemos la lista de entradas
+        return ListaEntradas;
+    }
+    
     public void AnadirSuscriptor (){ //metodo que anade al array de usuarios del subforo un subscriptor
         ListaUsuario.add(UsuarioActual);
     }
