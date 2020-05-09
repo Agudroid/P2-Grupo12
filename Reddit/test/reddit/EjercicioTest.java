@@ -19,6 +19,7 @@ public class EjercicioTest {
     }
  
     public void testVotar() {
+        System.out.println("test Votar");
         Ejercicio e = new Ejercicio("prueba","prueba","prueba");
         e.Votar(4);
         assertEquals(e.GetPuntuacion(),4);
@@ -31,6 +32,7 @@ public class EjercicioTest {
      */
     @Test
     public void testComentar() {
+        System.out.println("test Comentar");
          Ejercicio e = new Ejercicio("prueba","prueba","prueba");
          e.Comentar("hola");
          assertEquals(e.GetListaComentarios().get(0).GetTexto(),"hola");
