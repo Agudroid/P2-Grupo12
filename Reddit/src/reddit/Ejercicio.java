@@ -23,6 +23,10 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Ejercicio */
+    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    } 
     
     public Ejercicio (String titulo, String texto, String solucion){  //Constructor de la clase Ejercicio
         this.Titulo = titulo;
@@ -36,7 +40,7 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public void SetTitulo(String titulo){ //asignará a la variable Titulo el valor que se le pase por parámetro
+    public void SetTitulo(String titulo){ //asignara a la variable Titulo el valor que se le pase por parametro
         this.Titulo= titulo;
     }
     
@@ -46,7 +50,7 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
     }
     
 
-    public void SetTexto(String texto){ //asignará a la variable Texto el valor que se le pase por parámetro
+    public void SetTexto(String texto){ //asignara a la variable Texto el valor que se le pase por parametro
         this.Texto= texto;
     }
     
@@ -56,7 +60,7 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public boolean Votar (int valor){ //permite modificar la variable Puntuación sumandole el valor que se le pase
+    public boolean Votar (int valor){ //permite modificar la variable Puntuacion sumandole el valor que se le pase
         this.Puntuacion= Puntuacion+valor;
         return true;
     }
@@ -75,12 +79,12 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
         return Solucion;
     }
     
-    public void SetSolucion(String solucion){ //asignará a la variable Solucion el valor que se le pase
+    public void SetSolucion(String solucion){ //asignara a la variable Solucion el valor que se le pase
         this.Solucion= solucion;
     }
     
     @Override
-    public boolean Comentar(String texto) { //nos permitirá comentar el ejercicio, permitiendo llamar a los métodos de la clase Comentario         
+    public boolean Comentar(String texto) { //nos permitira comentar el ejercicio, permitiendo llamar a los metodos de la clase Comentario         
         Comentario comentario = new Comentario();
         comentario.Comentar(texto);
         ListaComentarios.add(comentario);

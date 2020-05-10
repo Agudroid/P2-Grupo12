@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Profesor extends Usuarios implements Serializable{
 
-    public Profesor(String nombre, String apellido, String correo, String nick, String contraseña) {
-        super(nombre, apellido, correo, nick, contraseña);
+    public Profesor(String nombre, String apellido, String correo, String nick, String contrasena) {
+        super(nombre, apellido, correo, nick, contrasena);
     } 
 }

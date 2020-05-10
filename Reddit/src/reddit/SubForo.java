@@ -30,11 +30,19 @@ public class SubForo implements Subject,Serializable{
         return Titulo;
     }
     
-    public void SetUsuarioActual (Usuarios usuario){ //con este metodo coseguiremos asiganr a la variable UsuarioActual el nombre por parámetro
+    public void SetUsuarioActual (Usuarios usuario){ //con este metodo coseguiremos asiganr a la variable UsuarioActual el nombre por parametro
         UsuarioActual = usuario;
     }
     
-    public void AñadirSuscriptor (){ //metodo que añade al array de usuarios del subforo un subscriptor
+    public ArrayList<Usuarios> GetListaUsuarios (){ //con este metodo Devolvemos la lista de usuarios suscritos 
+        return ListaUsuario;
+    }
+    
+    public ArrayList<Entrada> GetListaEntradas (){ //con este metodo Devolvemos la lista de entradas
+        return ListaEntradas;
+    }
+    
+    public void AnadirSuscriptor (){ //metodo que anade al array de usuarios del subforo un subscriptor
         ListaUsuario.add(UsuarioActual);
     }
     
@@ -45,11 +53,11 @@ public class SubForo implements Subject,Serializable{
         }
     }
     
-    public void EliminarSuscriptor (){ //metodo que nos permitirá eliminar a un subscriptor de la lista de usuarios del subforo
+    public void EliminarSuscriptor (){ //metodo que nos permitira eliminar a un subscriptor de la lista de usuarios del subforo
         ListaUsuario.remove(UsuarioActual);
     }
     
-    //metodo para crear la entrada, conociendo el usuario que ha hecho login, se añadirá al array de entradas y se notificará al usuario
+    //metodo para crear la entrada, conociendo el usuario que ha hecho login, se anadira al array de entradas y se notificara al usuario
     public Entrada CrearEntrada (String titulo){  
         Entrada entrada = new Entrada(titulo, UsuarioActual);
         ListaEntradas.add(entrada);
@@ -57,7 +65,7 @@ public class SubForo implements Subject,Serializable{
         return entrada;
     }
     
-    public Entrada VerEntrada(String titulo){ //comprobará si la entrada esta verificada, en este caso permitirá verla
+    public Entrada VerEntrada(String titulo){ //comprobara si la entrada esta verificada, en este caso permitira verla
         Entrada entrada = null;
         Entrada aux = null;
         for (int i = 0; i < ListaEntradas.size(); i++) {

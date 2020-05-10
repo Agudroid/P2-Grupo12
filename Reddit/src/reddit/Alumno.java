@@ -19,7 +19,7 @@ import java.util.Calendar;
 
 public class Alumno extends Usuarios implements Serializable{
     
-    public Alumno(String nombre, String apellido, String correo, String nick, String contraseña){
-        super(nombre, apellido, correo, nick, contraseña); 
+    public Alumno(String nombre, String apellido, String correo, String nick, String contrasena){
+        super(nombre, apellido, correo, nick, contrasena); 
     }
 }

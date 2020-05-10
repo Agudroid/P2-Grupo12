@@ -31,6 +31,16 @@ public class Foro implements Serializable{
     Usuarios UsuarioLoggeado = null;
     private static File fichero= new File("basededatos.obj");
     
+    //anadimos los getters de las listas para los test
+    public List<Usuarios> getListaUsuarios() {
+        return ListaUsuarios;
+    }
+
+    public List<SubForo> getListaSubForo() {
+        return ListaSubForo;
+    }
+
+    
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
     
@@ -38,17 +48,17 @@ public class Foro implements Serializable{
         this.Nombre = nombre;
     }
     
-    public void AvanzarDias(int dias){ //Función creada para poder acabar antes las penalizaciones que se le pongan a los usuarios
+    public void AvanzarDias(int dias){ //Funcion creada para poder acabar antes las penalizaciones que se le pongan a los usuarios
 	for(Usuarios u: ListaUsuarios){
             u.AvanzarDias(dias);
 	}
     }
     
-    public Usuarios  GetUsuarioActual(){ //nos permitirá saber que usuario es el que ha iniciado sesión
+    public Usuarios  GetUsuarioActual(){ //nos permitira saber que usuario es el que ha iniciado sesion
         return UsuarioLoggeado;
     }
     
-    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este método nos permitirá crear solo un objeto foro, comprobando si la base de datos esta creada o no esta creada
+    public static Foro GetForo(String nombre) throws ClassNotFoundException, IOException{ //este metodo nos permitira crear solo un objeto foro, comprobando si la base de datos esta creada o no esta creada
         if (Foro == null){
             if (fichero.exists()){ 
                 Foro = Foro.LeerBBDD();
@@ -60,14 +70,14 @@ public class Foro implements Serializable{
         return Foro;
     }
     
-    public boolean Login (String contraseña, String correo){ //método para que el usuario inicie sesión en la aplicación
+    public boolean Login (String contrasena, String correo){ //metodo para que el usuario inicie sesion en la aplicacion
         Iterator <Usuarios> it = ListaUsuarios.iterator() ;
         while(it.hasNext() && Verificado==false){ 
-        /*mientras haya mas usuarios en la lista, seguiré recorriendola hasta encontrar 
-            al que coincida con los daos pasados como parámetros*/
+        /*mientras haya mas usuarios en la lista, seguire recorriendola hasta encontrar 
+            al que coincida con los daos pasados como parametros*/
             Usuarios usuarioActual = it.next();
-            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContraseña().equals(contraseña))  {
-            /*si coincide lo que hay en el "usuarioActual" con los parámetros 
+            if (usuarioActual.GetCorreo().equals(correo) && usuarioActual.GetContrasena().equals(contrasena))  {
+            /*si coincide lo que hay en el "usuarioActual" con los parametros 
                 devolvermos un true y un comenatrio*/
                 UsuarioLoggeado = usuarioActual;
                 Verificado = true;
@@ -83,8 +93,8 @@ public class Foro implements Serializable{
         return Verificado;
     }
 
-    public boolean RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contraseña1, String contraseña2){
-    //la aplicacion debe permitir al usuario que se registre en la aplicación
+    public boolean RegistrarUsuario (String nombre, String apellido, String correo,String nick, String contrasena1, String contrasena2){
+    //la aplicacion debe permitir al usuario que se registre en la aplicacion
         String prueba;
         boolean resultado;
         Scanner sc = new Scanner(correo);
@@ -96,13 +106,13 @@ public class Foro implements Serializable{
         boolean profesor = correo.equals(prueba2); //comprobamos que es el correo del alumno
         resultado = false; //inicializamos la var resultado
         if (alumno==true || profesor ==true){ //si el correo coincide tanto para alumno o profesor entramos en el if
-           if (contraseña1.equals(contraseña2)){ //si al registrarse las contraseñas coinciden entras al if
-            Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contraseña1); //te has registrado con exito
-            ListaUsuarios.add(usuario); //Se añade a la lista de usuarios registrados
+           if (contrasena1.equals(contrasena2)){ //si al registrarse las contrasenas coinciden entras al if
+            Usuarios usuario = new Usuarios(nombre,apellido,correo,nick,contrasena1); //te has registrado con exito
+            ListaUsuarios.add(usuario); //Se anade a la lista de usuarios registrados
             resultado = true; // resultado pasa a valer true porque se ha registrado con exito
            }
            else{
-               System.out.println("Las contraseñas no coinciden. Por favor intentelo de nuevo."); //las contraseñas no coinciden  
+               System.out.println("Las contrasenas no coinciden. Por favor intentelo de nuevo."); //las contrasenas no coinciden  
            }
         }
         else{
@@ -111,18 +121,18 @@ public class Foro implements Serializable{
         return resultado;
     }
         
-    public boolean Logout () throws ClassNotFoundException, IOException{ //método que permitirá salir de la aplicación, cerrar sesión
+    public boolean Logout () throws ClassNotFoundException, IOException{ //metodo que permitira salir de la aplicacion, cerrar sesion
         Verificado = false;
         EscribirBBDD();
         return Verificado;
         // siempre va a devolver false porque haces logout
     }
     
-    //permitirá crear un nuevo subforo, que se añadirá al foro, comprobando que el usuario que lo crea sea un profesor
+    //permitira crear un nuevo subforo, que se anadira al foro, comprobando que el usuario que lo crea sea un profesor
     public boolean CrearSubForo(String nombre) throws IOException, ClassNotFoundException{  
         if (UsuarioLoggeado.isProfesor()){
             SubForo subforo = new SubForo(nombre); //creamos un subforo y le pasamos su nombre
-            ListaSubForo.add(subforo); //se añade a la lista de subforors
+            ListaSubForo.add(subforo); //se anade a la lista de subforos
             Foro.EscribirBBDD(); //lo guardamos en la base de datos
              //devolvemos true si se ha guardado con exito y false en caso contrario
             return ListaSubForo.contains(subforo);
@@ -132,7 +142,7 @@ public class Foro implements Serializable{
         }
     }
     
-    //método que nos permitirá guardar los datos en la base de datos
+    //metodo que nos permitira guardar los datos en la base de datos
     public boolean EscribirBBDD() throws ClassNotFoundException, IOException{      
         
             try{
@@ -148,7 +158,7 @@ public class Foro implements Serializable{
             }       
     }
     
-    //método que nos permitirá cargar la información de la base de datos
+    //metodo que nos permitira cargar la informacion de la base de datos
     public static Foro LeerBBDD() throws ClassNotFoundException{
         Foro foroCargado=null;
         try{
@@ -164,7 +174,7 @@ public class Foro implements Serializable{
         return foroCargado;
     }
     
-    public SubForo verSubForo(String nombre){ //método necesario para permitir acceder al foro, y verlo
+    public SubForo verSubForo(String nombre){ //metodo necesario para permitir acceder al foro, y verlo
         SubForo subforo = null;
         for (int i = 0; i < ListaSubForo.size(); i++) {
             if (ListaSubForo.get(i).GetTitulo().equals(nombre)){ //si lo hemos encontrado entre todos los foros creados

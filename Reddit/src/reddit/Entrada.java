@@ -23,6 +23,11 @@ public class Entrada extends EntradaGenerica implements Serializable{
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
    esta clase Entrada */
     
+    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    } 
+    
     public Entrada (String titulo, Usuarios autor){ //Constructor de la clase Entrada
         this.Titulo = titulo;
         this.Autor = autor;
@@ -36,7 +41,7 @@ public class Entrada extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public void SetTitulo(String titulo){ //asignará a la variable Titulo el valor que se le pase por parámetro 
+    public void SetTitulo(String titulo){ //asignara a la variable Titulo el valor que se le pase por parametro 
         this.Titulo = titulo;
     }
 
@@ -46,7 +51,7 @@ public class Entrada extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public boolean Votar(int valor){ //permite modificar la variable Puntuacion sumando el valor que se le pase por parámetro 
+    public boolean Votar(int valor){ //permite modificar la variable Puntuacion sumando el valor que se le pase por parametro 
         this.Puntuacion= Puntuacion+valor;
         return true;
     }
@@ -57,20 +62,20 @@ public class Entrada extends EntradaGenerica implements Serializable{
     }
 
     @Override
-    public void Verificar(boolean resultado){ //modificará el booleano de la variable Verificada 
+    public void Verificar(boolean resultado){ //modificara el booleano de la variable Verificada 
         Verificada = resultado;
     }
 
     @Override
-    public boolean Comentar(String texto){ //permitirá crear el comnentario y añadirlo a la lista de comentarios
+    public boolean Comentar(String texto){ //permitira crear el comnentario y anadirlo a la lista de comentarios
         Comentario comentario = new Comentario();
         comentario.Comentar(texto);
         ListaComentarios.add(comentario);
         return true;
     }
 
-    //permitirá añadir al array de Componentes una nuevo tipo de entrada, comprobando que el usurio pueda o no crearla
-    public boolean AñadirComponente (EntradaGenerica componente){ 
+    //permitira anadir al array de Componentes una nuevo tipo de entrada, comprobando que el usurio pueda o no crearla
+    public boolean AnadirComponente (EntradaGenerica componente){ 
         boolean esposible = false;
         if ((Autor.isProfesor()) && ((componente instanceof Ejercicio) || (componente instanceof Encuesta))){
             Componentes.add(componente);
@@ -83,7 +88,7 @@ public class Entrada extends EntradaGenerica implements Serializable{
         return esposible;
     }
     
-    public void BorrarComponente (EntradaGenerica comp){ //permitirá eliminar del array de componentes aquello que no queramos que aparezca en la entrada
+    public void BorrarComponente (EntradaGenerica comp){ //permitira eliminar del array de componentes aquello que no queramos que aparezca en la entrada
         Componentes.remove(comp);
     }
     

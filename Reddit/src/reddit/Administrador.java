@@ -17,8 +17,8 @@ public class Administrador extends Usuarios implements Serializable{
 esta clase Administrador */
     
     //Constructor de la clase Administrador
-    public Administrador(String nombre, String apellido, String correo, String nick, String contraseña) {
-        super(nombre, apellido, correo, nick, contraseña);
+    public Administrador(String nombre, String apellido, String correo, String nick, String contrasena) {
+        super(nombre, apellido, correo, nick, contrasena);
     }
     
     //Con este metodo conseguiremos verificar o no la entrada que vaya a revisar el Administrador 
@@ -27,7 +27,7 @@ esta clase Administrador */
         if (!verificada){
             Usuarios autor = entrada.GetAutor();
             Penalizacion p = new Penalizacion();
-            autor.añadirPenalizacion(p);
+            autor.anadirPenalizacion(p);
 
         } 
     }

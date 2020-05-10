@@ -17,6 +17,10 @@ public class Encuesta extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Encuesta */
+    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    } 
     
     public Encuesta (String titulo, String texto){ //Constructor de la clase Encuesta 
         this.Titulo = titulo;
@@ -29,7 +33,7 @@ public class Encuesta extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public void SetTitulo(String title){ //asignará a la variable Titulo el valor que se le pase por parámetro
+    public void SetTitulo(String title){ //asignara a la variable Titulo el valor que se le pase por parametro
         this.Titulo = title;
     }
     
@@ -39,7 +43,7 @@ public class Encuesta extends EntradaGenerica implements Serializable{
     }
 
 
-    public void SetTexto(String text){ //asignará a la variable Texto el valor que se le pase por parámetro
+    public void SetTexto(String text){ //asignara a la variable Texto el valor que se le pase por parametro
         this.Texto = text;
     }
     
@@ -49,7 +53,7 @@ public class Encuesta extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public boolean Votar(int valor){ //modificar la variable Puntuacion sumandole el valor que se le pase por parámetro
+    public boolean Votar(int valor){ //modificar la variable Puntuacion sumandole el valor que se le pase por parametro
         Puntuacion += valor;
         return true;
     }
@@ -60,7 +64,7 @@ public class Encuesta extends EntradaGenerica implements Serializable{
     }
     
     @Override
-    public void Verificar(boolean resultado){ //modificará el booleano de la variable Verificada
+    public void Verificar(boolean resultado){ //modificara el booleano de la variable Verificada
         Verificada = resultado;
     }
     
@@ -68,12 +72,12 @@ public class Encuesta extends EntradaGenerica implements Serializable{
         return Respuestas;
     }
     
-    public void SetRespuesta(String respuesta){ //permitirá añadir al array de respuestas una nueva propuesta como respuesta 
+    public void SetRespuesta(String respuesta){ //permitira anadir al array de respuestas una nueva propuesta como respuesta 
         Respuestas.add(respuesta);
     }
     
     @Override
-    public boolean Comentar(String texto){ //permitirá crear el comnentario y añadirlo a la lista de comentarios
+    public boolean Comentar(String texto){ //permitira crear el comentario y anadirlo a la lista de comentarios
         Comentario comment = new Comentario();
         comment.Comentar(texto);
         ListaComentarios.add(comment);
