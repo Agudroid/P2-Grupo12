@@ -27,7 +27,7 @@ esta clase Administrador */
         if (!verificada){
             Usuarios autor = entrada.GetAutor();
             Penalizacion p = new Penalizacion();
-            autor.anadirPenalizacion(p);
+            autor.AnadirPenalizacion(p);
 
         } 
     }

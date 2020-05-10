@@ -15,12 +15,10 @@ import static org.junit.Assert.*;
  */
 public class TextoPlanoTest {
     
-    public TextoPlanoTest() {
-    }
-    
     /**
      * Test of Votar method, of class TextoPlano.
      */
+    
     @Test
     public void testVotar() {
         System.out.println("testVotar");

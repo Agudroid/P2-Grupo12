@@ -15,9 +15,6 @@ import static org.junit.Assert.*;
  */
 public class EncuestaTest {
     
-    public EncuestaTest() {
-        
-    }
     /**
      * Test of Votar method, of class Encuesta.
      */

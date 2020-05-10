@@ -20,12 +20,6 @@ public class TextoPlano extends EntradaGenerica implements Serializable{
     boolean Verificada = false;
     private ArrayList<Comentario> ListaComentarios = new ArrayList<>();
     
-    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
-    public ArrayList<Comentario> GetListaComentarios(){
-        return ListaComentarios;
-    } 
-    
-
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase TextoPlano */
     
@@ -81,5 +75,10 @@ public class TextoPlano extends EntradaGenerica implements Serializable{
         comentario.Comentar(texto);
         ListaComentarios.add(comentario);
         return true;
+    }
+    
+    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
     } 
 }

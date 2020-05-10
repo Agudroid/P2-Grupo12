@@ -15,8 +15,6 @@ import static org.junit.Assert.*;
  */
 public class EjercicioTest {
     
-    public EjercicioTest() {
-    }
  
     /**
      * Test of Votar method, of class TextoPlano.

@@ -14,10 +14,10 @@ import static org.junit.Assert.*;
  */
 public class SubForoTest {
 
-
     /**
      * Test of AnadirSuscriptor method, of class SubForo.
      */
+    
     @Test
     public void testAnadirSuscriptor() {
         System.out.println("testAnadirSuscriptor");
@@ -32,6 +32,7 @@ public class SubForoTest {
     /**
      * Test of Notificar method, of class SubForo.
      */
+    
     @Test
     public void testNotificar() {
         System.out.println("testNotificar");
@@ -47,6 +48,7 @@ public class SubForoTest {
     /**
      * Test of EliminarSuscriptor method, of class SubForo.
      */
+    
     @Test
     public void testEliminarSuscriptor() {
         System.out.println("testEliminarSuscriptor");
@@ -62,6 +64,7 @@ public class SubForoTest {
     /**
      * Test of CrearEntrada method, of class SubForo.
      */
+    
     @Test
     public void testCrearEntrada() {
         System.out.println("testCrearEntrada");
@@ -74,6 +77,7 @@ public class SubForoTest {
     /**
      * Test of VerEntrada method, of class SubForo.
      */
+    
     @Test
     public void testVerEntrada() {
        System.out.println("testVerEntrada");

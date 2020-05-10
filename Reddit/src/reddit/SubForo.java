@@ -34,11 +34,11 @@ public class SubForo implements Subject,Serializable{
         UsuarioActual = usuario;
     }
     
-    public ArrayList<Usuarios> GetListaUsuarios (){ //con este metodo Devolvemos la lista de usuarios suscritos 
+    public ArrayList<Usuarios> GetListaUsuarios (){ //con este metodo devolvemos la lista de usuarios suscritos 
         return ListaUsuario;
     }
     
-    public ArrayList<Entrada> GetListaEntradas (){ //con este metodo Devolvemos la lista de entradas
+    public ArrayList<Entrada> GetListaEntradas (){ //con este metodo devolvemos la lista de entradas
         return ListaEntradas;
     }
     

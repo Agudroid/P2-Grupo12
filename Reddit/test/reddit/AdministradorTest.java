@@ -14,9 +14,6 @@ import static org.junit.Assert.*;
  * @author miriamdefrancisco
  */
 public class AdministradorTest {
-    
-    public AdministradorTest() {
-    }
 
     /**
      * Test of verificarEntrada method, of class Administrador.
@@ -30,7 +27,7 @@ public class AdministradorTest {
         assertEquals(ent.GetVerificada(),true);
         admin.verificarEntrada(ent, false);
         assertEquals(ent.GetVerificada(),false);
-        assertEquals(autor.getListaPenalizaciones().size(),1);
+        assertEquals(autor.GetListaPenalizaciones().size(),1);
     }
     
 }
