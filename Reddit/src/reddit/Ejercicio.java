@@ -23,10 +23,6 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     esta clase Ejercicio */
-    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
-    public ArrayList<Comentario> GetListaComentarios(){
-        return ListaComentarios;
-    } 
     
     public Ejercicio (String titulo, String texto, String solucion){  //Constructor de la clase Ejercicio
         this.Titulo = titulo;
@@ -90,4 +86,9 @@ public class Ejercicio extends EntradaGenerica implements Serializable{
         ListaComentarios.add(comentario);
         return true;
     } 
+    
+    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    }  
 }

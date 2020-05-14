@@ -14,9 +14,6 @@ import static org.junit.Assert.*;
  * @author miriamdefrancisco
  */
 public class EntradaTest {
-    
-    public EntradaTest() {
-    }
 
     /**
      * Test of Votar method, of class Entrada.
@@ -30,7 +27,6 @@ public class EntradaTest {
         e.Votar(2);
         assertEquals(e.GetPuntuacion(),6);
     }
-
 
     /**
      * Test of Comentar method, of class Entrada.

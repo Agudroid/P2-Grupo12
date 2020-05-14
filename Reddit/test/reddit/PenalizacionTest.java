@@ -14,13 +14,10 @@ import static org.junit.Assert.*;
  */
 public class PenalizacionTest {
     
-    public PenalizacionTest() {
-    }
-    
-    
     /**
      * Test of GetPenalizacion method, of class Penalizacion.
      */
+    
     @Test
     public void testGetPenalizacion() {
         System.out.println("testGetPenalizacion");
@@ -33,6 +30,7 @@ public class PenalizacionTest {
     /**
      * Test of EstaActiva method, of class Penalizacion.
      */
+    
     @Test
     public void testEstaActiva() {
         System.out.println("testEstaActiva");
@@ -48,6 +46,7 @@ public class PenalizacionTest {
     /**
      * Test of AvanzarDias method, of class Penalizacion.
      */
+    
     @Test
     public void testAvanzarDias() {
         System.out.println("testAvanzarDias");

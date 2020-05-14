@@ -21,12 +21,7 @@ public class Entrada extends EntradaGenerica implements Serializable{
     private ArrayList<EntradaGenerica> Componentes = new ArrayList<>();
 
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
-   esta clase Entrada */
-    
-    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
-    public ArrayList<Comentario> GetListaComentarios(){
-        return ListaComentarios;
-    } 
+   esta clase Entrada */ 
     
     public Entrada (String titulo, Usuarios autor){ //Constructor de la clase Entrada
         this.Titulo = titulo;
@@ -94,5 +89,10 @@ public class Entrada extends EntradaGenerica implements Serializable{
     
     public ArrayList<EntradaGenerica> GetComponentes(){ //con este metodo get coseguiremos el array de Componentes de la entrada con la que estamos trabajando
         return Componentes;
-    }  
+    } 
+    
+    //Hemos incorporado este metodo mas tarde ya que era necesario para los tests
+    public ArrayList<Comentario> GetListaComentarios(){
+        return ListaComentarios;
+    }
 }

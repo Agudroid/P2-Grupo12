@@ -30,17 +30,7 @@ public class Foro implements Serializable{
     boolean Verificado = false;
     Usuarios UsuarioLoggeado = null;
     private static File fichero= new File("basededatos.obj");
-    
-    //anadimos los getters de las listas para los test
-    public List<Usuarios> getListaUsuarios() {
-        return ListaUsuarios;
-    }
 
-    public List<SubForo> getListaSubForo() {
-        return ListaSubForo;
-    }
-
-    
 /* A continuacion se pueden observar los diferentes metodos necesarios para manejar 
     la clase principal del programa, Foro (sistema) */
     
@@ -81,8 +71,8 @@ public class Foro implements Serializable{
                 devolvermos un true y un comenatrio*/
                 UsuarioLoggeado = usuarioActual;
                 Verificado = true;
-                for (int i=0;i<UsuarioLoggeado.tamano();i++){
-                    if (UsuarioLoggeado.getListaPenalizaciones().get(i).EstaActiva()){
+                for (int i=0;i<UsuarioLoggeado.Tamano();i++){
+                    if (UsuarioLoggeado.GetListaPenalizaciones().get(i).EstaActiva()){
                         Verificado = false;
                     }
                 }
@@ -183,6 +173,15 @@ public class Foro implements Serializable{
             }
         }
         return subforo;
+    }
+    
+    //anadimos los getters de las listas para poder llevar a cabo con exito los test
+    public List<Usuarios> GetListaUsuarios() {
+        return ListaUsuarios;
+    }
+
+    public List<SubForo> GetListaSubForo() {
+        return ListaSubForo;
     }
 }
   

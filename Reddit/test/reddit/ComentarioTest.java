@@ -15,10 +15,8 @@ import static org.junit.Assert.*;
  */
 public class ComentarioTest {
     
-    public ComentarioTest() {
-    }
     /**
-     * Test of GetTexto method, of class Comentario.
+     * Test of Comentar method, of class Comentario.
      */
     @Test
     public void testComentar() {

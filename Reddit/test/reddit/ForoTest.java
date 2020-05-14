@@ -16,9 +16,6 @@ import static org.junit.Assert.*;
  * @author adri-
  */
 public class ForoTest {
-    
-    public ForoTest() {
-    }
 
     /**
      * Test of Login method, of class Foro.
@@ -34,6 +31,7 @@ public class ForoTest {
     /**
      * Test of RegistrarUsuario method, of class Foro.
      */
+    
     @Test
     public void testRegistrarUsuario() throws ClassNotFoundException, IOException {
         Foro sistema = Foro.GetForo("Reddit URJC");
@@ -43,6 +41,7 @@ public class ForoTest {
     /**
      * Test of Logout method, of class Foro.
      */
+    
     @Test
     public void testLogout() throws Exception {
         Foro sistema = Foro.GetForo("Reddit URJC");
@@ -54,6 +53,7 @@ public class ForoTest {
     /**
      * Test of CrearSubForo method, of class Foro.
      */
+    
     @Test
     public void testCrearSubForo() throws Exception {
         String Prueba = "testCrearSubForo";
@@ -67,65 +67,68 @@ public class ForoTest {
     /**
     * Test of EscribirBBDD method, of class Foro.
      */
-   @Test
-   public void testEscribirBBDD() throws Exception {
-       System.out.println("testEscribirBBDD");
-              Foro f = Foro.GetForo("prueba");
-       f.RegistrarUsuario("Juan","Perez","j.perez@urjc.es","j.perez","67890", "67890");
-       f.Login("67890","j.perez@urjc.es");
-       f.CrearSubForo("SubPrueba");
-       f.Logout();
-       Foro f2 = Foro.GetForo("prueba");
-       boolean encontradoSubForo = false;
-       boolean encontradoUsuario = false;
-       int i =0;
-       List <Usuarios> ListaUsuarios = f2.getListaUsuarios();
-       List <SubForo> ListaSubForo = f2.getListaSubForo();
+    
+    @Test
+    public void testEscribirBBDD() throws Exception {
+        System.out.println("testEscribirBBDD");
+        Foro f = Foro.GetForo("prueba");
+        f.RegistrarUsuario("Juan","Perez","j.perez@urjc.es","j.perez","67890", "67890");
+        f.Login("67890","j.perez@urjc.es");
+        f.CrearSubForo("SubPrueba");
+        f.Logout();
+        Foro f2 = Foro.GetForo("prueba");
+        boolean encontradoSubForo = false;
+        boolean encontradoUsuario = false;
+        int i =0;
+        List <Usuarios> ListaUsuarios = f2.GetListaUsuarios();
+        List <SubForo> ListaSubForo = f2.GetListaSubForo();
        
-       while(!encontradoSubForo && i<= ListaSubForo.size() ){
-           encontradoSubForo=ListaSubForo.get(i).GetTitulo().equals("SubPrueba");
-           i+=1;
-       }
-       i=0;
-       while(!encontradoUsuario && i<= ListaUsuarios.size() ){
-           encontradoUsuario=ListaUsuarios.get(i).GetCorreo().equals("j.perez@urjc.es");
-           i+=1;
-       }
-       assertTrue(encontradoSubForo);
-       assertTrue(encontradoUsuario);
-   }
+        while(!encontradoSubForo && i<= ListaSubForo.size() ){
+            encontradoSubForo=ListaSubForo.get(i).GetTitulo().equals("SubPrueba");
+            i+=1;
+        }
+        
+        i=0;
+        while(!encontradoUsuario && i<= ListaUsuarios.size() ){
+            encontradoUsuario=ListaUsuarios.get(i).GetCorreo().equals("j.perez@urjc.es");
+            i+=1;
+        }
+        assertTrue(encontradoSubForo);
+        assertTrue(encontradoUsuario);
+    }
 
     /**
     * Test of LeerBBDD method, of class Foro.
      */
    //se ha tenido que anadir los getters de las listas a la clase SubForo
    @Test
-   public void testLeerBBDD() throws Exception {
-       System.out.println("testLeerBBDD");
-       Foro f = Foro.GetForo("prueba");
-       f.RegistrarUsuario("Juan","Perez","j.perez@urjc.es","j.perez","67890", "67890");
-       f.Login("67890","j.perez@urjc.es");
-       f.CrearSubForo("SubPrueba");
-       f.Logout();
-       Foro f2 = Foro.GetForo("prueba");
-       boolean encontradoSubForo = false;
-       boolean encontradoUsuario = false;
-       int i =0;
-       List <Usuarios> ListaUsuarios = f2.getListaUsuarios();
-       List <SubForo> ListaSubForo = f2.getListaSubForo();
+    public void testLeerBBDD() throws Exception {
+        System.out.println("testLeerBBDD");
+        Foro f = Foro.GetForo("prueba");
+        f.RegistrarUsuario("Juan","Perez","j.perez@urjc.es","j.perez","67890", "67890");
+        f.Login("67890","j.perez@urjc.es");
+        f.CrearSubForo("SubPrueba");
+        f.Logout();
+        Foro f2 = Foro.GetForo("prueba");
+        boolean encontradoSubForo = false;
+        boolean encontradoUsuario = false;
+        int i =0;
+        List <Usuarios> ListaUsuarios = f2.GetListaUsuarios();
+        List <SubForo> ListaSubForo = f2.GetListaSubForo();
        
-       while(!encontradoSubForo && i<= ListaSubForo.size() ){
-           encontradoSubForo=ListaSubForo.get(i).GetTitulo().equals("SubPrueba");
-           i+=1;
-       }
-       i=0;
-       while(!encontradoUsuario && i<= ListaUsuarios.size() ){
-           encontradoUsuario=ListaUsuarios.get(i).GetCorreo().equals("j.perez@urjc.es");
-           i+=1;
-       }
-       assertTrue(encontradoSubForo);
-       assertTrue(encontradoUsuario);
-   }
+        while(!encontradoSubForo && i<= ListaSubForo.size() ){
+            encontradoSubForo=ListaSubForo.get(i).GetTitulo().equals("SubPrueba");
+            i+=1;
+        }
+        
+        i=0;
+        while(!encontradoUsuario && i<= ListaUsuarios.size() ){
+            encontradoUsuario=ListaUsuarios.get(i).GetCorreo().equals("j.perez@urjc.es");
+            i+=1;
+        }
+        assertTrue(encontradoSubForo);
+        assertTrue(encontradoUsuario);
+    }
 
     /**
      * Test of verSubForo method, of class Foro.

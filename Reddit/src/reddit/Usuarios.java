@@ -22,17 +22,6 @@ public class Usuarios implements Serializable{
     private String Contrasena;
     private ArrayList<String> Notificaciones = new ArrayList<String>();
     
-    public int tamano(){
-        return Penalizaciones.size();
-    }
-    public void anadirPenalizacion (Penalizacion penalizacion){
-        Penalizaciones.add(penalizacion);
-    }
-    
-    public ArrayList<Penalizacion> getListaPenalizaciones(){
-        return Penalizaciones;
-    }
-    
     public Usuarios(String nombre, String apellido, String correo, String nick, String contrasena){
         Penalizaciones = new ArrayList<Penalizacion>();
         Notificaciones = new ArrayList<String>();
@@ -88,5 +77,15 @@ public class Usuarios implements Serializable{
         return Correo.endsWith("@urjc.es");
     }
     
+    public int Tamano(){
+        return Penalizaciones.size();
+    }
+    public void AnadirPenalizacion (Penalizacion penalizacion){
+        Penalizaciones.add(penalizacion);
+    }
+    
+    public ArrayList<Penalizacion> GetListaPenalizaciones(){
+        return Penalizaciones;
+    }
     
 }
